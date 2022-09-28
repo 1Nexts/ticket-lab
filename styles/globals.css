@@ -1,0 +1,80 @@
+html,
+body {
+  font-family: "Prompt", sans-serif;
+  overflow-x: hidden;
+  padding: 0;
+  background-color: #feffff;
+  font-size: 16px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+div {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+#wrapper {
+  position: relative;
+  /* background-color: tomato; */
+  max-width: 1280px !important;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #121212;
+  font-size: 3rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 4.5rem;
+}
+h2 {
+  color: #121212;
+  font-size: 2rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 3.1rem;
+}
+h3 {
+  color: #121212;
+  font-size: 1.5rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 2.2rem;
+}
+h4 {
+  color: #121212;
+  font-size: 1.2rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.8rem;
+}
+h5 {
+  color: #121212;
+  font-size: 1rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.5rem;
+}
+h6 {
+  color: #121212;
+  font-family: Provicali, sans-serif;
+  font-size: 0.8rem;
+  font-weight: normal;
+  letter-spacing: 0;
+  line-height: 1.2rem;
+}
