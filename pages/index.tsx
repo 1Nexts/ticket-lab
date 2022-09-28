@@ -1,18 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
+import TicketList from "./ticket-list";
+
 
 
 export default function Index() {
 
-  useEffect(() => {
-    console.log("Start useEffect");
-
-    return () => {
-    };
-  }, []);
-
   return (
-    <div>
-      Heelo world
-    </div>
+    <TicketList></TicketList>
   );
 }
