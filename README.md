@@ -9,6 +9,5 @@
 
 # Hot to build and run
 
-1. config .env.production variable `NEXT_PUBLIC_BASE_URL_LOCAL_API=http://localhost:3000/api`
 2. `npm run build` or `yarn build`
 3. `npm run start` or `yarn start` 
