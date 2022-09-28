@@ -1,4 +1,4 @@
-# nextjs tsx prerendering + mvc + redux toolkit + bootstrap5
+# Ticket Lab
 
 
 # How to install and run
