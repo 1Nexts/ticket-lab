@@ -39,7 +39,7 @@ const StageExAComponent = ({}: CardProps) => {
             <div className={"col-2 " + styles["stage-left"]}>
               <h3>1</h3>
             </div>
-            <div className={"col-4 " + styles["stage"]}>
+            <div className={"col-4 " + styles["stage-middle"]}>
               <h3>2</h3>
             </div>
             <div className={"col-2 " + styles["stage-right"]}>
@@ -48,7 +48,7 @@ const StageExAComponent = ({}: CardProps) => {
           </div>
 
           <div className={"row m-0 justify-content-center"}>
-            <div className={"col-3 " + styles["stage-main"]}>
+            <div className={"col-5 " + styles["stage-main"]}>
               <h3>Stage</h3>
             </div>
           </div>
