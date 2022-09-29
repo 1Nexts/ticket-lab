@@ -11,34 +11,7 @@
     .block-content {
         margin: 2rem 0;
         text-align: center;
-
-       
-        .content {
-            .blockService {
-                display: flex;
-                justify-content: center;
-            }
-            .ticket-Item {
-                // background-color: pink;
-                width: 100%;
-                text-align: left;
-
-                h5 {
-                    color: #904EBA;
-                }
-
-                h6 {
-                    color: gray;
-                }
-
-                .col-3 {
-                    text-align: right;
-                }
-            }
-        }
-
     }
-
 }
 
 
@@ -47,10 +20,7 @@
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1279px) {
-    .block {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+ 
 }
 
 
@@ -67,12 +37,4 @@
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
 
-    #section-ticket-list .block-content .content .ticket-Item {
-        .col-2 {
-            margin: 12px 0;
-        }
-        .col-3 {
-            text-align: left;
-        }
-    }
 }

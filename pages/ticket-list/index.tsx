@@ -1,5 +1,5 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import TicketItemComponent from "@/components/ticket-list/items/TocketItem";
+import TicketItemComponent from "@/components/ticket-list/items/TicketItem";
 import Link from "next/link";
 import router from "next/router";
 import React, { useEffect } from "react";
@@ -33,7 +33,7 @@ export default function TicketList() {
             </div>
 
             <div className={styles["block-content"]}>
-              <div className={"row m-0 " + styles["content"]}>
+              <div className={"row m-0 "}>
                 {[1, 2, 3, 4].map((value) => {
                   return (
                     <TicketItemComponent key={value}></TicketItemComponent>

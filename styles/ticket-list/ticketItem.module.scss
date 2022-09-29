@@ -1,0 +1,59 @@
+//----------------- #section Header --------------------
+
+
+.block-ticket {
+    display: flex;
+    justify-content: center;
+}
+
+.ticket-Item {
+    // background-color: pink;
+    width: 100%;
+    text-align: left;
+
+    h5 {
+        color: #904EBA;
+    }
+
+    h6 {
+        color: gray;
+    }
+
+    .col-3 {
+        text-align: right;
+    }
+}
+
+
+
+
+
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1279px) {
+ 
+}
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991px) {
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+
+    .ticket-Item {
+        .col-2 {
+            margin: 12px 0;
+        }
+
+        .col-3 {
+            text-align: left;
+        }
+    }
+}

@@ -1,12 +1,12 @@
 import React from "react";
-import styles from "../../../styles/ticket-list/index.module.scss";
+import styles from "../../../styles/ticket-list/ticketItem.module.scss";
 
 type CardProps = {};
 const TicketItemComponent = ({}: CardProps) => {
   return (
     <div
       className={
-        "col-12 col-md-12 col-lg-12 col-xl-12 p-0 " + styles["blockService"]
+        "col-12 col-md-12 col-lg-12 col-xl-12 p-0 " + styles["block-ticket"]
       }
     >
       <div className={styles["ticket-Item"]}>
