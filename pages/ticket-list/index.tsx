@@ -1,3 +1,6 @@
+import HeaderMenu from "@/components/header-menu/HeaderMenu";
+import TicketItemComponent from "@/components/ticket-list/items/TocketItem";
+import Link from "next/link";
 import router from "next/router";
 import React, { useEffect } from "react";
 import styles from "../../styles/ticket-list/index.module.scss";
@@ -11,45 +14,32 @@ export default function TicketList() {
 
   return (
     <div>
-      <div id="wrapper-header">
-        <div className="header-block">
-          <h3>Header Ticket list</h3>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => {
-              router.push(`/stage-list`);
-            }}
-          >
-            Stage list
-          </button>
-        </div>
-      </div>
+      <HeaderMenu></HeaderMenu>
 
       <div id="wrapper">
         <section id={styles.header}>
           <div className={styles.block}>
-            <h3>Search</h3>
+            <div className={"input-group " + styles["search-group"]}>
+              <span className="input-group-text" id="basic-addon1">
+                <img src="/static/search.svg" />
+              </span>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search ticket"
+              />
+            </div>
           </div>
         </section>
 
-        {/* Section Content */}
         <section id={styles.content}>
           <div className={styles.block}>
-            <div className={"row m-0 " + styles["content"]}>
-              <h3>Order list</h3>
-              {/* {objServices &&
-                objServices.map((item) => {
-                  return (
-                    <ServiceCard
-                      key={item?._id}
-                      serviceID={item?._id}
-                      name={ item?.name.split(" ")[0].split("(")[0]}
-                      picture={item?.picture}
-                      price={item?.price}
-                    />
-                  );
-                })} */}
+            <div className={"row " + styles["content"]}>
+              {[1, 2, 3, 4].map((value) => {
+                return (
+                <TicketItemComponent key={value}></TicketItemComponent>
+                );
+              })}
             </div>
           </div>
         </section>
