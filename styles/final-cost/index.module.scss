@@ -1,27 +1,24 @@
 //----------------- #section Header --------------------
 
 
-#header {
-    .block {
-        background-color: tomato;
-        height: 100px;
-        margin: 2% 0;
-        // padding: 10%;
-        text-align: center;
-    }
-}
+#final-cost {
 
-#content {
-    .block {
+    .block-content {
+        // background-color: #e8ecf2;
+        // background-color: teal;
+        text-align: center;
+       
+    }
+
+    .block-content-left{
         background-color: teal;
-        text-align: center;
     }
 
-    .content {
-        background-color: green;
-        height: 100vh;
+    .block-content-right{
+        background-color: tomato;
     }
 }
+
 
 
 

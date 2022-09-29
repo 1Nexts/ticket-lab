@@ -1,12 +1,12 @@
 //----------------- #section Header --------------------
 
 
-#header {
-    .block {
+#stage-list {
+    .show-detail {
         background-color: #aa162bed; //  #aa162b;
-        margin: 0 auto;
-        margin-bottom: 0;
-        padding: 20px;
+        // margin: 2rem 0;
+        // margin-bottom: 0;
+        padding: 2rem;
         text-align: left;
 
         h5,
@@ -17,11 +17,9 @@
             text-overflow: ellipsis;
         }
     }
-}
 
-#content {
-    .block {
-        background-color: #e8ecf2;
+    .block-content {
+        background-color: #e7ecf2;
         text-align: center;
     }
 }
@@ -29,23 +27,16 @@
 
 
 
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1279px) {
 
-}
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1279px) {}
 
 
 // Medium devices (tablets, less than 992px)
-@media (max-width: 991px) {
-
-}
+@media (max-width: 991px) {}
 
 // Small devices (landscape phones, less than 768px)
-@media (max-width: 767px) {
-   
-}
+@media (max-width: 767px) {}
 
 // X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
-
-}
+@media (max-width: 575px) {}

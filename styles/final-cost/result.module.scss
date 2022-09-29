@@ -1,42 +1,13 @@
 //----------------- #section Header --------------------
 
 
-#section-ticket-list {
+#final-cost-result {
 
-    .search-group {
-        margin: 0 auto;
-        width: 50%;
-    }
-    
     .block-content {
-        margin: 2rem 0;
+        background-color: teal;
         text-align: center;
 
-       
-        .content {
-            .blockService {
-                display: flex;
-                justify-content: center;
-            }
-            .ticket-Item {
-                // background-color: pink;
-                width: 100%;
-                text-align: left;
-
-                h5 {
-                    color: #904EBA;
-                }
-
-                h6 {
-                    color: gray;
-                }
-
-                .col-3 {
-                    text-align: right;
-                }
-            }
-        }
-
+        height: 50vh;
     }
 
 }

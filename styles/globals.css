@@ -12,6 +12,13 @@ body {
     font-size: 13px;
   }
 }
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1279px) {
+    .block {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
 
 
 * {
@@ -42,6 +49,11 @@ div {
   max-width: 1280px !important;
   width: 100%;
   margin: 0 auto;
+}
+.block {
+  /* background-color: rebeccapurple; */
+  margin: 1rem 0;
+  text-align: center;
 }
 
 h1 {

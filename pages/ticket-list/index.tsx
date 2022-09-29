@@ -19,7 +19,7 @@ export default function TicketList() {
       <div id="wrapper">
 
         <section id={styles["section-ticket-list"]}>
-          <div className={styles.block}>
+          <div className="block">
 
             <div className={"input-group " + styles["search-group"]}>
               <span className="input-group-text" id="basic-addon1">
