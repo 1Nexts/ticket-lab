@@ -1,0 +1,72 @@
+//----------------- #section Header --------------------
+
+
+
+.blockItemSelect {
+    display: flex;
+    justify-content: center;
+
+    
+}
+
+.ticket-Item {
+    padding: 1rem;
+    // padding-bottom: 0;
+    // padding-left: 1rem;
+    // padding-right: 1rem;
+    // background-color: pink;
+    width: 100%;
+    text-align: left;
+
+    // hr {
+    //     margin-left: -1rem;
+    //     margin-right: -1rem;
+    // }
+
+    h5 {
+        // color: #904EBA;
+    }
+
+    h6 {
+        // color: gray;
+    }
+
+    .col-3 {
+        text-align: right;
+    }
+}
+
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1279px) {
+    .block {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991px) {
+    #section-ticket-list .search-group {
+        width: 80%;
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+
+    #section-ticket-list .block-content .content .ticket-Item {
+        .col-2 {
+            margin: 12px 0;
+        }
+
+        .col-3 {
+            text-align: left;
+        }
+    }
+}

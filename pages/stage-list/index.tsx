@@ -1,5 +1,6 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import StageFilterComponent from "@/components/stage-list/StageFilter";
+import StageSelectComponent from "@/components/stage-list/StageSelect";
 import StageExAComponent from "@/components/stage-template/StageExA";
 import router from "next/router";
 import React, { useEffect } from "react";
@@ -34,6 +35,7 @@ export default function StageList() {
               </div>
               <div className={"col-12 col-md-4 p-0 bg-secondary"}>
                 <StageFilterComponent></StageFilterComponent>
+                <StageSelectComponent></StageSelectComponent>
               </div>
             </div>
           </div>
