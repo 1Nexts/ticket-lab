@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import styles from "../../styles/header-menu/header.module.scss";
+
 
 type CardProps = {
 
@@ -7,8 +9,8 @@ type CardProps = {
 const HeaderMenu = ({  }: CardProps) => {
 
   return (
-    <div id="wrapper-header">
-        <div className="header-block">
+    <section id={styles["wrapper-header"]}>
+        <div className={styles["header-block"]}>
           <div>
             <ul className="navbar-nav flex-row flex-wrap text-white">
               <li className="nav-item">
@@ -32,7 +34,7 @@ const HeaderMenu = ({  }: CardProps) => {
             </ul>
           </div>
         </div>
-      </div>
+      </section>
   );
 };
 
