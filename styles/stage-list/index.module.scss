@@ -3,24 +3,26 @@
 
 #header {
     .block {
-        background-color: tomato;
-        height: 100px;
-        margin: 2% 0;
+        background-color: #aa162bed; //  #aa162b;
+        margin: 0 auto;
         margin-bottom: 0;
-        // padding: 10%;
-        text-align: center;
+        padding: 20px;
+        text-align: left;
+
+        h5,
+        h4 {
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     }
 }
 
 #content {
     .block {
-        background-color: teal;
+        background-color: #e8ecf2;
         text-align: center;
-    }
-
-    .content {
-        background-color: green;
-        height: 100vh;
     }
 }
 

@@ -1,47 +1,28 @@
+import HeaderMenu from "@/components/header-menu/HeaderMenu";
+import StageFilterComponent from "@/components/stage-list/StageFilter";
+import StageExAComponent from "@/components/stage-template/StageExA";
 import router from "next/router";
 import React, { useEffect } from "react";
 import styles from "../../styles/stage-list/index.module.scss";
 
 export default function StageList() {
-
   useEffect(() => {
     console.log("Start useEffect");
 
-    return () => {
-    };
+    return () => {};
   }, []);
 
   return (
     <div>
-      <div id="wrapper-header">
-        <div className="header-block">
-          <h3> Header Stage list</h3>
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => {
-              router.push(`/ticket-list`);
-            }}
-          >
-            Ticket list
-          </button>
-
-          <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => {
-              router.push(`/final-cost`);
-            }}
-          >
-            Final cost
-          </button>
-        </div>
-      </div>
+      <HeaderMenu></HeaderMenu>
 
       <div id="wrapper">
         <section id={styles.header}>
           <div className={styles.block}>
-            <h3>Detail Show</h3>
+            <h4>Carrie Underwood - The Denim & Rhinestones</h4>
+            <br />
+            <h5>Sat • Oct 15 • 7:30 PM</h5>
+            <h5>Bon Secours Wellness Arena , Greenville, SC</h5>
           </div>
         </section>
 
@@ -50,12 +31,12 @@ export default function StageList() {
           <div className={styles.block}>
             <div className={"row m-0 " + styles["content"]}>
               <div className={"col-12 col-md-8 p-0"}>
-                <h3>Stage</h3>
+                {/* <br /> */}
+                <StageExAComponent></StageExAComponent>
               </div>
-              <div className={"col-12 col-md-4 p-0 bg-danger"}>
-                <h3>Filter</h3>
+              <div className={"col-12 col-md-4 p-0 bg-secondary"}>
+                <StageFilterComponent></StageFilterComponent>
               </div>
-              
             </div>
           </div>
         </section>
