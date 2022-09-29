@@ -1,0 +1,49 @@
+//----------------- #section Header --------------------
+
+
+#header {
+    .block {
+        background-color: tomato;
+        height: 100px;
+        margin: 2% 0;
+        margin-bottom: 0;
+        // padding: 10%;
+        text-align: center;
+    }
+}
+
+#content {
+    .block {
+        background-color: teal;
+        text-align: center;
+    }
+
+    .content {
+        background-color: green;
+        height: 100vh;
+    }
+}
+
+
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1279px) {
+
+}
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991px) {
+
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+   
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+
+}

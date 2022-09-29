@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Rent Services</title>
       </header>
 
-      <div id="wrapper">
+      <div>
         <NextNProgress />
         <Component {...pageProps} />
       </div>
