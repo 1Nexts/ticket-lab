@@ -36,7 +36,7 @@ const PaymentAddComponent = ({}: CardProps) => {
                 width={42}
               />
             </div>
-            <input type="text" className="form-control" value={""} />
+            <input type="text" className="form-control" defaultValue={""} />
           </div>
         </div>
 
@@ -60,7 +60,7 @@ const PaymentAddComponent = ({}: CardProps) => {
             maxLength={3}
             className="form-control"
             autoComplete="off"
-            value={""}
+            defaultValue={""}
           />
         </div>
 
@@ -77,9 +77,11 @@ const PaymentAddComponent = ({}: CardProps) => {
 
         <div className="col-md-12">
           <label className="form-label">Country</label>
-          <select id="inputState" className="form-select">
-            <option selected>Choose...</option>
-            <option>...</option>
+          <select id="inputContry" className="form-select" defaultValue={2}>
+            <option value="1">Contry A</option>
+            <option value="2">Contry B</option>
+            <option value="3">Contry C</option>
+            <option value="4">Contry D</option>
           </select>
         </div>
 

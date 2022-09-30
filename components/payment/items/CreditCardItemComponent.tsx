@@ -31,7 +31,7 @@ const CreditCardItemComponent = ({}: CardProps) => {
           <div className={"col-12 p-0 m-0 " + styles["col-input-code"]}>
             <h5>Security Code</h5>
             <div className={"input-group " + styles["search-group"]}>
-              <input type="password" id="pass" name="pass" maxLength={3} />
+              <input type="password" name="pass" maxLength={3} />
 
               {/* <span className="input-group-text" id="basic-addon1">
                 <img src="/static/check-circle.svg" />

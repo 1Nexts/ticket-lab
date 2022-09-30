@@ -5,12 +5,12 @@ type CardProps = {};
 const PaymentViewComponent = ({}: CardProps) => {
   return (
     <div>
-      <div className="p-2 ">
+      <div className="p-2">
         <h5>Use Credit / Debit Card</h5>
       </div>
       <br />
-      <CreditCardItemComponent></CreditCardItemComponent>
-      <CreditCardItemComponent></CreditCardItemComponent>
+      <CreditCardItemComponent key={1}></CreditCardItemComponent>
+      <CreditCardItemComponent key={2}></CreditCardItemComponent>
       <br />
       <div
         onClick={() => {
