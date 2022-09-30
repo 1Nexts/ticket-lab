@@ -8,8 +8,8 @@ const StageItemSelectComponent = ({}: CardProps) => {
       <div className={styles["ticket-Item"]}>
         <div className="row m-0">
           <div className={"col-7 p-0 " + styles["col-1"]}>
-            <h5>Sec-4</h5>
-            <h6> Standard ticket</h6>
+            <h5>Sec-4 </h5>
+            <h6>90/100 tickets : Standard ticket</h6>
           </div>
 
           <div className={"col-5 p-0 m-0 " + styles["col-3"]}>

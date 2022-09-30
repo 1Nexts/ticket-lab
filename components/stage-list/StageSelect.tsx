@@ -20,11 +20,11 @@ const StageSelectComponent = ({}: CardProps) => {
 
   return (
     <section id={styles["stage-list-select"]}>
-      <div className={styles["header"]}>
+      {/* <div className={styles["header"]}>
         <hr />
         <h4> Stage Select</h4>
         <hr />
-      </div>
+      </div> */}
       <div className={styles["block-content"]}>
         <StageItemSelectComponent></StageItemSelectComponent>
         <hr></hr>
