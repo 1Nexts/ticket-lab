@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/payment/components/payment.module.scss";
+import styles from "./payment.module.scss";
 import CreditCardItemComponent from "./items/CreditCardItemComponent";
 
 

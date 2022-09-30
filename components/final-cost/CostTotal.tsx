@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "../../styles/final-cost/components/costTotal.module.scss";
+import styles from "./costTotal.module.scss";
+
 type CardProps = {};
 const FinalCostTotalComponent = ({}: CardProps) => {
   const ticketPrice = 76.0;

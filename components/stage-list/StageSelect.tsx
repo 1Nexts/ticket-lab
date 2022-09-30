@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../../styles/stage-list/StageSelect.module.scss";
+import styles from "./StageSelect.module.scss";
 import StageItemSelectComponent from "./items/StageItemSelect";
 
 type CardProps = {};

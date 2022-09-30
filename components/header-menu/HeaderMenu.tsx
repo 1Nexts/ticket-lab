@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import styles from "../../styles/header-menu/header.module.scss";
+import styles from "./header.module.scss";
 
 
 type CardProps = {

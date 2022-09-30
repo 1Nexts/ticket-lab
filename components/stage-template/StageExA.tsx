@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/stage-template/stageExA.module.scss";
+import styles from "./stageExA.module.scss";
 
 type CardProps = {};
 const StageExAComponent = ({}: CardProps) => {

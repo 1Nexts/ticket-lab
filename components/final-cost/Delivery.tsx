@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../styles/final-cost/components/delivery.module.scss";
+import styles from "./delivery.module.scss";
 
 type CardProps = {};
 const DeliveryComponent = ({}: CardProps) => {

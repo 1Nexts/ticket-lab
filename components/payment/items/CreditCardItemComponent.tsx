@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/payment/components/items/creditCardItemComponent.module.scss";
+import styles from "./creditCardItemComponent.module.scss";
 
 type CardProps = {};
 const CreditCardItemComponent = ({}: CardProps) => {

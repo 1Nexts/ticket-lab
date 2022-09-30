@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styles from "../../styles/stage-list/stageFilter.module.scss";
+import styles from "./stageFilter.module.scss";
 
 type CardProps = {};
 const StageFilterComponent = ({}: CardProps) => {

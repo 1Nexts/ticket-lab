@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../../styles/ticket-list/ticketItem.module.scss";
+import styles from "./ticketItem.module.scss";
 
 type CardProps = {};
 const TicketItemComponent = ({}: CardProps) => {
