@@ -145,7 +145,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <br />
         <h6 className="text-black">All Sales Final - No Refunds</h6>
 
-        {/* <div className="form-check">
+        <div className="form-check">
           <input
             className="form-check-input"
             type="checkbox"
@@ -155,9 +155,9 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           />
           <label className="form-check-label" htmlFor="flexCheckChecked">
             I Have read and agree to current{" "}
-            <span className="text-primary stretched-link">Terms of Use.</span>
+            <span className="text-primary">Terms of Use.</span>
           </label>
-        </div> */}
+        </div>
 
         <br />
         <button
