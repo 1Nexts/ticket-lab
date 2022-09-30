@@ -9,6 +9,7 @@ const DeliveryComponent = ({}: CardProps) => {
         <h4>
           Delivery <img src="/static/check-circle.svg" />
         </h4>
+        <br/>
         <h5>Mobile Entry - Free</h5>
 
         <h6>

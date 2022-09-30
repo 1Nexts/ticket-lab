@@ -39,4 +39,10 @@
 }
 
 // X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {}
+@media (max-width: 575px) {
+    #cost-total {
+        .block-total {
+            padding: 1rem;
+        }
+    }
+}
