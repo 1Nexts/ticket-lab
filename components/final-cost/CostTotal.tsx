@@ -11,9 +11,11 @@ const FinalCostTotalComponent = ({}: CardProps) => {
       <div className={styles["block-total"]}>
         {/* Total */}
         <div className={"row m-0 " + styles["item-row"]}>
-          <div className={"col-9 p-0 " + styles["col-1"]}>
+          <div className={"col-8 p-0 " + styles["col-1"]}>
             <h4>Total</h4>
           </div>
+
+          <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h4>$999</h4>
@@ -24,11 +26,13 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         {/* Tickets */}
         <h5>Tickets</h5>
         <div className={"row m-0 " + styles["item-row"]}>
-          <div className={"col-9 p-0 " + styles["col-1"]}>
+          <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
               Resale Tickets: ${ticketPrice.toFixed(2)} x {amountTicket}
             </h5>
           </div>
+
+          <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
@@ -40,12 +44,14 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         {/* Fee */}
         <h5>Fee</h5>
         <div className={"row m-0 " + styles["item-row"]}>
-          <div className={"col-9 p-0 " + styles["col-1"]}>
+          <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
               Service Fee: ${(ticketPrice * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
               {amountTicket}
             </h5>
           </div>
+
+          <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
@@ -57,9 +63,11 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         {/* Delevery */}
         <h5>Delevery</h5>
         <div className={"row m-0 " + styles["item-row"]}>
-          <div className={"col-9 p-0 " + styles["col-1"]}>
+          <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">Mobile Entry</h5>
           </div>
+
+          <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">Free</h5>
