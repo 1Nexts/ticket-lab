@@ -18,6 +18,8 @@
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
     #payment {
+        margin: 0;
+        margin-bottom: 1rem;
         .block-payment {
             padding: 1rem;
         }

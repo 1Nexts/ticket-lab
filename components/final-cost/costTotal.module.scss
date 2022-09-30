@@ -41,6 +41,8 @@
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
     #cost-total {
+        margin: 0;
+        margin-bottom: 1rem;
         .block-total {
             padding: 1rem;
         }
