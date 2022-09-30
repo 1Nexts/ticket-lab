@@ -33,7 +33,7 @@ export default function StageList() {
               <div className={"col-12 col-md-8 p-0"}>
                 <StageExAComponent></StageExAComponent>
               </div>
-              <div className={"col-12 col-md-4 p-0 bg-secondary"}>
+              <div className={"col-12 col-md-4 p-0 bg-secondary "+styles["right-content"]}>
                 <StageFilterComponent></StageFilterComponent>
                 <StageSelectComponent></StageSelectComponent>
               </div>
