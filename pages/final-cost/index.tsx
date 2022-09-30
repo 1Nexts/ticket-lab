@@ -1,3 +1,4 @@
+import FinalCostTotalComponent from "@/components/final-cost/CostTotal";
 import DeliveryComponent from "@/components/final-cost/Delivery";
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import PaymentCard from "@/components/payment/Payment";
@@ -26,7 +27,6 @@ export default function FinalCost() {
                 }
               >
                 <DeliveryComponent></DeliveryComponent>
-                <br />
 
                 <PaymentCard></PaymentCard>
               </div>
@@ -35,7 +35,7 @@ export default function FinalCost() {
                   "col-12 col-md-5 p-0 " + styles["block-content-right"]
                 }
               >
-                <h3>Total</h3>
+                <FinalCostTotalComponent></FinalCostTotalComponent>
               </div>
             </div>
           </div>

@@ -1,13 +1,15 @@
 import React from "react";
-import styles from "../../styles/payment/components/payment.module.scss";
+import styles from "../../styles/final-cost/components/costTotal.module.scss";
+type CardProps = {
 
-type CardProps = {};
-const PaymentCard = ({}: CardProps) => {
+};
+const FinalCostTotalComponent = ({  }: CardProps) => {
+
   return (
-    <section id={styles["payment"]}>
-      <div className={styles["block-payment"]}>
+    <section id={styles["cost-total"]}>
+      <div className={styles["block-total"]}>
         <h4>
-          Payment <img src="/static/check-circle.svg" />
+          Total   $999
         </h4>
         <h5>Mobile Entry - Free</h5>
 
@@ -22,4 +24,4 @@ const PaymentCard = ({}: CardProps) => {
   );
 };
 
-export default PaymentCard;
+export default FinalCostTotalComponent;
