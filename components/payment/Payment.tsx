@@ -1,10 +1,13 @@
 import React from "react";
 import styles from "./payment.module.scss";
-import CreditCardItemComponent from "./items/CreditCardItemComponent";
-
+import PaymentAddComponent from "./PaymentAdd";
+import PaymentEditComponent from "./PaymentEdit";
+import PaymentViewComponent from "./PaymentView";
 
 type CardProps = {};
 const PaymentCard = ({}: CardProps) => {
+  let mode = 2; // 1=view, 2=add, 3=edit
+
   return (
     <section id={styles["payment"]}>
       <div className={styles["block-payment"]}>
@@ -12,36 +15,13 @@ const PaymentCard = ({}: CardProps) => {
           Payment <img src="/static/check-circle.svg" />
         </h4>
         <br />
-        <div className="p-2 ">
-          <h5>Use Credit / Debit Card</h5>
-        </div>
-        <br/>
-        <CreditCardItemComponent></CreditCardItemComponent>
-        <CreditCardItemComponent></CreditCardItemComponent>
-        <br />
-
-        {/* Row Add New Card */}
-        <div
-          onClick={() => {
-            console.log("Click Add New Card");
-          }}
-        >
-          <span>
-            <img src="/static/plus-lg.svg" />
-          </span>
-          <img src="/static/credit-card-2-front.svg" className="px-2" />
-          <span className="text-primary">Add New Card</span>
-        </div>
-
-        <hr />
-        <div className="p-2 ">
-          <h5>Or Pay With</h5>
-          <h6 className="text-black">
-            By using a digital wallet and continuing past this page, you have
-            read and are accepting the {" "}
-            <span className="text-primary">Terms of Use</span>
-          </h6>
-        </div>
+        {mode === 1 ? (
+          <PaymentViewComponent></PaymentViewComponent>
+        ) : mode === 2 ? (
+          <PaymentAddComponent></PaymentAddComponent>
+        ) : (
+          <PaymentEditComponent></PaymentEditComponent>
+        )}
       </div>
     </section>
   );
