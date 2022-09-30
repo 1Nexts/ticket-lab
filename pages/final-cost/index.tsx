@@ -1,4 +1,6 @@
+import DeliveryComponent from "@/components/final-cost/Delivery";
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
+import PaymentCard from "@/components/payment/Payment";
 import router from "next/router";
 import React, { useEffect } from "react";
 import styles from "../../styles/final-cost/index.module.scss";
@@ -18,16 +20,21 @@ export default function FinalCost() {
         <section id={styles["final-cost"]}>
           <div className="block">
             <div className={"row m-0 " + styles["block-content"]}>
-              <div className={"col-12 col-md-7 p-0 "+styles['block-content-left']}>
-                <h3>Delivery</h3>
+              <div
+                className={
+                  "col-12 col-md-7 p-0 " + styles["block-content-left"]
+                }
+              >
+                <DeliveryComponent></DeliveryComponent>
                 <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <h3>Payment</h3>
+
+                <PaymentCard></PaymentCard>
               </div>
-              <div className={"col-12 col-md-5 p-0 "+styles['block-content-right']}>
+              <div
+                className={
+                  "col-12 col-md-5 p-0 " + styles["block-content-right"]
+                }
+              >
                 <h3>Total</h3>
               </div>
             </div>
