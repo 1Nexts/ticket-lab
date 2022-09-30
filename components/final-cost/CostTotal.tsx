@@ -6,7 +6,6 @@ const FinalCostTotalComponent = ({}: CardProps) => {
   const amountTicket = 2;
   const SERVICE_FEE_PERCENT = 0.1;
 
-
   return (
     <section id={styles["cost-total"]}>
       <div className={styles["block-total"]}>
@@ -26,13 +25,15 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <h5>Tickets</h5>
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-9 p-0 " + styles["col-1"]}>
-            <h6>
+            <h5 className="text-secondary">
               Resale Tickets: ${ticketPrice.toFixed(2)} x {amountTicket}
-            </h6>
+            </h5>
           </div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
-            <h6>${(ticketPrice * amountTicket).toFixed(2)}</h6>
+            <h5 className="text-secondary">
+              ${(ticketPrice * amountTicket).toFixed(2)}
+            </h5>
           </div>
         </div>
 
@@ -40,16 +41,16 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <h5>Fee</h5>
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-9 p-0 " + styles["col-1"]}>
-            <h6>
+            <h5 className="text-secondary">
               Service Fee: ${(ticketPrice * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
               {amountTicket}
-            </h6>
+            </h5>
           </div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
-            <h6>
+            <h5 className="text-secondary">
               ${(ticketPrice * SERVICE_FEE_PERCENT * amountTicket).toFixed(2)}
-            </h6>
+            </h5>
           </div>
         </div>
 
@@ -57,18 +58,18 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <h5>Delevery</h5>
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-9 p-0 " + styles["col-1"]}>
-            <h6>Mobile Entry</h6>
+            <h5 className="text-secondary">Mobile Entry</h5>
           </div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
-            <h6>Free</h6>
+            <h5 className="text-secondary">Free</h5>
           </div>
         </div>
 
         <br />
         <h5 className="text-primary">Cancle order</h5>
         <br />
-        <h6 className="text-black">All Sales Final - No Refunds</h6>
+        <h5 className="text-black">All Sales Final - No Refunds</h5>
 
         <div className="form-check">
           <input
