@@ -1,6 +1,7 @@
 #cost-total {
     margin: 1rem;
     margin-top: 0;
+    margin-left: 0;
     .block-total {
         height: 50vh;
         background-color: white;
@@ -13,4 +14,18 @@
             color: gray;
         }
     }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+    #cost-total {
+        margin: 1rem;
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+    
 }
