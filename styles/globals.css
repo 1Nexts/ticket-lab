@@ -92,13 +92,15 @@ h5 {
   line-height: 1rem;
 }
 h6 {
-  color: #121212;
+  color: gray;
   font-family: Provicali, sans-serif;
   font-size: 0.8rem;
   font-weight: normal;
   letter-spacing: 0;
   line-height: 0.8rem;
 }
+
+
 
 /* .xl-button {
   background-color: #016bff;

@@ -2,17 +2,30 @@
     margin: 1rem;
     margin-top: 0;
     margin-left: 0;
+
     .block-total {
-        height: 50vh;
         background-color: white;
         padding: 2rem;
         text-align: left;
         border-style: solid;
         border-color: gray;
         border-radius: 0.5rem;
-        h6{
-            color: gray;
+    }
+
+
+    .item-row {
+        margin-bottom: 0.5rem !important;
+
+        .col-1 {
+            text-align: left;
         }
+        .col-2 {
+            text-align: right;
+        }
+    }
+
+    .btn-place-order{
+        width: 100%;
     }
 }
 
@@ -26,6 +39,4 @@
 }
 
 // X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
-    
-}
+@media (max-width: 575px) {}
