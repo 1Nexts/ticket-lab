@@ -14,7 +14,7 @@ const CreditCardItemComponent = ({}: CardProps) => {
               name="flexRadioDefault"
               id="flexRadioDefault1"
             ></input>
-            <img src="/static/visa.png" className="px-2" />
+            <img src="/static/credit-cards/visa.png" className="px-2" />
           </div>
 
           <div className={"col-8 p-0 m-0 " + styles["col-visa-detail"]}>
@@ -28,7 +28,7 @@ const CreditCardItemComponent = ({}: CardProps) => {
 
         {/* row 2 */}
         <div className="row m-0 mt-2">
-          <div className={"col-12 p-0 m-0 "+ styles["col-input-code"]}>
+          <div className={"col-12 p-0 m-0 " + styles["col-input-code"]}>
             <h5>Security Code</h5>
             <div className={"input-group " + styles["search-group"]}>
               <input type="password" id="pass" name="pass" maxLength={3} />
