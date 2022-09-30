@@ -1,15 +1,25 @@
 #payment {
     margin: 1rem;
+
     .block-payment {
-        height: 50vh;
         background-color: white;
         padding: 2rem;
         text-align: left;
         border-style: solid;
         border-color: gray;
         border-radius: 0.5rem;
-        h6{
+
+        h6 {
             color: gray;
+        }
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+    #payment {
+        .block-payment {
+            padding: 1rem;
         }
     }
 }

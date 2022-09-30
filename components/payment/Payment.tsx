@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../../styles/payment/components/payment.module.scss";
+import CreditCardItemComponent from "./items/CreditCardItemComponent";
+
 
 type CardProps = {};
 const PaymentCard = ({}: CardProps) => {
@@ -9,14 +11,37 @@ const PaymentCard = ({}: CardProps) => {
         <h4>
           Payment <img src="/static/check-circle.svg" />
         </h4>
-        <h5>Mobile Entry - Free</h5>
+        <br />
+        <div className="p-2 ">
+          <h5>Use Credit / Debit Card</h5>
+        </div>
+        <br/>
+        <CreditCardItemComponent></CreditCardItemComponent>
+        <CreditCardItemComponent></CreditCardItemComponent>
+        <br />
 
-        <h6>
-          Tickets Avaliable by Sun Oct 8, 2022 These mobile tickets will be
-          transferred directly to you from a trusted seller,We'll email you
-          instructions on how to accept them on the original ticket provider's
-          mobile app.
-        </h6>
+        {/* Row Add New Card */}
+        <div
+          onClick={() => {
+            console.log("Click Add New Card");
+          }}
+        >
+          <span>
+            <img src="/static/plus-lg.svg" />
+          </span>
+          <img src="/static/credit-card-2-front.svg" className="px-2" />
+          <span className="text-primary">Add New Card</span>
+        </div>
+
+        <hr />
+        <div className="p-2 ">
+          <h5>Or Pay With</h5>
+          <h6 className="text-black">
+            By using a digital wallet and continuing past this page, you have
+            read and are accepting the {" "}
+            <span className="text-primary">Terms of Use</span>
+          </h6>
+        </div>
       </div>
     </section>
   );

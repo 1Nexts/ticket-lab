@@ -1,0 +1,72 @@
+//----------------- #section Header --------------------
+
+
+.blockItemCardCredit {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    
+    .col-visa {
+
+        // background-color: rebeccapurple;
+        img {
+            width: 68px;
+        }
+    }
+
+    .col-visa-detail {
+        // background-color: tomato;
+    }
+
+    .col-input-code {
+        input {
+            text-align: center;
+            // background-color: teal;
+            width: 30%;
+        }
+
+        img {
+            width: 48px;
+        }
+    }
+}
+
+.ticket-Item {
+    padding: 1rem;
+    width: 100%;
+    text-align: left;
+}
+
+
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1279px) {}
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991px) {}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+    .blockItemCardCredit {
+
+        .col-visa img {
+            width: 48px;
+        }
+
+        .col-input-code {
+            input {
+                width: 25%;
+            }
+
+            img {
+                width: 48px;
+            }
+        }
+    }
+
+
+}
