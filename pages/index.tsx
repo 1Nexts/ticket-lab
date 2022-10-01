@@ -1,11 +1,17 @@
-import React from "react";
-import ShowList from "./concert-list";
+import router from "next/router";
+import React, { useEffect } from "react";
+import ConcertList from "./concert-list/[_id]";
 
 
 
 export default function Index() {
 
-  return (
-    <ShowList></ShowList>
-  );
+  useEffect(() => {
+    router.push(`/concert-list/ed-sheeran`);
+  }, [])
+  
+  // return (
+  // );
 }
+
+

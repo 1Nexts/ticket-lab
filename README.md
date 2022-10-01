@@ -8,7 +8,7 @@
 
 # Page
 1 Page Show List (แสดงรายการโชว์ให้เลือก)
-- Filter data ผ่าน Redux store ด้วย dispatch signal แล้วดึงข้อมูลมาแสดง
+- Prerendering SSR support SEO
 
 2 Page Stage List (แสดงรูปจำลองสถานที่แสดงโชว์, ข้อมูลที่นั่งให้เลือก)
 - 3 Component แยกกันทำงาน แต่ Manage stage เดียวกันผ่าน Redux store

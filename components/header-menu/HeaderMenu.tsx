@@ -18,7 +18,7 @@ const HeaderMenu = ({  }: CardProps) => {
               </li>
         
               <li className="nav-item">
-                <Link href="/concert-list">
+                <Link href="/concert-list/ed-sheeran">
                   <a className="nav-link py-2 px-3">Concerts</a>
                 </Link>
               </li>

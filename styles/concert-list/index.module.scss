@@ -3,6 +3,22 @@
 
 #section-concert-list {
 
+    .show-detail {
+        background-color: #aa162bed; //  #aa162b;
+        // margin: 2rem 0;
+        margin-bottom: 1rem;
+        padding: 2rem;
+        text-align: left;
+
+        h3,h4,h5 {
+            color: white;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+        }
+    }
+    
     .search-group {
         margin: 0 auto;
         width: 50%;

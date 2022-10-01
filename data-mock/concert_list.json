@@ -1,6 +1,7 @@
 {
-  "title":"Ed Sheeran on Tuor 2022",
-  "concert-list":[
+  "title":"Ed Sheeran on Tour 2022 Tickets",
+  "subTitle":"Is currently touring across 3 countries and has 8 upcoming concerts.",
+  "concertList":[
     {
       "id": "1001",
       "name": "Ed Sheeran",
@@ -42,7 +43,7 @@
       "subtitle": "Ed Sheeran Love on Tour 2022: Moody Center is Harry's House"
     },
     {
-      "id": "1002",
+      "id": "1006",
       "name": "Ed Sheeran",
       "date": "Oct 13",
       "time": "Thu • 8:00pm",
@@ -50,7 +51,7 @@
       "subtitle": "Ed Sheeran Love on Tour 2022: Moody Center is Harry's House"
     },
     {
-      "id": "1006",
+      "id": "1007",
       "name": "Ed Sheeran",
       "date": "Oct 14",
       "time": "Fri • 8:00pm",
@@ -58,19 +59,11 @@
       "subtitle": "Ed Sheeran Love on Tour 2022: Moody Center is Harry's House"
     },
     {
-      "id": "1007",
+      "id": "1008",
       "name": "Ed Sheeran",
       "date": "Sat 15",
       "time": "Sun • 8:00pm",
       "title": "Marvel Stadium - Docklands, Australia",
-      "subtitle": "Ed Sheeran Love on Tour 2022: Moody Center is Harry's House"
-    },
-    {
-      "id": "1008",
-      "name": "Ed Sheeran",
-      "date": "Oct 23",
-      "time": "Sun • 8:00pm",
-      "title": "Mt Smart Stadium - Auckland, New Zealand",
       "subtitle": "Ed Sheeran Love on Tour 2022: Moody Center is Harry's House"
     }
   ]
