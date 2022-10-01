@@ -1,7 +1,7 @@
 [
     {
       "id": "1001",
-      "name": "Harry Styles",
+      "name": "Ed Sheeran",
       "stage": "StageExA",
       "sections":{
         "sec-1":{
@@ -71,7 +71,7 @@
     },
     {
         "id": "1002",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -141,7 +141,7 @@
       },
       {
         "id": "1003",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -211,7 +211,7 @@
       },
       {
         "id": "1004",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -281,7 +281,7 @@
       },
       {
         "id": "1005",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -351,7 +351,7 @@
       },
       {
         "id": "1006",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -421,7 +421,7 @@
       },
       {
         "id": "1007",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
@@ -491,7 +491,7 @@
       },
       {
         "id": "1008",
-        "name": "Harry Styles",
+        "name": "Ed Sheeran",
         "stage": "StageExA",
         "sections":{
           "sec-1":{
