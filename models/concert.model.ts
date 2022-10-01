@@ -11,6 +11,6 @@ export interface ConcertItem {
     date: string;
     time: string;
     title: string;
-    subtitle: string;
+    subTitle: string;
   }
   

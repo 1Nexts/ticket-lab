@@ -27,7 +27,7 @@ export default function ConcertList({ concertData }: Props) {
    let concertListFilter = concertData?.concertList.filter(
       (el) =>
         el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        el.subtitle.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
+        el.subTitle.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         el.date.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         el.time.toLowerCase().indexOf(search.toLowerCase()) !==
           -1

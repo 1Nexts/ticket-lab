@@ -34,7 +34,7 @@ const TicketItemComponent = ({ objConcertItem }: CardProps) => {
             className={"col-12 col-sm-6 col-md-8 p-0 m-0 " + styles["col-2"]}
           >
             <h5>{objConcertItem.title}</h5>
-            <h6>{objConcertItem.subtitle}</h6>
+            <h6>{objConcertItem.subTitle}</h6>
           </div>
 
           <div
