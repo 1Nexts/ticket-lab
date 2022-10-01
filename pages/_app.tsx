@@ -3,6 +3,9 @@ import { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/globals.css";
 
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
+
 import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,10 +21,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>Rent Services</title>
       </header>
 
-      <div>
+      <Provider store={store}>
         <NextNProgress />
         <Component {...pageProps} />
-      </div>
+      </Provider>
     </div>
   );
 }
