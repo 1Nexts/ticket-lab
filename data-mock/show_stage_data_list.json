@@ -1,0 +1,563 @@
+[
+    {
+      "id": "1001",
+      "name": "Harry Styles",
+      "stage": "StageExA",
+      "sections":{
+        "sec-1":{
+            "sellTicket":198,
+            "allTicket":200,
+            "balanceTicket":2,
+            "price":70.00,
+            "type":"Standard Ticket"
+        },
+        "sec-2":{
+            "sellTicket":300,
+            "allTicket":300,
+            "balanceTicket":0,
+            "price":100.00,
+            "type":"Standard Ticket"
+        },
+        "sec-3":{
+            "sellTicket":190,
+            "allTicket":200,
+            "balanceTicket":10,
+            "price":70.00,
+            "type":"Standard Ticket"
+        },
+        "sec-4":{
+            "sellTicket":97,
+            "allTicket":100,
+            "balanceTicket":3,
+            "price":50.00,
+            "type":"Standard Ticket"
+        },
+        "sec-5":{
+            "sellTicket":95,
+            "allTicket":100,
+            "balanceTicket":5,
+            "price":55.00,
+            "type":"Standard Ticket"
+        },
+        "sec-6":{
+            "sellTicket":50,
+            "allTicket":100,
+            "balanceTicket":50,
+            "price":60.00,
+            "type":"Standard Ticket"
+        },
+        "sec-7":{
+            "sellTicket":80,
+            "allTicket":100,
+            "balanceTicket":20,
+            "price":30.00,
+            "type":"Standard Ticket"
+        },
+        "sec-8":{
+            "sellTicket":70,
+            "allTicket":100,
+            "balanceTicket":30,
+            "price":35.00,
+            "type":"Standard Ticket"
+        },
+        "sec-9":{
+            "sellTicket":100,
+            "allTicket":100,
+            "balanceTicket":0,
+            "price":40.00,
+            "type":"Standard Ticket"
+        }
+      }
+    },
+    {
+        "id": "1002",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1003",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1004",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1005",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1006",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1007",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      },
+      {
+        "id": "1008",
+        "name": "Harry Styles",
+        "stage": "StageExA",
+        "sections":{
+          "sec-1":{
+              "sellTicket":198,
+              "allTicket":200,
+              "balanceTicket":2,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-2":{
+              "sellTicket":300,
+              "allTicket":300,
+              "balanceTicket":0,
+              "price":100.00,
+              "type":"Standard Ticket"
+          },
+          "sec-3":{
+              "sellTicket":190,
+              "allTicket":200,
+              "balanceTicket":10,
+              "price":70.00,
+              "type":"Standard Ticket"
+          },
+          "sec-4":{
+              "sellTicket":97,
+              "allTicket":100,
+              "balanceTicket":3,
+              "price":50.00,
+              "type":"Standard Ticket"
+          },
+          "sec-5":{
+              "sellTicket":95,
+              "allTicket":100,
+              "balanceTicket":5,
+              "price":55.00,
+              "type":"Standard Ticket"
+          },
+          "sec-6":{
+              "sellTicket":50,
+              "allTicket":100,
+              "balanceTicket":50,
+              "price":60.00,
+              "type":"Standard Ticket"
+          },
+          "sec-7":{
+              "sellTicket":80,
+              "allTicket":100,
+              "balanceTicket":20,
+              "price":30.00,
+              "type":"Standard Ticket"
+          },
+          "sec-8":{
+              "sellTicket":70,
+              "allTicket":100,
+              "balanceTicket":30,
+              "price":35.00,
+              "type":"Standard Ticket"
+          },
+          "sec-9":{
+              "sellTicket":100,
+              "allTicket":100,
+              "balanceTicket":0,
+              "price":40.00,
+              "type":"Standard Ticket"
+          }
+        }
+      }
+    
+  ]
