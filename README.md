@@ -2,9 +2,9 @@
 เทคนิคที่ใช้ และคำอธิบายแต่ละหน้าแบบสรุป
 
 ทั้งโปรเจคจะวางโครงสร้างด้วย MVC Pattern
-View = มีแต่ UI Html/css/scss
-Control = Manage stage ด้วย Redux toolkit เรียกใช้ด้วย dispatch signal 
-Model = เป็น Off line ใช้ mock data + local storage
+- View = มีแต่ UI Html/css/scss
+- Control = Manage stage ด้วย Redux toolkit เรียกใช้ด้วย dispatch signal 
+- Model = เป็น Off line ใช้ mock data + local storage
 
 # Page
 1 Page Show List (แสดงรายการโชว์ให้เลือก)
