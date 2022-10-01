@@ -1,14 +1,19 @@
 #wrapper-header {
-    background-color: #aa162b;
-    width: 100%;
-    height: 66px;
-    margin: 0 auto;
-  }
-  .header-block {
-    max-width: 1280px !important;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    text-align: center;
-    padding: 12px;
-  }
+  background-color: #aa162b;
+  width: 100%;
+  height: 66px;
+  margin: 0 auto;
+}
+
+.header-block {
+  max-width: 1280px !important;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 12px;
+}
+
+.logo {
+  margin-top: -0.3rem;
+}

@@ -13,9 +13,10 @@ const HeaderMenu = ({  }: CardProps) => {
         <div className={styles["header-block"]}>
           <div>
             <ul className="navbar-nav flex-row flex-wrap text-white">
-              <li className="nav-item">
-                <h3 className="text-white font-weight-bold px-3">Tickets</h3>
+              <li className={"nav-item "+styles['logo']}>
+                <h2 className="text-white font-weight-bold m-0 pe-3">ticketlab</h2>
               </li>
+        
               <li className="nav-item">
                 <Link href="/ticket-list">
                   <a className="nav-link py-2 px-3">Ticket</a>
