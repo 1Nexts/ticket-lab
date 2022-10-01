@@ -47,7 +47,7 @@ export default function ConcertList({ concertData }: Props) {
             <div className={styles["show-detail"]}>
               <h3>{concertData?.title}</h3>
               <br />
-              <h5>{concertData?.subTitle}</h5>
+              <h4>{concertData?.subTitle}</h4>
             </div>
 
             <div className={"input-group " + styles["search-group"]}>

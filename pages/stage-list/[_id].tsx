@@ -40,7 +40,8 @@ export default function ConcertList({ objConcertStageData }: Props) {
             <div className={styles["show-detail"]}>
               <h3>{objConcertItem?.title}</h3>
               <br />
-              <h5>{objConcertItem?.subTitle}</h5>
+              <h4>{objConcertItem?.subTitle}</h4>
+              <h4>{objConcertItem?.date} {" "} {objConcertItem?.time}</h4>
             </div>
 
             {/* Section Content */}
