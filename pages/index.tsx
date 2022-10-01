@@ -1,11 +1,11 @@
 import React from "react";
-import TicketList from "./ticket-list";
+import ShowList from "./show-list";
 
 
 
 export default function Index() {
 
   return (
-    <TicketList></TicketList>
+    <ShowList></ShowList>
   );
 }

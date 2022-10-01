@@ -1,11 +1,11 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import TicketItemComponent from "@/components/ticket-list/items/TicketItem";
+import TicketItemComponent from "@/components/show-list/items/TicketItem";
 import Link from "next/link";
 import router from "next/router";
 import React, { useEffect } from "react";
-import styles from "../../styles/ticket-list/index.module.scss";
+import styles from "../../styles/show-list/index.module.scss";
 
-export default function TicketList() {
+export default function ShowList() {
   useEffect(() => {
     console.log("Start useEffect");
 
@@ -18,7 +18,7 @@ export default function TicketList() {
 
       <div id="wrapper">
 
-        <section id={styles["section-ticket-list"]}>
+        <section id={styles["section-show-list"]}>
           <div className="block">
 
             <div className={"input-group " + styles["search-group"]}>
@@ -28,7 +28,7 @@ export default function TicketList() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Search ticket"
+                placeholder="Search show"
               />
             </div>
 

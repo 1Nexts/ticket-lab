@@ -1,7 +1,7 @@
 //----------------- #section Header --------------------
 
 
-#section-ticket-list {
+#section-show-list {
 
     .search-group {
         margin: 0 auto;
@@ -26,7 +26,7 @@
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991px) {
-    #section-ticket-list .search-group {
+    #section-show-list .search-group {
         width: 80%;
     }
 }

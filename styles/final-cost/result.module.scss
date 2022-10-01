@@ -27,7 +27,7 @@
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991px) {
-    #section-ticket-list .search-group {
+    #section-show-list .search-group {
         width: 80%;
     }
 }
@@ -38,7 +38,7 @@
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
 
-    #section-ticket-list .block-content .content .ticket-Item {
+    #section-show-list .block-content .content .ticket-Item {
         .col-2 {
             margin: 12px 0;
         }
