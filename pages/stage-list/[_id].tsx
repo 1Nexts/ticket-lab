@@ -1,6 +1,6 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import StageFilterComponent from "@/components/stage-list/StageFilter";
-import StageSelectComponent from "@/components/stage-list/StageSelect";
+import SectionListComponent from "@/components/stage-list/SectionListComponent";
 import StageExAComponent from "@/components/stage-template/StageExA";
 import { GetServerSideProps } from "next";
 import router, { useRouter } from "next/router";
@@ -23,14 +23,6 @@ export default function ConcertList() {
   const router = useRouter();
   const { _id } = router.query;
   console.log("_id", _id);
-
-  // const loadConcertStageList = useCallback(async (_id: string) => {
-  //   try {
-  //     dispatch(getConcertStageList(_id));
-  //   } catch (error) {
-  //     console.log("error loadConcertStageList");
-  //   }
-  // }, []);
 
   useEffect(() => {
     console.log("Start useEffect ");
@@ -80,7 +72,7 @@ export default function ConcertList() {
                   }
                 >
                   <StageFilterComponent></StageFilterComponent>
-                  <StageSelectComponent></StageSelectComponent>
+                  <SectionListComponent></SectionListComponent>
                 </div>
               </div>
             </div>
