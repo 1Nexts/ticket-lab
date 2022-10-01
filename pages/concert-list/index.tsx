@@ -1,9 +1,9 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import TicketItemComponent from "@/components/show-list/items/TicketItem";
+import TicketItemComponent from "@/components/concert-list/items/TicketItem";
 import Link from "next/link";
 import router from "next/router";
 import React, { useEffect } from "react";
-import styles from "../../styles/show-list/index.module.scss";
+import styles from "../../styles/concert-list/index.module.scss";
 
 export default function ShowList() {
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function ShowList() {
 
       <div id="wrapper">
 
-        <section id={styles["section-show-list"]}>
+        <section id={styles["section-concert-list"]}>
           <div className="block">
 
             <div className={"input-group " + styles["search-group"]}>
