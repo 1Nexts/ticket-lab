@@ -68,15 +68,15 @@ const SubTotalComponent = ({}: CardProps) => {
           <hr />
 
         </div>
-  
         <br />
+       
 
         {/* Row Ticket amount */}
         <div className={"row m-0 " + styles["ticket-amount-row"]}>
           <div className={"col-4 p-0 text-right"}>
             <button
               type="button"
-              className={"btn"}
+              className={"btn "+ (amountBuy <= 1 && "bg-secondary")}
               onClick={() => {
                 if (amountBuy > 1) {
                   setAmountBuy(Number(amountBuy) - 1);
@@ -92,7 +92,7 @@ const SubTotalComponent = ({}: CardProps) => {
           <div className={"col-4 p-0 text-left"}>
             <button
               type="button"
-              className={"btn"}
+              className={"btn "+ (amountBuy >= objSectionSelected.balanceTicket && "bg-secondary")}
               onClick={() => {
                 console.log(
                   "objSectionSelected.balanceTicket = ",
@@ -109,6 +109,10 @@ const SubTotalComponent = ({}: CardProps) => {
           </div>
         </div>
         <br />
+
+        {/* <h5>Balance : {concertStage.sectionSelected?.sellTicket}/{concertStage.sectionSelected?.allTicket} tickets</h5> */}
+        {/* <br /> */}
+
         {/* Tickets */}
         <h5>Tickets</h5>
         <div className={"row m-0 " + styles["item-row"]}>
