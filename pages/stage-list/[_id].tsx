@@ -22,7 +22,7 @@ export default function ConcertList() {
 
   const router = useRouter();
   const { _id } = router.query;
-  console.log("_id", _id);
+  // console.log("_id", _id);
 
   useEffect(() => {
     console.log("Start useEffect ");
@@ -63,7 +63,7 @@ export default function ConcertList() {
               {/* Section Content */}
               <div className={"row m-0 " + styles["block-content"]}>
                 <div className={"col-12 col-md-8 p-0"}>
-                  <StageExAComponent></StageExAComponent>
+                  <StageExAComponent dicSections={concertStage.dicSections} sectionsFilter={concertStage.sectionsFilter}></StageExAComponent>
                 </div>
                 <div
                   className={

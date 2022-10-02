@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, store } from "../store";
 import router from "next/router";
 import { ConcertStageData, Section } from "@/models/concertStageData.model";
+import { Dictionary } from "@/models/dictionary.model";
 
 // Mock data
 import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.json";
@@ -9,7 +10,9 @@ import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.js
 interface ConcertState {
   objConcertStageData: ConcertStageData;
   sectionsFilter: Section[];
+  dicSections: Dictionary<Section>;
 }
+// let dictionary = Object.fromEntries(data.map(({id,...rest})=> ([id, rest]) ));
 const initialState: ConcertState = {
   objConcertStageData: {
     id: "",
@@ -25,6 +28,7 @@ const initialState: ConcertState = {
   },
   // sections: [],
   sectionsFilter: [],
+  dicSections: {},
 };
 
 type FilterAction = {
@@ -44,7 +48,7 @@ export const getConcertStageList = createAsyncThunk(
           ? concertStageDataFromJSON[indexStageData]
           : null;
 
-      console.log("getConcertStageList = ", objConcertStageData);
+      // console.log("getConcertStageList = ", objConcertStageData);
 
       if (objConcertStageData === null) return rejectWithValue(null);
 
@@ -85,6 +89,19 @@ const concertStageSlice = createSlice({
         // Filter price DESC
         state.sectionsFilter.sort((a, b) => b.price - a.price);
       }
+
+      concertStageSlice.caseReducers.buildDictionarySections(state);
+    },
+
+    buildDictionarySections: (state) => {
+
+      state.dicSections = <Dictionary<Section>>Object.fromEntries(
+        state.sectionsFilter.map(({ key, ...rest }) => [
+          key,
+          rest,
+        ])
+      );
+      // console.log("dictionary = ", state.dicSections);
     },
   },
   extraReducers: (builder) => {
