@@ -66,7 +66,7 @@ export default function ConcertList() {
 
                 <div
                   className={
-                    "col-12 col-md-4 p-0 bg-secondary " +
+                    "col-12 col-md-4 p-0 " +
                     styles["right-content"]
                   }
                 >
