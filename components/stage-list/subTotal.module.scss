@@ -1,9 +1,11 @@
 #cost-total {
+   
     // margin: 1rem;
     // margin-top: 0;
     // margin-left: 0;
 
     .block-total {
+        
         background-color: #f6f6f6;
         min-height: 40vh !important;
         padding: 2rem;
@@ -46,8 +48,6 @@
     .ticket-amount-row {
         margin-bottom: 0.5rem !important;
         text-align: center;
-
-    
         
         button {
             text-align: center;
@@ -80,6 +80,7 @@
     }
 
     .btn-place-order {
+        margin-top: 20vh;
         width: 100%;
     }
 }
