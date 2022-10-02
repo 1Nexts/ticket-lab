@@ -16,7 +16,7 @@ const SectionItemComponent = ({ objSection }: CardProps) => {
           </div>
 
           <div className={"col-4 p-0 m-0 " + styles["col-3"]}>
-            <h5 > <b>${objSection.price}99 ea</b></h5>
+            <h5 > <b>${objSection.price} ea</b></h5>
           </div>
         </div>
       </div>
