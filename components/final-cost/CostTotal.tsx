@@ -1,6 +1,7 @@
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
+import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./costTotal.module.scss";
@@ -32,7 +33,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
     return () => {
       console.log("Return useEffect ");
     };
-  }, []);
+  }, [concertStage.sectionSelected]);
   
   return (
     <section id={styles["cost-total"]}>
@@ -126,7 +127,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
           onClick={() => {
-            console.log("xxxx");
+
+            router.push(`/final-cost/result`);
           }}
         >
           Place Order

@@ -1,5 +1,5 @@
 import { Section } from "@/models/concertStageData.model";
-import { setSectionSelected } from "@/store/slices/concertStageSlice";
+import { buildSectionSelected } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
 import React from "react";
 import styles from "./item.module.scss";
@@ -15,7 +15,7 @@ const SectionItemComponent = ({ objSection }: CardProps) => {
       onClick={() => {
       
         dispatch(
-          setSectionSelected(objSection)
+          buildSectionSelected(objSection)
         );
       }}
     >

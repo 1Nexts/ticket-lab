@@ -26,7 +26,6 @@ const SubTotalComponent = ({}: CardProps) => {
     type: "",
     amountBuy: 0,
   });
-  
 
   useEffect(() => {
     console.log("Start useEffect ");
@@ -65,7 +64,11 @@ const SubTotalComponent = ({}: CardProps) => {
               }}
             ></button>
           </div>
+
+          <hr />
+
         </div>
+  
         <br />
 
         {/* Row Ticket amount */}
@@ -130,12 +133,13 @@ const SubTotalComponent = ({}: CardProps) => {
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
           onClick={() => {
-
-            dispatch(updateSectionSelected({
-              ...objSectionSelected,
-              amountBuy: amountBuy,
-            }));
-            router.push("/final-cost");
+            dispatch(
+              updateSectionSelected({
+                ...objSectionSelected,
+                amountBuy: amountBuy,
+              })
+            );
+            router.push(`/final-cost/${concertStage.objConcertStageData.id}/${objSectionSelected.key}/${amountBuy}`);
           }}
         >
           Next

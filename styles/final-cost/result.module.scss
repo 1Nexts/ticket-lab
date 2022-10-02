@@ -1,49 +1,50 @@
-//----------------- #section Header --------------------
+#cost-total {
+    margin: 1rem;
+    margin-top: 0;
+    margin-left: 0;
 
-
-#final-cost-result {
-
-    .block-content {
-        background-color: teal;
-        text-align: center;
-
-        height: 50vh;
+    .block-total {
+        background-color: white;
+        padding: 2rem;
+        text-align: left;
+        border-style: solid;
+        border-color: gray;
+        border-radius: 0.5rem;
     }
 
-}
 
+    .item-row {
+        margin-bottom: 0.5rem !important;
 
-
-
-
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1279px) {
-    .block {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        .col-1 {
+            text-align: left;
+        }
+        .col-2 {
+            text-align: right;
+        }
     }
-}
 
-
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991px) {
-    #section-concert-list .search-group {
-        width: 80%;
+    .btn-place-order{
+        width: 100%;
     }
 }
 
 // Small devices (landscape phones, less than 768px)
-@media (max-width: 767px) {}
+@media (max-width: 767px) {
+    #cost-total {
+        margin: 1rem;
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+}
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-
-    #section-concert-list .block-content .content .ticket-Item {
-        .col-2 {
-            margin: 12px 0;
-        }
-        .col-3 {
-            text-align: left;
+    #cost-total {
+        margin: 0;
+        margin-bottom: 1rem;
+        .block-total {
+            padding: 1rem;
         }
     }
 }

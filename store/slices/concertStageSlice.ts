@@ -45,20 +45,25 @@ type FilterAction = {
   amountTicket: number;
   isLowPrice: boolean;
 };
+type DataCostTotalAction = {
+  concertId:string;
+  sectionIdSelected: string;
+  amountTicketBuy: number;
+};
 
 export const getConcertStageList = createAsyncThunk(
   "concert-stage/getConcertStageList",
   async (idConcertStage: string, { rejectWithValue }) => {
     try {
-      // Mock data
-      let indexStageData =
-        Number(idConcertStage?.slice(idConcertStage.length - 1)) - 1;
-      let objConcertStageData =
-        indexStageData < concertStageDataFromJSON.length
+
+      // Load ConcertStageData Mock data
+      let indexStageData = Number(idConcertStage?.slice(idConcertStage.length - 1)) - 1;
+      let objConcertStageData = indexStageData < concertStageDataFromJSON.length
           ? concertStageDataFromJSON[indexStageData]
           : null;
 
       if (objConcertStageData === null) return rejectWithValue(null);
+      // console.log("LOAD objConcertStageData = ", objConcertStageData);
 
       return objConcertStageData;
     } catch (error) {
@@ -68,7 +73,7 @@ export const getConcertStageList = createAsyncThunk(
 );
 
 const concertStageSlice = createSlice({
-  name: "order",
+  name: "concert-stage",
   initialState: initialState,
   reducers: {
     resetFilter: (state) => {
@@ -108,7 +113,9 @@ const concertStageSlice = createSlice({
       );
     },
 
-    setSectionSelected: (state, action: PayloadAction<Section>) => {
+    // ---- Section ---------
+
+    buildSectionSelected: (state, action: PayloadAction<Section>) => {
       let objSectionSelect: SectionSelect = {
         ...action.payload,
         amountBuy: state.amountTicketFilter,
@@ -116,6 +123,10 @@ const concertStageSlice = createSlice({
 
       state.sectionSelected = objSectionSelect;
     },
+    setSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
+      state.sectionSelected = {...action.payload};
+    },
+
     resetSelectionSelected: (state) => {
       state.sectionSelected = null;
     },
@@ -148,6 +159,7 @@ const concertStageSlice = createSlice({
 
 export const {
   filterConcertStage,
+  buildSectionSelected,
   setSectionSelected,
   resetSelectionSelected,
   updateSectionSelected,
