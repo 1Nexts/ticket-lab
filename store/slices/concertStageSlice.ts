@@ -1,7 +1,11 @@
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, store } from "../store";
 import router from "next/router";
-import { ConcertStageData, Section } from "@/models/concertStageData.model";
+import {
+  ConcertStageData,
+  Section,
+  SectionSelect,
+} from "@/models/concertStageData.model";
 import { Dictionary } from "@/models/dictionary.model";
 
 // Mock data
@@ -9,10 +13,14 @@ import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.js
 
 interface ConcertState {
   objConcertStageData: ConcertStageData;
+
   sectionsFilter: Section[];
+  amountTicketFilter: number;
   dicSections: Dictionary<Section>;
+
+  sectionSelected: SectionSelect | null;
 }
-// let dictionary = Object.fromEntries(data.map(({id,...rest})=> ([id, rest]) ));
+
 const initialState: ConcertState = {
   objConcertStageData: {
     id: "",
@@ -26,9 +34,11 @@ const initialState: ConcertState = {
     },
     sections: [],
   },
-  // sections: [],
   sectionsFilter: [],
   dicSections: {},
+  amountTicketFilter: 2,
+
+  sectionSelected: null,
 };
 
 type FilterAction = {
@@ -48,8 +58,6 @@ export const getConcertStageList = createAsyncThunk(
           ? concertStageDataFromJSON[indexStageData]
           : null;
 
-      // console.log("getConcertStageList = ", objConcertStageData);
-
       if (objConcertStageData === null) return rejectWithValue(null);
 
       return objConcertStageData;
@@ -65,8 +73,8 @@ const concertStageSlice = createSlice({
   reducers: {
     resetFilter: (state) => {
       concertStageSlice.caseReducers.filterConcertStage(state);
+      state.amountTicketFilter = 2;
     },
-
     filterConcertStage: (state, action?: PayloadAction<FilterAction>) => {
       let objFilterAction: FilterAction =
         action?.payload != null
@@ -76,38 +84,49 @@ const concertStageSlice = createSlice({
               isLowPrice: true,
             };
 
+      // Update amount filter selected
+      state.amountTicketFilter = objFilterAction.amountTicket;
+
       // Filter balance ticket
       state.sectionsFilter = state.objConcertStageData?.sections.filter(
         (el) => el.balanceTicket >= objFilterAction.amountTicket
-        // el.balanceTicket === 0
       );
 
       // Filter price ASC
-      if (objFilterAction.isLowPrice) {
+      if (objFilterAction.isLowPrice)
         state.sectionsFilter.sort((a, b) => a.price - b.price);
-      } else {
-        // Filter price DESC
-        state.sectionsFilter.sort((a, b) => b.price - a.price);
-      }
+      // Filter price DESC
+      else state.sectionsFilter.sort((a, b) => b.price - a.price);
 
       concertStageSlice.caseReducers.buildDictionarySections(state);
     },
-
     buildDictionarySections: (state) => {
-
-      state.dicSections = <Dictionary<Section>>Object.fromEntries(
-        state.sectionsFilter.map(({ key, ...rest }) => [
-          key,
-          rest,
-        ])
+      state.dicSections = <Dictionary<Section>>(
+        Object.fromEntries(
+          state.sectionsFilter.map(({ key, ...rest }) => [key, rest])
+        )
       );
-      // console.log("dictionary = ", state.dicSections);
+    },
+
+    setSectionSelected: (state, action: PayloadAction<Section>) => {
+      let objSectionSelect: SectionSelect = {
+        ...action.payload,
+        amountBuy: state.amountTicketFilter,
+      };
+
+      state.sectionSelected = objSectionSelect;
+    },
+    resetSelectionSelected: (state) => {
+      state.sectionSelected = null;
+    },
+    updateSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
+      state.sectionSelected = action.payload;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(
       getConcertStageList.fulfilled,
-      (state, action: PayloadAction<any>) => {
+      (state, action: PayloadAction<ConcertStageData>) => {
         if (action.payload != null) {
           state.objConcertStageData = action.payload;
 
@@ -127,7 +146,12 @@ const concertStageSlice = createSlice({
   },
 });
 
-export const { filterConcertStage } = concertStageSlice.actions;
+export const {
+  filterConcertStage,
+  setSectionSelected,
+  resetSelectionSelected,
+  updateSectionSelected,
+} = concertStageSlice.actions;
 
 export const ConcertStageSelector = (store: RootState): ConcertState =>
   store.concertStageSlice;

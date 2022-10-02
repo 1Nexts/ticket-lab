@@ -124,3 +124,12 @@ h6 {
   padding: 0.5rem 2rem;
   border: none;
 } */
+
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}

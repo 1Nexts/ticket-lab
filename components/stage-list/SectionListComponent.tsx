@@ -12,10 +12,17 @@ const SectionListComponent = ({}: CardProps) => {
   const concertStage = useSelector(ConcertStageSelector);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
 
+  
+  }, []);
+
+  
   return (
     <section id={styles["stage-list-select"]}>
+       <div className={styles["header"]}>
+        <h3>Select Section</h3>
+       </div>
       <div className={styles["block-content"]}>
         {
           <div>

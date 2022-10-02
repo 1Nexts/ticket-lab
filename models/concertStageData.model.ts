@@ -17,3 +17,14 @@ export interface Section {
   type: string;
 }
 
+export interface SectionSelect {
+  key: string;
+  sellTicket: number;
+  allTicket: number;
+  balanceTicket: number;
+  price: number;
+  type: string;
+  amountBuy:number
+}
+
+

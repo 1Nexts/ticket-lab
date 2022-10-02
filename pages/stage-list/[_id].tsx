@@ -14,7 +14,9 @@ import { useSelector } from "react-redux";
 import {
   ConcertStageSelector,
   getConcertStageList,
+  resetSelectionSelected,
 } from "@/store/slices/concertStageSlice";
+import SubTotalComponent from "@/components/stage-list/SubTotal";
 
 export default function ConcertList() {
   const concertStage = useSelector(ConcertStageSelector);
@@ -22,20 +24,13 @@ export default function ConcertList() {
 
   const router = useRouter();
   const { _id } = router.query;
-  // console.log("_id", _id);
-
+  
   useEffect(() => {
     console.log("Start useEffect ");
 
     if (_id !== undefined) {
       dispatch(getConcertStageList(_id + ""));
-
-      // Not found data
-      // if (objConcertStageData === null) {
-      //   alert("Not found Stage");
-      //   router.push(`/concert-list/ed-sheeran`);
-      //   return;
-      // }
+      dispatch(resetSelectionSelected());
     }
   }, [_id]);
 
@@ -63,16 +58,28 @@ export default function ConcertList() {
               {/* Section Content */}
               <div className={"row m-0 " + styles["block-content"]}>
                 <div className={"col-12 col-md-8 p-0"}>
-                  <StageExAComponent dicSections={concertStage.dicSections} sectionsFilter={concertStage.sectionsFilter}></StageExAComponent>
+                  <StageExAComponent
+                    dicSections={concertStage.dicSections}
+                    sectionsFilter={concertStage.sectionsFilter}
+                  ></StageExAComponent>
                 </div>
+
                 <div
                   className={
                     "col-12 col-md-4 p-0 bg-secondary " +
                     styles["right-content"]
                   }
                 >
-                  <StageFilterComponent></StageFilterComponent>
-                  <SectionListComponent></SectionListComponent>
+                  {concertStage.sectionSelected === null ? (
+                    <div>
+                      <StageFilterComponent></StageFilterComponent>
+                      <SectionListComponent></SectionListComponent>
+                    </div>
+                  ) : (
+                    <div>
+                      <SubTotalComponent></SubTotalComponent>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

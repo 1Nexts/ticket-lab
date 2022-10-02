@@ -1,0 +1,98 @@
+#cost-total {
+    // margin: 1rem;
+    // margin-top: 0;
+    // margin-left: 0;
+
+    .block-total {
+        background-color: #f6f6f6;
+        min-height: 40vh !important;
+        padding: 2rem;
+        text-align: left;
+        border-style: solid;
+        border-color: gray;
+        border-radius: 0.5rem;
+    }
+
+    .header-row {
+
+        margin: -2rem !important;
+        margin-bottom: 0.5rem !important;
+        text-align: center;
+        padding: 0.5rem;
+
+        .col-1 {
+            text-align: left;
+        }
+
+        .col-2 {
+            text-align: center;
+        }
+
+        .col-3 {
+            text-align: right;
+
+            button {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .ticket-amount-row {
+        margin-bottom: 0.5rem !important;
+        text-align: center;
+
+        button {
+            text-align: center;
+            background-color: #036cdf;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 2rem;
+            padding: 0;
+
+            img {
+                width: 1.25rem !important;
+                height: 1.25rem !important;
+                text-align: center;
+            }
+        }
+
+      
+    }
+
+    .item-row {
+        margin-bottom: 0.5rem !important;
+
+        .col-1 {
+            text-align: left;
+        }
+
+        .col-2 {
+            text-align: right;
+        }
+    }
+
+    .btn-place-order {
+        width: 100%;
+    }
+}
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767px) {
+    #cost-total {
+        margin: 1rem;
+        margin-top: 0;
+        margin-left: 1rem;
+    }
+}
+
+// X-Small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+    #cost-total {
+        margin: 0;
+        margin-bottom: 1rem;
+
+        .block-total {
+            padding: 1rem;
+        }
+    }
+}

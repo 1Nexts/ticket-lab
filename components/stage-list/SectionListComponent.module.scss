@@ -1,29 +1,20 @@
 #stage-list-select {
-    // padding-top: 1rem;
-    // padding-bottom: 1rem;
+   
 
     padding-top: 0px;
-    // margin-top: -1rem;
     background-color: white;
 
     .header {
-        // padding-top: 1rem;
-        // padding-bottom: 1rem;
-
-        hr {
-            margin: 0;
-        }
-
-        h4 {
-            padding-top: 0.5rem;
+        background-color: #aa162b;
+       
+        h3 {
+            color: white;
         }
     }
 
     .block-content {
-        // background-color: teal;
-        // background-color: #e7ecf2;
+        min-height: 40vh !important;
         text-align: center;
-
         hr{
             margin: 0px;
         }
