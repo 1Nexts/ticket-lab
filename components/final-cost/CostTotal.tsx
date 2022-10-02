@@ -1,12 +1,39 @@
-import React from "react";
+import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
+import { useAppDispatch } from "@/store/store";
+import { SERVICE_FEE_PERCENT } from "@/utils/constant";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./costTotal.module.scss";
 
 type CardProps = {};
 const FinalCostTotalComponent = ({}: CardProps) => {
-  const ticketPrice = 76.0;
-  const amountTicket = 2;
-  const SERVICE_FEE_PERCENT = 0.1;
+  const concertStage = useSelector(ConcertStageSelector);
+  const dispatch = useAppDispatch();
+  
+  const [objSectionSelected, setObjSectionSelected] = useState({
+    key: "",
+    sellTicket: 0,
+    allTicket: 0,
+    balanceTicket: 0,
+    price: 0,
+    type: "",
+    amountBuy: 0,
+  });
 
+  // let costTotal = 0;
+
+  useEffect(() => {
+    console.log("Start useEffect ");
+
+    if (concertStage?.sectionSelected != null) {
+      setObjSectionSelected({ ...concertStage.sectionSelected });
+    }
+
+    return () => {
+      console.log("Return useEffect ");
+    };
+  }, []);
+  
   return (
     <section id={styles["cost-total"]}>
       <div className={styles["block-total"]}>
@@ -19,7 +46,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
-            <h4>$999</h4>
+            <h4>${((objSectionSelected.price * objSectionSelected.amountBuy) + (objSectionSelected.price * SERVICE_FEE_PERCENT * objSectionSelected.amountBuy)).toFixed(2)}</h4>
           </div>
         </div>
         <br />
@@ -29,7 +56,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
-              Resale Tickets: ${ticketPrice.toFixed(2)} x {amountTicket}
+              Resale Tickets: ${objSectionSelected.price.toFixed(2)} x {objSectionSelected.amountBuy}
             </h5>
           </div>
 
@@ -37,7 +64,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
-              ${(ticketPrice * amountTicket).toFixed(2)}
+              ${(objSectionSelected.price * objSectionSelected.amountBuy).toFixed(2)}
             </h5>
           </div>
         </div>
@@ -47,8 +74,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
-              Service Fee: ${(ticketPrice * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
-              {amountTicket}
+              Service Fee: ${(objSectionSelected.price * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
+              {objSectionSelected.amountBuy}
             </h5>
           </div>
 
@@ -56,7 +83,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
-              ${(ticketPrice * SERVICE_FEE_PERCENT * amountTicket).toFixed(2)}
+              ${(objSectionSelected.price * SERVICE_FEE_PERCENT * objSectionSelected.amountBuy).toFixed(2)}
             </h5>
           </div>
         </div>
@@ -110,3 +137,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 };
 
 export default FinalCostTotalComponent;
+function setAmountBuy(amountBuy: number) {
+  throw new Error("Function not implemented.");
+}
+

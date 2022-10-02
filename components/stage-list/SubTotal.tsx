@@ -9,6 +9,7 @@ import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./subTotal.module.scss";
+import { SERVICE_FEE_PERCENT } from "@/utils/constant";
 
 type CardProps = {};
 const SubTotalComponent = ({}: CardProps) => {
@@ -25,6 +26,7 @@ const SubTotalComponent = ({}: CardProps) => {
     type: "",
     amountBuy: 0,
   });
+  
 
   useEffect(() => {
     console.log("Start useEffect ");
