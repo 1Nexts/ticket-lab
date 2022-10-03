@@ -1,11 +1,11 @@
 # Ticket Lab
 
 # ภาพรวมของโปรเจค
-1 การวางโครงสร้างแบบแยกชิ้นส่วน เพื่อแก้ไข ต่อยอด 
-2 การ Maange state ด้วย Redux
-3 เน้นไปที่ logic ไม่ใช่ UI
-4 วางโครงสร้างด้วย MVC Pattern
-5 เป็น Off line mock data, บันทึกข้อมูลลง localstorage
+- 1 การวางโครงสร้างแบบแยกชิ้นส่วน เพื่อแก้ไข ต่อยอด 
+- 2 การ Maange state ด้วย Redux
+- 3 เน้นไปที่ logic ไม่เน้น UI
+- 4 วางโครงสร้างด้วย MVC Pattern
+- 5 เป็น Off line mock data, บันทึกข้อมูลลง localstorage
 
 # Page
 1 Page concert-list (แสดงรายการคอนเสิร์ตให้เลือก)
