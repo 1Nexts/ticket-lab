@@ -143,7 +143,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <button
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
-          disabled={creditCard.creditCardSelected === null}
+          disabled={creditCard.creditCardSelected === null || creditCard.securityCode.length !== 3}
           onClick={() => {
             router.push(`/final-cost/result`);
           }}

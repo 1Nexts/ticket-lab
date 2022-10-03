@@ -3,6 +3,7 @@ import {
   creditCardSelector,
   deleteCreditCard,
   setCreditCardSelected,
+  setSecurityCode,
 } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
 import React, { useEffect, useState } from "react";
@@ -29,8 +30,8 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
       setIsCanClick(true);
     else setIsCanClick(false);
 
- 
     setPassword("");
+    dispatch(setSecurityCode(""));
   }, [creditCard.creditCardSelected, setIsCanClick]);
 
   return (
@@ -100,6 +101,7 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
                 value={password}
                 onChange={(event: React.ChangeEvent<any>) => {
                   setPassword(event.target.value);
+                  dispatch(setSecurityCode(event.target.value));
                 }}
               />
               <div>

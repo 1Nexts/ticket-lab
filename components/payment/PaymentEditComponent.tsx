@@ -48,9 +48,6 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
         errors.country = "Please choose your contry.";
       }
       
-      console.log(formik.errors);
-      console.log(formik.isValid);
-      
       return errors;
     },
     onSubmit: async (values) => {

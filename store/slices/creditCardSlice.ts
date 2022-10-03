@@ -6,10 +6,12 @@ import * as apiCreditCardService from "@/services/apiCreditCard";
 interface CreditCardState {
   creditCards: CreditCard[];
   creditCardSelected: CreditCard | null;
+  securityCode:string;
 }
 const initialState: CreditCardState = {
   creditCards: [],
   creditCardSelected: null,
+  securityCode:""
 };
 
 export const loadCreditCards = createAsyncThunk("crditcard/get", async () => {
@@ -43,6 +45,9 @@ const creditCardSlice = createSlice({
     },
     resetCreditCardSelected: (state) => {
       state.creditCardSelected = null;
+    },
+    setSecurityCode: (state, action: PayloadAction<string>) => {
+      state.securityCode = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -149,7 +154,7 @@ const creditCardSlice = createSlice({
   },
 });
 
-export const { setCreditCardSelected, resetCreditCardSelected } =
+export const { setCreditCardSelected, resetCreditCardSelected,setSecurityCode } =
   creditCardSlice.actions;
 
 export const creditCardSelector = (store: RootState): CreditCardState =>
