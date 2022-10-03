@@ -1,4 +1,6 @@
 import { CreditCard } from "@/models/creditCard.model";
+import { setCreditCardSelected } from "@/store/slices/creditCardSlice";
+import { useAppDispatch } from "@/store/store";
 import React from "react";
 import styles from "./CreditCardItemComponent.module.scss";
 
@@ -6,6 +8,8 @@ type CardProps = {
   objCreditCard: CreditCard;
 };
 const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
+  const dispatch = useAppDispatch();
+
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
       <div className={styles["ticket-Item"]}>
@@ -16,6 +20,9 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault1"
+              onClick={() => {
+                dispatch(setCreditCardSelected(objCreditCard));
+              }}
             ></input>
             <img src="/static/credit-cards/visa.png" className="px-2" />
           </div>

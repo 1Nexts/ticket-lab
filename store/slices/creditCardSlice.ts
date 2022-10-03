@@ -5,11 +5,12 @@ import * as apiCreditCardService from "@/services/apiCreditCard";
 
 interface CreditCardState {
   creditCards: CreditCard[];
+  creditCardSelected: CreditCard | null;
 }
 const initialState: CreditCardState = {
   creditCards: [],
+  creditCardSelected: null,
 };
-
 
 export const loadCreditCards = createAsyncThunk("crditcard/get", async () => {
   return await apiCreditCardService.getCreditCard();
@@ -37,29 +38,33 @@ const creditCardSlice = createSlice({
   name: "credit-card",
   initialState: initialState,
   reducers: {
-    
+    setCreditCardSelected: (state, action: PayloadAction<CreditCard>) => {
+      state.creditCardSelected = { ...action.payload };
+    },
+    resetCreditCardSelected: (state) => {
+      state.creditCardSelected = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
       loadCreditCards.fulfilled,
       (state, action: PayloadAction<CreditCard[] | null>) => {
-
-        if(action.payload != null){
+        if (action.payload != null) {
           state.creditCards = action.payload;
         }
-       
       }
     );
     builder.addCase(loadCreditCards.rejected, () => {
       alert("FAIL LOAD CREDIT CARDS");
     });
 
-    
+   
   },
 });
 
-// export const {  } = creditCardSlice.actions;
+export const { setCreditCardSelected,resetCreditCardSelected } = creditCardSlice.actions;
 
-export const creditCardSelector = (store: RootState): CreditCardState => store.creditCard;
+export const creditCardSelector = (store: RootState): CreditCardState =>
+  store.creditCard;
 // export reducer
 export default creditCardSlice.reducer;

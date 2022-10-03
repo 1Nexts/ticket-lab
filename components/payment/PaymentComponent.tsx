@@ -4,7 +4,7 @@ import PaymentAddComponent from "./PaymentAddComponent";
 import PaymentEditComponent from "./PaymentEditComponent";
 import PaymentViewComponent from "./PaymentViewComponent";
 import { useSelector } from "react-redux";
-import { creditCardSelector, loadCreditCards } from "@/store/slices/creditCardSlice";
+import { creditCardSelector, loadCreditCards, resetCreditCardSelected } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
 
 type CardProps = {};
@@ -19,6 +19,7 @@ const PaymentCard = ({}: CardProps) => {
 
   useEffect(() => {
     dispatch(loadCreditCards());
+    dispatch(resetCreditCardSelected());
   }, [dispatch]);
 
 
