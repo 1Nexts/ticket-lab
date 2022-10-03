@@ -14,7 +14,7 @@ const PaymentCard = ({}: CardProps) => {
   const dispatch = useAppDispatch();
 
   // 1=view, 2=add, 3=edit
-  const [mode, setMode] = useState<number>(1)
+  const [mode, setMode] = useState<number>(2)
 
 
   useEffect(() => {

@@ -92,14 +92,14 @@ const creditCardSlice = createSlice({
       addCreditCard.fulfilled,
       (state, action: PayloadAction<CreditCard>) => {
         try {
-          let objCreditCardDataUpdate: CreditCard = action.payload;
 
-          objCreditCardDataUpdate.id = (
-            100100 + state.creditCards.length
-          ).toString();
-          state.creditCards.push(objCreditCardDataUpdate);
+          let objCreditCardUpdate: CreditCard = action.payload;
+          // Build index
+          objCreditCardUpdate.id = (state.creditCards.length + 1).toString();
+          // Add
+          state.creditCards.push(objCreditCardUpdate);
 
-          alert("SUCCESS ADD CREDIT CARDS");
+          // alert("SUCCESS ADD CREDIT CARDS");
         } catch (error) {
           alert("FAIL ADD CREDIT CARDS");
         }
@@ -140,7 +140,8 @@ const creditCardSlice = createSlice({
   },
 });
 
-export const { setCreditCardSelected,resetCreditCardSelected } = creditCardSlice.actions;
+export const { setCreditCardSelected, resetCreditCardSelected } =
+  creditCardSlice.actions;
 
 export const creditCardSelector = (store: RootState): CreditCardState =>
   store.creditCard;

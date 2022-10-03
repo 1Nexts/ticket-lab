@@ -53,7 +53,7 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
               <b>Visa - {objCreditCard.cardNo}</b>
             </h5>
             <h5>
-              {objCreditCard.nameOnCard}| exp. {objCreditCard.exp}
+              {objCreditCard.nameOnCard} | exp. {objCreditCard.exp}
             </h5>
             <div className="d-flex">
               <button
@@ -63,7 +63,7 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
               >
                 <h5 className="text-primary"> Edit</h5>
               </button>
-              &nbsp; |&nbsp;
+              &nbsp; | &nbsp;
               <button
                  className={"btn p-0 "+styles["btn"]}
                 disabled={!isCanClick}

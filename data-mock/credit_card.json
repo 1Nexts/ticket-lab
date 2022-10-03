@@ -1,16 +1,9 @@
 [
     {
         "id": "1",
-        "nameOnCard": "Game Arthit",
+        "nameOnCard": "Game ZIMPLIGITAL",
         "cardNo":"9999",
         "exp":"11/22",
         "country":"1"
-    },
-    {
-        "id": "2",
-        "nameOnCard": "Game ZIMPLIGITAL",
-        "cardNo":"8888",
-        "exp":"33/88",
-        "country":"3"
     }
 ]

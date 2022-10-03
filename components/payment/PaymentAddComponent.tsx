@@ -1,23 +1,43 @@
 import React from "react";
 import styles from "./PaymentAddComponent.module.scss";
 import { useFormik } from "formik";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "@/store/store";
+import {
+  addCreditCard,
+  creditCardSelector,
+} from "@/store/slices/creditCardSlice";
+import { CreditCard } from "@/models/creditCard.model";
 
 type CardProps = {
   setMode: any;
 };
 
 const PaymentAddComponent = ({ setMode }: CardProps) => {
+  const creditCard = useSelector(creditCardSelector);
+  const dispatch = useAppDispatch();
+
   const formik = useFormik({
     initialValues: {
-      nameOnCard: "",
-      cardNumber: "",
-      expCard: "",
+      cardNo: "555",
+      nameOnCard: "AA BB",
+      exp: "55/66",
       securityCode: "",
-      inputContry: 2,
+      country: "2",
     },
     onSubmit: async (values) => {
-      alert(JSON.stringify(values, null, 2));
-     
+      // alert(JSON.stringify(values, null, 2));
+
+      const _objCreditCard: CreditCard = {
+        id: "",
+        cardNo: values.cardNo,
+        nameOnCard: values.nameOnCard,
+        exp: values.exp,
+        country: values.country,
+      };
+
+      const response = await dispatch(addCreditCard(_objCreditCard));
+      if (response.meta.requestStatus === "fulfilled") setMode(1);
     },
   });
 
@@ -62,12 +82,12 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
               />
             </div>
             <input
-              id="cardNumber"
-              name="cardNumber"
+              id="cardNo"
+              name="cardNo"
               type="text"
               className="form-control"
               onChange={formik.handleChange}
-              value={formik.values.cardNumber}
+              value={formik.values.cardNo}
             />
           </div>
         </div>
@@ -75,8 +95,8 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
         <div className="col-5 col-xl-3">
           <label className="form-label">Expiration Date</label>
           <input
-            id="expCard"
-            name="expCard"
+            id="exp"
+            name="exp"
             type="text"
             className="form-control"
             autoComplete="off"
@@ -84,7 +104,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             minLength={5}
             maxLength={5}
             onChange={formik.handleChange}
-            value={formik.values.expCard}
+            value={formik.values.exp}
           />
         </div>
         <div className="col-7 d-xl-none"></div>
@@ -116,11 +136,11 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
         <div className="col-md-12">
           <label className="form-label">Country</label>
           <select
-            id="inputContry"
-            name="inputContry"
+            id="country"
+            name="country"
             className="form-select"
             onChange={formik.handleChange}
-            value={formik.values.inputContry}
+            value={formik.values.country}
           >
             <option value="1">Contry A</option>
             <option value="2">Contry B</option>
