@@ -74,7 +74,16 @@ const creditCardSlice = createSlice({
             }
           }
 
+
+         
+
+
           if (isSuccess) {
+            // Fix delete selected card
+            if(state.creditCardSelected?.id === idRemove)
+            {
+              state.creditCardSelected = null;
+            }
             alert("SUCCESS REMOVE CREDIT CARDS");
           } else {
             alert("FAIL REMOVE CREDIT CARDS");

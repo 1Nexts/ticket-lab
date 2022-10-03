@@ -10,10 +10,9 @@ type CardProps = {
 const PaymentViewComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   useEffect(() => {
-    console.log("PeymentView Refresh");
-    
-  }, [creditCard.creditCardSelected])
-  
+
+  }, [creditCard.creditCardSelected]);
+
   return (
     <div>
       <div className="p-2">
@@ -24,6 +23,7 @@ const PaymentViewComponent = ({ setMode }: CardProps) => {
       {creditCard.creditCards.map((objCreditCard: CreditCard) => (
         <div key={objCreditCard.id}>
           <CreditCardItemComponent
+            setMode={setMode}
             objCreditCard={objCreditCard}
           ></CreditCardItemComponent>
           <hr />

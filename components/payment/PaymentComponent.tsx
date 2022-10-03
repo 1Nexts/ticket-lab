@@ -14,7 +14,7 @@ const PaymentCard = ({}: CardProps) => {
   const dispatch = useAppDispatch();
 
   // 1=view, 2=add, 3=edit
-  const [mode, setMode] = useState<number>(2)
+  const [mode, setMode] = useState<number>(1)
 
 
   useEffect(() => {
@@ -35,7 +35,7 @@ const PaymentCard = ({}: CardProps) => {
         ) : mode === 2 ? (
           <PaymentAddComponent  setMode={setMode}></PaymentAddComponent>
         ) : (
-          <PaymentEditComponent></PaymentEditComponent>
+          <PaymentEditComponent setMode={setMode}></PaymentEditComponent>
         )}
       </div>
     </section>

@@ -11,8 +11,9 @@ import styles from "./CreditCardItemComponent.module.scss";
 
 type CardProps = {
   objCreditCard: CreditCard;
+  setMode: any;
 };
-const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
+const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
@@ -61,8 +62,7 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
                 className={"btn p-0 "+styles["btn"]}
                 disabled={!isCanClick}
                 onClick={() => {
-                  console.log("Edit = ",objCreditCard.id);
-                  
+                  setMode(3);
                 }}
               >
                 <h5 className="text-primary"> Edit</h5>
@@ -72,7 +72,6 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
                  className={"btn p-0 "+styles["btn"]}
                 disabled={!isCanClick}
                 onClick={() => {
-                  console.log("Delete = ",objCreditCard.id);
                   dispatch(deleteCreditCard(objCreditCard.id));
                 }}
               >
