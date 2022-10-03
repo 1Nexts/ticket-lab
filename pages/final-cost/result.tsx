@@ -40,14 +40,18 @@ const FinalCostResult = ({}: CardProps) => {
       <div id="wrapper">
         <section id={styles["final-cost"]}>
           <div className="block">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
+            <br />
             <div className={"row m-0 " + styles["block-content"]}>
-              <div className={"col-3 p-0 "}></div>
+              <div className={"col-1 col-md-3 p-0"}></div>
 
-              <div className={"col-6 p-0 " + styles["block-content-right"]}>
+              <div
+                className={
+                  "col-10 col-md-6 p-0 " + styles["block-content-right"]
+                }
+              >
                 <section id={styles["cost-total"]}>
                   <div className={styles["block-total"]}>
                     {/* Total */}
@@ -145,13 +149,13 @@ const FinalCostResult = ({}: CardProps) => {
                         router.push(`/concert-list/ed-sheeran`);
                       }}
                     >
-                      Thank you
+                      Thank you for test
                     </button>
                   </div>
                 </section>
               </div>
 
-              <div className={"col-3 p-0 "}></div>
+              <div className={"col-1 col-md-3 p-0 "}></div>
             </div>
           </div>
         </section>
