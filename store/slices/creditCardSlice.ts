@@ -62,6 +62,7 @@ const creditCardSlice = createSlice({
       deleteCreditCard.fulfilled,
       (state, action: PayloadAction<string>) => {
         try {
+
           const idRemove: string = action.payload;
           let isSuccess: boolean = false;
           let objCreditCardData: CreditCard;
@@ -73,10 +74,6 @@ const creditCardSlice = createSlice({
               break;
             }
           }
-
-
-         
-
 
           if (isSuccess) {
             // Fix delete selected card
@@ -123,6 +120,8 @@ const creditCardSlice = createSlice({
       (state, action: PayloadAction<CreditCard>) => {
         try {
           let objCreditCardDataUpdate: CreditCard = action.payload;
+
+          console.log("edit objCreditCardDataUpdate= ",objCreditCardDataUpdate);
           let isSuccess: boolean = false;
           for (var i = 0; i < state.creditCards.length; i++) {
             if (state.creditCards[i].id === objCreditCardDataUpdate.id) {
@@ -131,9 +130,10 @@ const creditCardSlice = createSlice({
               break;
             }
           }
-
+          
           if (isSuccess) {
-            // noteSlice.caseReducers.refreshCreditCardFilterByNewCreditCards(state);
+            // creditCardSlice.caseReducers.setCreditCardSelected(state,objCreditCardDataUpdate);
+            state.creditCardSelected = {...objCreditCardDataUpdate};
             alert("SUCCESS EDIT CREDIT CARDS");
           } else {
             alert("FAIL EDIT CREDIT CARDS");

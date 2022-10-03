@@ -88,7 +88,7 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
             <div className={"input-group " + styles["search-group"]}>
               <input
                 type="password"
-                name="password-card"
+                name="password"
                 maxLength={3}
                 disabled={!isCanClick}
                 value={password}
