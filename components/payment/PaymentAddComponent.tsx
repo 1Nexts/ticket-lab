@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./PaymentAddComponent.module.scss";
 
-type CardProps = {};
-const PaymentAddComponent = ({}: CardProps) => {
+type CardProps = {
+  setMode: any;
+};
+const PaymentAddComponent = ({ setMode }: CardProps) => {
   return (
     <section id={styles["payment-add"]}>
       {/* Card Type Support */}
@@ -86,7 +88,13 @@ const PaymentAddComponent = ({}: CardProps) => {
         </div>
 
         <div className="col-12 d-flex justify-content-end">
-          <button type="submit" className="btn text-success">
+          <button
+            type="button"
+            className="btn text-success"
+            onClick={() => {
+              setMode(1);
+            }}
+          >
             Cancel
           </button>
 

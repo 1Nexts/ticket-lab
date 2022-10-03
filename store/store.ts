@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { useDispatch } from "react-redux";
 import concertStageSlice from "./slices/concertStageSlice";
+import creditCardSlice from "./slices/creditCardSlice";
 
 const reducer = {
-  concertStageSlice:concertStageSlice
+  concertStageSlice:concertStageSlice,
+  creditCard:creditCardSlice
 };
 
 export const store = configureStore({

@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./PaymentComponent.module.scss";
 import PaymentAddComponent from "./PaymentAddComponent";
 import PaymentEditComponent from "./PaymentEditComponent";
 import PaymentViewComponent from "./PaymentViewComponent";
+import { useSelector } from "react-redux";
+import { creditCardSelector, loadCreditCards } from "@/store/slices/creditCardSlice";
+import { useAppDispatch } from "@/store/store";
 
 type CardProps = {};
 const PaymentCard = ({}: CardProps) => {
-  let mode = 1; // 1=view, 2=add, 3=edit
+
+  const creditCard = useSelector(creditCardSelector);
+  const dispatch = useAppDispatch();
+
+
+  const [mode, setMode] = useState<number>(1)
+
+
+  useEffect(() => {
+    dispatch(loadCreditCards());
+  }, [dispatch]);
+
 
   return (
     <section id={styles["payment"]}>
@@ -16,9 +30,9 @@ const PaymentCard = ({}: CardProps) => {
         </h4>
         <br />
         {mode === 1 ? (
-          <PaymentViewComponent></PaymentViewComponent>
+          <PaymentViewComponent setMode={setMode}></PaymentViewComponent>
         ) : mode === 2 ? (
-          <PaymentAddComponent></PaymentAddComponent>
+          <PaymentAddComponent  setMode={setMode}></PaymentAddComponent>
         ) : (
           <PaymentEditComponent></PaymentEditComponent>
         )}

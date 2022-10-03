@@ -1,20 +1,36 @@
+import { CreditCard } from "@/models/creditCard.model";
+import { creditCardSelector } from "@/store/slices/creditCardSlice";
 import React from "react";
+import { useSelector } from "react-redux";
 import CreditCardItemComponent from "./items/CreditCardItemComponent";
 
-type CardProps = {};
-const PaymentViewComponent = ({}: CardProps) => {
+type CardProps = {
+  setMode: any;
+};
+const PaymentViewComponent = ({ setMode }: CardProps) => {
+  const creditCard = useSelector(creditCardSelector);
+
   return (
     <div>
       <div className="p-2">
         <h5>Use Credit / Debit Card</h5>
       </div>
       <br />
-      <CreditCardItemComponent key={1}></CreditCardItemComponent>
-      <CreditCardItemComponent key={2}></CreditCardItemComponent>
+
+      {creditCard.creditCards.map((objCreditCard: CreditCard) => (
+        <div key={objCreditCard.id}>
+          <CreditCardItemComponent
+            objCreditCard={objCreditCard}
+          ></CreditCardItemComponent>
+          <hr />
+        </div>
+      ))}
+
       <br />
+      {/* Click Add New Card */}
       <div
         onClick={() => {
-          console.log("Click Add New Card");
+          setMode(2);
         }}
       >
         <span>

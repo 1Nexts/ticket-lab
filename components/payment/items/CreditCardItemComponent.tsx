@@ -1,8 +1,11 @@
+import { CreditCard } from "@/models/creditCard.model";
 import React from "react";
 import styles from "./CreditCardItemComponent.module.scss";
 
-type CardProps = {};
-const CreditCardItemComponent = ({}: CardProps) => {
+type CardProps = {
+  objCreditCard: CreditCard;
+};
+const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
       <div className={styles["ticket-Item"]}>
@@ -19,9 +22,11 @@ const CreditCardItemComponent = ({}: CardProps) => {
 
           <div className={"col-8 p-0 m-0 " + styles["col-visa-detail"]}>
             <h5>
-              <b>Visa - 9999</b>
+              <b>Visa - {objCreditCard.cardNo}</b>
             </h5>
-            <h5>User Name | exp. 00/11</h5>
+            <h5>
+              {objCreditCard.nameOnCard}| exp. {objCreditCard.exp}
+            </h5>
             <h5>Edit | Delete</h5>
           </div>
         </div>
