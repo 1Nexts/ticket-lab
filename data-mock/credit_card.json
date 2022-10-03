@@ -5,11 +5,5 @@
         "cardNo":"9999",
         "exp":"11/22",
         "country":"1"
-    },{
-        "id": "2",
-        "nameOnCard": "Game ZIMPLIGITAL",
-        "cardNo":"9999",
-        "exp":"11/22",
-        "country":"1"
     }
 ]
