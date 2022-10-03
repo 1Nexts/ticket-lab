@@ -1,6 +1,6 @@
 import { CreditCard } from "@/models/creditCard.model";
 import { creditCardSelector } from "@/store/slices/creditCardSlice";
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import CreditCardItemComponent from "./items/CreditCardItemComponent";
 
@@ -9,7 +9,11 @@ type CardProps = {
 };
 const PaymentViewComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
-
+  useEffect(() => {
+    console.log("PeymentView Refresh");
+    
+  }, [creditCard.creditCardSelected])
+  
   return (
     <div>
       <div className="p-2">

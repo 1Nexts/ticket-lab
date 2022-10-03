@@ -58,7 +58,85 @@ const creditCardSlice = createSlice({
       alert("FAIL LOAD CREDIT CARDS");
     });
 
-   
+    builder.addCase(
+      deleteCreditCard.fulfilled,
+      (state, action: PayloadAction<string>) => {
+        try {
+          const idRemove: string = action.payload;
+          let isSuccess: boolean = false;
+          let objCreditCardData: CreditCard;
+          for (var i = 0; i < state.creditCards.length; i++) {
+            objCreditCardData = state.creditCards[i];
+            if (objCreditCardData.id == idRemove) {
+              state.creditCards.splice(i, 1);
+              isSuccess = true;
+              break;
+            }
+          }
+
+          if (isSuccess) {
+            alert("SUCCESS REMOVE CREDIT CARDS");
+          } else {
+            alert("FAIL REMOVE CREDIT CARDS");
+          }
+        } catch (error) {
+          alert("FAIL REMOVE CREDIT CARDS");
+        }
+      }
+    );
+    builder.addCase(deleteCreditCard.rejected, () => {
+      alert("FAIL REMOVE CREDIT CARDS");
+    });
+
+    builder.addCase(
+      addCreditCard.fulfilled,
+      (state, action: PayloadAction<CreditCard>) => {
+        try {
+          let objCreditCardDataUpdate: CreditCard = action.payload;
+
+          objCreditCardDataUpdate.id = (
+            100100 + state.creditCards.length
+          ).toString();
+          state.creditCards.push(objCreditCardDataUpdate);
+
+          alert("SUCCESS ADD CREDIT CARDS");
+        } catch (error) {
+          alert("FAIL ADD CREDIT CARDS");
+        }
+      }
+    );
+    builder.addCase(addCreditCard.rejected, () => {
+      alert("FAIL ADD CREDIT CARDS");
+    });
+
+    builder.addCase(
+      editCreditCard.fulfilled,
+      (state, action: PayloadAction<CreditCard>) => {
+        try {
+          let objCreditCardDataUpdate: CreditCard = action.payload;
+          let isSuccess: boolean = false;
+          for (var i = 0; i < state.creditCards.length; i++) {
+            if (state.creditCards[i].id === objCreditCardDataUpdate.id) {
+              state.creditCards[i] = objCreditCardDataUpdate;
+              isSuccess = true;
+              break;
+            }
+          }
+
+          if (isSuccess) {
+            // noteSlice.caseReducers.refreshCreditCardFilterByNewCreditCards(state);
+            alert("SUCCESS EDIT CREDIT CARDS");
+          } else {
+            alert("FAIL EDIT CREDIT CARDS");
+          }
+        } catch (error) {
+          alert("FAIL EDIT CREDIT CARDS");
+        }
+      }
+    );
+    builder.addCase(editCreditCard.rejected, (state, action) => {
+      alert("FAIL EDIT CREDIT CARDS");
+    });
   },
 });
 

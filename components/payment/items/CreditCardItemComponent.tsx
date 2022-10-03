@@ -1,14 +1,37 @@
 import { CreditCard } from "@/models/creditCard.model";
-import { setCreditCardSelected } from "@/store/slices/creditCardSlice";
+import {
+  creditCardSelector,
+  setCreditCardSelected,
+} from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import styles from "./CreditCardItemComponent.module.scss";
 
 type CardProps = {
   objCreditCard: CreditCard;
 };
 const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
+  const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
+
+  const [isCanClick, setIsCanClick] = useState(false);
+  let [password, setPassword] = useState("");
+
+  useEffect(() => {
+    console.log("useEffect CreditCard ", objCreditCard.id);
+
+    if (
+      creditCard.creditCardSelected != null &&
+      creditCard.creditCardSelected.id === objCreditCard.id
+    )
+      setIsCanClick(true);
+    else setIsCanClick(false);
+
+    setPassword("");
+   
+  }, [creditCard.creditCardSelected]);
+
 
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
@@ -43,7 +66,16 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
           <div className={"col-12 p-0 m-0 " + styles["col-input-code"]}>
             <h5>Security Code</h5>
             <div className={"input-group " + styles["search-group"]}>
-              <input type="password" name="pass" maxLength={3} />
+              <input
+                type="password"
+                name="password-card"
+                maxLength={3}
+                disabled={!isCanClick}
+                value={password}
+                onChange={(event: React.ChangeEvent<any>) => {
+                  setPassword(event.target.value);
+                }}
+              />
               <div>
                 <img
                   src="/static/credit-cards/threeDigits.svg"
