@@ -31,17 +31,11 @@ const HeaderMenu = ({}: CardProps) => {
               </Link>
             </li> */}
 
-            <li className="nav-item">
-                <a className="nav-link py-2 px-3">Sports</a>
-            </li>
 
             <li className="nav-item">
                 <a className="nav-link py-2 px-3">Art & Theater</a>
             </li>
 
-            <li className="nav-item">
-                <a className="nav-link py-2 px-3">More</a>
-            </li>
           </ul>
         </div>
       </div>

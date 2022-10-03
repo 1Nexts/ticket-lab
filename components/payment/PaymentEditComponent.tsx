@@ -83,7 +83,7 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
   }
 
   return (
-    <section id={styles["payment-add"]}>
+    <section id={styles["payment-edit"]}>
       {/* Card Type Support */}
       <div>
         <img src="/static/credit-cards/visa.png" width={64} className="px-2" />
@@ -197,7 +197,6 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
           </button>
         </div>
       </form>
-      <br /> <br /> <br /> <br /> <br /> <br />
       <form></form>
     </section>
   );

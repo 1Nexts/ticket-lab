@@ -1,4 +1,4 @@
-#payment-add {
+#payment-edit {
     
    .img3digit{
         width: 48px;
@@ -8,7 +8,7 @@
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-    #payment-add .img3digit{
+    #payment-edit .img3digit{
         width:32px;
    }
 }

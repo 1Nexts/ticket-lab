@@ -233,7 +233,6 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
           </button>
         </div>
       </form>
-      <br /> <br /> <br /> <br /> <br /> <br />
       <form></form>
     </section>
   );
