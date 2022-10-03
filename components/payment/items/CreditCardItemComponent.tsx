@@ -29,9 +29,7 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
     else setIsCanClick(false);
 
     setPassword("");
-   
   }, [creditCard.creditCardSelected]);
-
 
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
@@ -57,7 +55,23 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
             <h5>
               {objCreditCard.nameOnCard}| exp. {objCreditCard.exp}
             </h5>
-            <h5>Edit | Delete</h5>
+            <div className="d-flex">
+              <button
+                className={"btn p-0 "+styles["btn"]}
+                disabled={!isCanClick}
+                onClick={() => {}}
+              >
+                <h5 className="text-primary"> Edit</h5>
+              </button>
+              &nbsp; |&nbsp;
+              <button
+                 className={"btn p-0 "+styles["btn"]}
+                disabled={!isCanClick}
+                onClick={() => {}}
+              >
+                <h5 className="text-primary">Delete</h5>
+              </button>
+            </div>
           </div>
         </div>
 

@@ -35,7 +35,14 @@
     text-align: left;
 }
 
-
+.btn {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+  }
 
 // Large devices (desktops, less than 1200px)
 @media (max-width: 1279px) {}

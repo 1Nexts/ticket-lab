@@ -13,7 +13,7 @@ const PaymentCard = ({}: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
-
+  // 1=view, 2=add, 3=edit
   const [mode, setMode] = useState<number>(1)
 
 
