@@ -1,7 +1,7 @@
 import { filterConcertStage } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
-import React, { useEffect, useState } from "react";
-import styles from "./stageFilter.module.scss";
+import React, { useState } from "react";
+import styles from "./StageFilterComponent.module.scss";
 
 type CardProps = {};
 const StageFilterComponent = ({}: CardProps) => {
@@ -9,13 +9,8 @@ const StageFilterComponent = ({}: CardProps) => {
   const [ticketAmountSelected, setTicketAmountSelected] = useState(2);
   const [isLowPrice, setIsLowPrice] = useState(true);
 
-  useEffect(() => {}, []);
-
   return (
     <section id={styles["stage-list-filter"]}>
-      {/* <select className={styles["select-ticket"]} aria-label="Quantity">
-  
-      </select> */}
       <select
         className={"form-select " + styles["select-ticket"]}
         defaultValue={ticketAmountSelected}
@@ -51,8 +46,6 @@ const StageFilterComponent = ({}: CardProps) => {
               type="button"
               className="btn"
               onClick={() => {
-                console.log("Onclick Low Price");
-
                 setIsLowPrice(true);
                 dispatch(
                   filterConcertStage({
@@ -71,8 +64,6 @@ const StageFilterComponent = ({}: CardProps) => {
               type="button"
               className="btn"
               onClick={() => {
-                console.log("Onclick Best Seats");
-
                 setIsLowPrice(false);
                 dispatch(
                   filterConcertStage({

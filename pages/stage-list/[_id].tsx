@@ -1,22 +1,19 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import StageFilterComponent from "@/components/stage-list/StageFilter";
-import SectionListComponent from "@/components/stage-list/SectionListComponent";
+import StageFilterComponent from "@/components/stage-list/stage-filter/StageFilterComponent";
+import SectionListComponent from "@/components/stage-list/section-list/SectionListComponent";
 import StageExAComponent from "@/components/stage-template/StageExA";
-import { GetServerSideProps } from "next";
-import router, { useRouter } from "next/router";
-import React, { useCallback, useEffect } from "react";
+import { useRouter } from "next/router";
+import React, {  useEffect } from "react";
 import styles from "../../styles/stage-list/index.module.scss";
-import { Concert, ConcertItem } from "@/models/concert.model";
-import { ConcertStageData } from "@/models/concertStageData.model";
 
-import { store, useAppDispatch } from "@/store/store";
+import { useAppDispatch } from "@/store/store";
 import { useSelector } from "react-redux";
 import {
   ConcertStageSelector,
   getConcertStageList,
   resetSelectionSelected,
 } from "@/store/slices/concertStageSlice";
-import SubTotalComponent from "@/components/stage-list/SubTotal";
+import SubTotalComponent from "@/components/stage-list/sub-total/SubTotalComponent";
 
 export default function ConcertList() {
   const concertStage = useSelector(ConcertStageSelector);
@@ -26,8 +23,6 @@ export default function ConcertList() {
   const { _id } = router.query;
   
   useEffect(() => {
-    console.log("Start useEffect ");
-
     if (_id !== undefined) {
       dispatch(getConcertStageList(_id + ""));
       dispatch(resetSelectionSelected());

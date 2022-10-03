@@ -9,6 +9,7 @@ type CardProps = {
 };
 const SectionItemComponent = ({ objSection }: CardProps) => {
   const dispatch = useAppDispatch();
+  
   return (
     <div
       className={"col-12 p-0 " + styles["blockItemSelect"]}

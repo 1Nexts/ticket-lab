@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./SectionListComponent.module.scss";
 import SectionItemComponent from "./items/SectionItemComponent";
 
-import { useAppDispatch } from "@/store/store";
 import { useSelector } from "react-redux";
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
 import { Section } from "@/models/concertStageData.model";
@@ -10,13 +9,6 @@ import { Section } from "@/models/concertStageData.model";
 type CardProps = {};
 const SectionListComponent = ({}: CardProps) => {
   const concertStage = useSelector(ConcertStageSelector);
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-
-  
-  }, []);
-
   
   return (
     <section id={styles["stage-list-select"]}>

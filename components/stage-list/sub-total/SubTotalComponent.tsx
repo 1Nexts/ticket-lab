@@ -8,7 +8,7 @@ import { useAppDispatch } from "@/store/store";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styles from "./subTotal.module.scss";
+import styles from "./SubTotalComponent.module.scss";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
 
 type CardProps = {};
