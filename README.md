@@ -4,7 +4,7 @@
 - 1 การวางโครงสร้างแบบแยกชิ้นส่วน เพื่อแก้ไข ต่อยอด, MVC Design pattern
 - 2 การ Manage state ด้วย Redux
 - 3 เป็น Off line mock data, บันทึกข้อมูลลง localstorage
-- 4 จะเน้นไปที่ logic ไม่ได้ลงรายละเอียด UI
+- 4 จะเน้นไปที่ logic ไม่ได้ลงรายละเอียด UI(ไม่ได้ใช้ react-bootstrap)
 
 # Page
 1 Page concert-list (แสดงรายการคอนเสิร์ตให้เลือก)
@@ -17,7 +17,7 @@
 
 3 Page final-cost (สรุปค่าใช้จ่าย, เลือก/เพิ่ม/ลบ ข้อมูลบัตรเครดิต)
 - จัดการ Form ด้วย Libary Formik
-- CRUD credit card data ด้วย local storage
+- CRUD credit card data ด้วย REDUX + Service mock
 
 
 # How to install and run
