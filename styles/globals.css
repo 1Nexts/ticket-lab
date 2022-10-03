@@ -14,12 +14,11 @@ body {
 }
 /* Large devices (desktops, less than 1200px) */
 @media (max-width: 1279px) {
-    .block {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+  .block {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
-
 
 * {
   margin: 0;
@@ -40,8 +39,6 @@ div {
     background: black;
   }
 }
-
-
 
 #wrapper {
   position: relative;
@@ -100,8 +97,6 @@ h6 {
   line-height: 1.1rem;
 }
 
-
-
 /* .xl-button {
   background-color: #016bff;
   color: black;
@@ -125,11 +120,14 @@ h6 {
   border: none;
 } */
 
-
 .text-left {
   text-align: left;
 }
 
 .text-right {
   text-align: right;
+}
+
+.error {
+  color: #aa162b;
 }

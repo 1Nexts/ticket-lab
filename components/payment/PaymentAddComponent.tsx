@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./PaymentAddComponent.module.scss";
 import { useFormik } from "formik";
 import { useSelector } from "react-redux";
@@ -8,6 +8,7 @@ import {
   creditCardSelector,
 } from "@/store/slices/creditCardSlice";
 import { CreditCard } from "@/models/creditCard.model";
+import { LooseObject } from "@/models/dictionary.model";
 
 type CardProps = {
   setMode: any;
@@ -17,16 +18,51 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
+  useEffect(() => {
+    
+  }, [])
+  
   const formik = useFormik({
     initialValues: {
-      cardNo: "555",
-      nameOnCard: "AA BB",
-      exp: "55/66",
+      cardNo: "",
+      nameOnCard: "",
+      exp: "",
       securityCode: "",
-      country: "2",
+      country: "",
+    },
+    validate: (values) => {
+      let errors:LooseObject = { };
+
+      if (
+        !values.nameOnCard ||
+        values.nameOnCard.match(/[^A-Za-z ]/g) != null
+      ) {
+        errors.nameOnCard = "Please enter your first name last name.";
+      }
+
+      if (!values.cardNo || values.cardNo.length < 4) {
+        errors.cardNo = "Please check your credit card number and try again.";
+      }
+
+      if (!values.exp || values.exp.length != 5) {
+        errors.exp =
+          "The expiration date you entered is invalid Please check and reenter the correct date.";
+      }
+
+      if (!values.securityCode || values.securityCode.length != 3) {
+        errors.securityCode = "Please check your card  security code.";
+      }
+
+      if (values.country == "") {
+        errors.country = "Please choose your contry.";
+      }
+      
+      console.log(formik.errors);
+      console.log(formik.isValid);
+      
+      return errors;
     },
     onSubmit: async (values) => {
-      // alert(JSON.stringify(values, null, 2));
 
       const _objCreditCard: CreditCard = {
         id: "",
@@ -39,7 +75,25 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
       const response = await dispatch(addCreditCard(_objCreditCard));
       if (response.meta.requestStatus === "fulfilled") setMode(1);
     },
+   
   });
+
+  // TODO Edit to adanve format (Current v.basic)
+  function formatExp(expDate: string) {
+    expDate = expDate.replace(/[^0-9]/g, "").replace(
+      /^([4-9])$/g,
+      "0$1" // To handle 3 > 03
+    );
+
+    // add /
+    if (expDate.length > 2) {
+      const day = expDate.substring(0, 2);
+      const month = expDate.substring(2, expDate.length);
+      expDate = day + "/" + month;
+    }
+
+    return expDate;
+  }
 
   return (
     <section id={styles["payment-add"]}>
@@ -69,6 +123,9 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formik.values.nameOnCard}
           />
+          {formik.errors.nameOnCard && (
+            <div className="error">{formik.errors.nameOnCard} </div>
+          )}
         </div>
 
         <div className="col-12">
@@ -90,6 +147,10 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
               value={formik.values.cardNo}
             />
           </div>
+
+          {formik.errors.cardNo && (
+            <div className="error">{formik.errors.cardNo} </div>
+          )}
         </div>
 
         <div className="col-5 col-xl-3">
@@ -104,8 +165,11 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             minLength={5}
             maxLength={5}
             onChange={formik.handleChange}
-            value={formik.values.exp}
+            value={formatExp(formik.values.exp)}
           />
+           {formik.errors.exp && (
+            <div className="error">{formik.errors.exp} </div>
+          )}
         </div>
         <div className="col-7 d-xl-none"></div>
 
@@ -121,6 +185,9 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formik.values.securityCode}
           />
+           {formik.errors.securityCode && (
+            <div className="error">{formik.errors.securityCode} </div>
+          )}
         </div>
         <div className="col-7 col-xl-6 pt-2">
           <label className="form-label">
@@ -142,11 +209,15 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formik.values.country}
           >
+            <option value="">Choose your contry</option>
             <option value="1">Contry A</option>
             <option value="2">Contry B</option>
             <option value="3">Contry C</option>
             <option value="4">Contry D</option>
           </select>
+          {formik.errors.country && (
+            <div className="error">{formik.errors.country} </div>
+          )}
         </div>
 
         <div className="col-12 d-flex justify-content-end">
@@ -160,7 +231,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             Cancel
           </button>
 
-          <button type="submit" className="btn btn-success">
+          <button type="submit" className="btn btn-success" disabled={!formik.isValid}>
             Add New Card
           </button>
         </div>
