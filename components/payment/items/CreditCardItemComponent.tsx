@@ -13,7 +13,7 @@ type CardProps = {
   objCreditCard: CreditCard;
   setMode: any;
 };
-const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
+const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
@@ -21,8 +21,7 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
   let [password, setPassword] = useState("");
 
   useEffect(() => {
-    console.log("useEffect CreditCard ", objCreditCard.id);
-
+    // console.log("useEffect CreditCard ", objCreditCard.id);
     if (
       creditCard.creditCardSelected != null &&
       creditCard.creditCardSelected.id === objCreditCard.id
@@ -30,8 +29,9 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
       setIsCanClick(true);
     else setIsCanClick(false);
 
+ 
     setPassword("");
-  }, [creditCard.creditCardSelected]);
+  }, [creditCard.creditCardSelected, setIsCanClick]);
 
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
@@ -43,6 +43,12 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
               type="radio"
               name="flexRadioDefault"
               id="flexRadioDefault1"
+              defaultChecked={
+                creditCard.creditCardSelected != null &&
+                creditCard.creditCardSelected.id === objCreditCard.id
+                  ? true
+                  : false
+              }
               onClick={() => {
                 dispatch(setCreditCardSelected(objCreditCard));
               }}
@@ -59,7 +65,7 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
             </h5>
             <div className="d-flex">
               <button
-                className={"btn p-0 "+styles["btn"]}
+                className={"btn p-0 " + styles["btn"]}
                 disabled={!isCanClick}
                 onClick={() => {
                   setMode(3);
@@ -69,7 +75,7 @@ const CreditCardItemComponent = ({ objCreditCard,setMode }: CardProps) => {
               </button>
               &nbsp; | &nbsp;
               <button
-                 className={"btn p-0 "+styles["btn"]}
+                className={"btn p-0 " + styles["btn"]}
                 disabled={!isCanClick}
                 onClick={() => {
                   dispatch(deleteCreditCard(objCreditCard.id));
