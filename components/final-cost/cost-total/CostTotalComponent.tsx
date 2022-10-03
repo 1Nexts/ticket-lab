@@ -1,4 +1,5 @@
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
+import { creditCardSelector } from "@/store/slices/creditCardSlice";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
@@ -8,7 +9,8 @@ import styles from "./CostTotalComponent.module.scss";
 type CardProps = {};
 const FinalCostTotalComponent = ({}: CardProps) => {
   const concertStage = useSelector(ConcertStageSelector);
-  
+  const creditCard = useSelector(creditCardSelector);
+
   const [objSectionSelected, setObjSectionSelected] = useState({
     key: "",
     sellTicket: 0,
@@ -24,7 +26,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
       setObjSectionSelected({ ...concertStage.sectionSelected });
     }
   }, [concertStage.sectionSelected]);
-  
+
   return (
     <section id={styles["cost-total"]}>
       <div className={styles["block-total"]}>
@@ -37,7 +39,15 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           <div className={"col-1 p-0 "}></div>
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
-            <h4>${((objSectionSelected.price * objSectionSelected.amountBuy) + (objSectionSelected.price * SERVICE_FEE_PERCENT * objSectionSelected.amountBuy)).toFixed(2)}</h4>
+            <h4>
+              $
+              {(
+                objSectionSelected.price * objSectionSelected.amountBuy +
+                objSectionSelected.price *
+                  SERVICE_FEE_PERCENT *
+                  objSectionSelected.amountBuy
+              ).toFixed(2)}
+            </h4>
           </div>
         </div>
         <br />
@@ -47,7 +57,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
-              Resale Tickets: ${objSectionSelected.price.toFixed(2)} x {objSectionSelected.amountBuy}
+              Resale Tickets: ${objSectionSelected.price.toFixed(2)} x{" "}
+              {objSectionSelected.amountBuy}
             </h5>
           </div>
 
@@ -55,7 +66,10 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
-              ${(objSectionSelected.price * objSectionSelected.amountBuy).toFixed(2)}
+              $
+              {(
+                objSectionSelected.price * objSectionSelected.amountBuy
+              ).toFixed(2)}
             </h5>
           </div>
         </div>
@@ -65,7 +79,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
             <h5 className="text-secondary">
-              Service Fee: ${(objSectionSelected.price * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
+              Service Fee: $
+              {(objSectionSelected.price * SERVICE_FEE_PERCENT).toFixed(2)} x{" "}
               {objSectionSelected.amountBuy}
             </h5>
           </div>
@@ -74,7 +89,12 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 
           <div className={"col-3 p-0 " + styles["col-2"]}>
             <h5 className="text-secondary">
-              ${(objSectionSelected.price * SERVICE_FEE_PERCENT * objSectionSelected.amountBuy).toFixed(2)}
+              $
+              {(
+                objSectionSelected.price *
+                SERVICE_FEE_PERCENT *
+                objSectionSelected.amountBuy
+              ).toFixed(2)}
             </h5>
           </div>
         </div>
@@ -94,7 +114,13 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         </div>
 
         <br />
-        <h5 className="text-primary">Cancle order</h5>
+        <div>
+          <button type="button" className="btn p-0" onClick={() => {
+            router.back();
+          }}>
+            <h5 className="text-primary"> Cancle order</h5>
+          </button>
+        </div>
         <br />
         <h5 className="text-black">All Sales Final - No Refunds</h5>
 
@@ -105,6 +131,7 @@ const FinalCostTotalComponent = ({}: CardProps) => {
             value=""
             id="flexCheckChecked"
             defaultChecked
+            disabled={true}
           />
           <label className="form-check-label" htmlFor="flexCheckChecked">
             I Have read and agree to current{" "}
@@ -116,8 +143,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <button
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
+          disabled={creditCard.creditCardSelected === null}
           onClick={() => {
-
             router.push(`/final-cost/result`);
           }}
         >
