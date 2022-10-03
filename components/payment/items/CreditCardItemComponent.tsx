@@ -1,6 +1,7 @@
 import { CreditCard } from "@/models/creditCard.model";
 import {
   creditCardSelector,
+  deleteCreditCard,
   setCreditCardSelected,
 } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
@@ -59,7 +60,10 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
               <button
                 className={"btn p-0 "+styles["btn"]}
                 disabled={!isCanClick}
-                onClick={() => {}}
+                onClick={() => {
+                  console.log("Edit = ",objCreditCard.id);
+                  
+                }}
               >
                 <h5 className="text-primary"> Edit</h5>
               </button>
@@ -67,7 +71,10 @@ const CreditCardItemComponent = ({ objCreditCard }: CardProps) => {
               <button
                  className={"btn p-0 "+styles["btn"]}
                 disabled={!isCanClick}
-                onClick={() => {}}
+                onClick={() => {
+                  console.log("Delete = ",objCreditCard.id);
+                  dispatch(deleteCreditCard(objCreditCard.id));
+                }}
               >
                 <h5 className="text-primary">Delete</h5>
               </button>
