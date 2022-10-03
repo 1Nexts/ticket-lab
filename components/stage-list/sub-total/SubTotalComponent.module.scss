@@ -1,11 +1,11 @@
 #cost-total {
-   
+
     // margin: 1rem;
     // margin-top: 0;
     // margin-left: 0;
 
     .block-total {
-        
+
         background-color: #f6f6f6;
         min-height: 40vh !important;
         padding: 2rem;
@@ -15,6 +15,7 @@
         border-radius: 0.5rem;
     }
 
+
     .header-row {
         background-color: white;
         margin: -2rem !important;
@@ -23,11 +24,14 @@
         padding: 0.5rem;
         padding-bottom: 0;
 
-        hr{
+        border: 0.05rem solid rgb(171, 165, 165);
+
+        hr {
             margin-bottom: 0;
 
             padding: 0;
         }
+
         .col-1 {
             text-align: left;
         }
@@ -48,7 +52,7 @@
     .ticket-amount-row {
         margin-bottom: 0.5rem !important;
         text-align: center;
-        
+
         button {
             text-align: center;
             background-color: #036cdf;
@@ -64,7 +68,7 @@
             }
         }
 
-      
+
     }
 
     .item-row {
@@ -99,6 +103,11 @@
     #cost-total {
         margin: 0;
         margin-bottom: 1rem;
+
+        .header-row {
+            border: 0.05rem solid rgb(171, 165, 165);
+            margin: -1rem !important;
+        }
 
         .block-total {
             padding: 1rem;
