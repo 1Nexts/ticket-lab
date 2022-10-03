@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./creditCardItemComponent.module.scss";
+import styles from "./CreditCardItemComponent.module.scss";
 
 type CardProps = {};
 const CreditCardItemComponent = ({}: CardProps) => {
@@ -32,11 +32,6 @@ const CreditCardItemComponent = ({}: CardProps) => {
             <h5>Security Code</h5>
             <div className={"input-group " + styles["search-group"]}>
               <input type="password" name="pass" maxLength={3} />
-
-              {/* <span className="input-group-text" id="basic-addon1">
-                <img src="/static/check-circle.svg" />
-              </span> */}
-
               <div>
                 <img
                   src="/static/credit-cards/threeDigits.svg"

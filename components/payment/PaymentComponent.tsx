@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./payment.module.scss";
-import PaymentAddComponent from "./PaymentAdd";
-import PaymentEditComponent from "./PaymentEdit";
-import PaymentViewComponent from "./PaymentView";
+import styles from "./PaymentComponent.module.scss";
+import PaymentAddComponent from "./PaymentAddComponent";
+import PaymentEditComponent from "./PaymentEditComponent";
+import PaymentViewComponent from "./PaymentViewComponent";
 
 type CardProps = {};
 const PaymentCard = ({}: CardProps) => {

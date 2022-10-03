@@ -1,7 +1,7 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import StageFilterComponent from "@/components/stage-list/stage-filter/StageFilterComponent";
 import SectionListComponent from "@/components/stage-list/section-list/SectionListComponent";
-import StageExAComponent from "@/components/stage-template/StageExA";
+import StageExAComponent from "@/components/stage-template/stage-exa/StageExAComponent";
 import { useRouter } from "next/router";
 import React, {  useEffect } from "react";
 import styles from "../../styles/stage-list/index.module.scss";

@@ -1,7 +1,7 @@
 import FinalCostTotalComponent from "@/components/final-cost/cost-total/CostTotalComponent";
 import DeliveryComponent from "@/components/final-cost/delivery/DeliveryComponent";
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import PaymentCard from "@/components/payment/Payment";
+import PaymentCard from "@/components/payment/PaymentComponent";
 import { ConcertStageData } from "@/models/concertStageData.model";
 import {
   ConcertStageSelector,

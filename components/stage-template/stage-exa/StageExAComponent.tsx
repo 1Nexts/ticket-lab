@@ -1,7 +1,7 @@
 import { Section } from "@/models/concertStageData.model";
 import { Dictionary } from "@/models/dictionary.model";
 import React, { useEffect } from "react";
-import styles from "./stageExA.module.scss";
+import styles from "./StageExA.module.scss";
 
 type CardProps = {
   dicSections: Dictionary<Section>;
