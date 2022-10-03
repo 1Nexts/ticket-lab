@@ -1,15 +1,13 @@
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
-import { useAppDispatch } from "@/store/store";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styles from "./costTotal.module.scss";
+import styles from "./CostTotalComponent.module.scss";
 
 type CardProps = {};
 const FinalCostTotalComponent = ({}: CardProps) => {
   const concertStage = useSelector(ConcertStageSelector);
-  const dispatch = useAppDispatch();
   
   const [objSectionSelected, setObjSectionSelected] = useState({
     key: "",
@@ -21,18 +19,10 @@ const FinalCostTotalComponent = ({}: CardProps) => {
     amountBuy: 0,
   });
 
-  // let costTotal = 0;
-
   useEffect(() => {
-    console.log("Start useEffect ");
-
     if (concertStage?.sectionSelected != null) {
       setObjSectionSelected({ ...concertStage.sectionSelected });
     }
-
-    return () => {
-      console.log("Return useEffect ");
-    };
   }, [concertStage.sectionSelected]);
   
   return (
@@ -137,9 +127,4 @@ const FinalCostTotalComponent = ({}: CardProps) => {
     </section>
   );
 };
-
 export default FinalCostTotalComponent;
-function setAmountBuy(amountBuy: number) {
-  throw new Error("Function not implemented.");
-}
-

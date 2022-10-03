@@ -6,7 +6,7 @@ import PaymentViewComponent from "./PaymentView";
 
 type CardProps = {};
 const PaymentCard = ({}: CardProps) => {
-  let mode = 2; // 1=view, 2=add, 3=edit
+  let mode = 1; // 1=view, 2=add, 3=edit
 
   return (
     <section id={styles["payment"]}>
