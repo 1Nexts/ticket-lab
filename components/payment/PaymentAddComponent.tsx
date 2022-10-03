@@ -1,10 +1,26 @@
 import React from "react";
 import styles from "./PaymentAddComponent.module.scss";
+import { useFormik } from "formik";
 
 type CardProps = {
   setMode: any;
 };
+
 const PaymentAddComponent = ({ setMode }: CardProps) => {
+  const formik = useFormik({
+    initialValues: {
+      nameOnCard: "",
+      cardNumber: "",
+      expCard: "",
+      securityCode: "",
+      inputContry: 2,
+    },
+    onSubmit: async (values) => {
+      alert(JSON.stringify(values, null, 2));
+     
+    },
+  });
+
   return (
     <section id={styles["payment-add"]}>
       {/* Card Type Support */}
@@ -21,14 +37,21 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
           className="px-2"
         />
       </div>
-
-      <form className="row g-3" autoComplete="off">
+      <br></br>
+      <form className="row g-3" onSubmit={formik.handleSubmit}>
         <div className="col-12">
           <label className="form-label">Name on Card</label>
-          <input type="text" className="form-control" />
+          <input
+            id="nameOnCard"
+            name="nameOnCard"
+            type="text"
+            className="form-control"
+            onChange={formik.handleChange}
+            value={formik.values.nameOnCard}
+          />
         </div>
 
-        <div className="col-sm-12">
+        <div className="col-12">
           <label className="form-label">Card number</label>
           <div className="input-group">
             <div className="input-group-text bg-white">
@@ -38,19 +61,30 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
                 width={42}
               />
             </div>
-            <input type="text" className="form-control" defaultValue={""} />
+            <input
+              id="cardNumber"
+              name="cardNumber"
+              type="text"
+              className="form-control"
+              onChange={formik.handleChange}
+              value={formik.values.cardNumber}
+            />
           </div>
         </div>
 
         <div className="col-5 col-xl-3">
           <label className="form-label">Expiration Date</label>
           <input
+            id="expCard"
+            name="expCard"
             type="text"
             className="form-control"
             autoComplete="off"
             placeholder="DD/YYYY"
             minLength={5}
             maxLength={5}
+            onChange={formik.handleChange}
+            value={formik.values.expCard}
           />
         </div>
         <div className="col-7 d-xl-none"></div>
@@ -58,14 +92,16 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
         <div className="col-5 col-xl-3">
           <label className="form-label">Security Code</label>
           <input
+            id="securityCode"
+            name="securityCode"
             type="password"
             maxLength={3}
             className="form-control"
             autoComplete="off"
-            defaultValue={""}
+            onChange={formik.handleChange}
+            value={formik.values.securityCode}
           />
         </div>
-
         <div className="col-7 col-xl-6 pt-2">
           <label className="form-label">
             <br />
@@ -79,7 +115,13 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
 
         <div className="col-md-12">
           <label className="form-label">Country</label>
-          <select id="inputContry" className="form-select" defaultValue={2}>
+          <select
+            id="inputContry"
+            name="inputContry"
+            className="form-select"
+            onChange={formik.handleChange}
+            value={formik.values.inputContry}
+          >
             <option value="1">Contry A</option>
             <option value="2">Contry B</option>
             <option value="3">Contry C</option>
@@ -103,6 +145,8 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
           </button>
         </div>
       </form>
+      <br /> <br /> <br /> <br /> <br /> <br />
+      <form></form>
     </section>
   );
 };
