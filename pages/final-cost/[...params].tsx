@@ -2,16 +2,13 @@ import FinalCostTotalComponent from "@/components/final-cost/cost-total/CostTota
 import DeliveryComponent from "@/components/final-cost/delivery/DeliveryComponent";
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import PaymentCard from "@/components/payment/PaymentComponent";
-import { ConcertStageData } from "@/models/concertStageData.model";
 import {
   ConcertStageSelector,
   getConcertStageList,
-  buildSectionSelected,
   setSectionSelected,
 } from "@/store/slices/concertStageSlice";
-import { resetCreditCardSelected, resetSecurityCode } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
-import router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import styles from "../../styles/final-cost/index.module.scss";
@@ -46,11 +43,6 @@ export default function FinalCost() {
 
       }
     }
-    return () => {
-      console.log("resetSecurityCode");
-      dispatch(resetSecurityCode());
-      dispatch(resetCreditCardSelected())
-    };
   }, [router]);
 
 
