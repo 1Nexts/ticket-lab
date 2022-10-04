@@ -99,7 +99,7 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
                 maxLength={3}
                 disabled={!isCanClick}
                 value={password}
-                onChange={(event: React.ChangeEvent<any>) => {
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   setPassword(event.target.value);
                   dispatch(setSecurityCode(event.target.value));
                 }}

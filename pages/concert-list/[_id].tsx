@@ -58,7 +58,7 @@ export default function ConcertList({ concertData }: Props) {
                 type="text"
                 className="form-control"
                 placeholder="Search show"
-                onChange={(event: React.ChangeEvent<any>) => {
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                   let search: string = event.target.value;
                   filterConcert(search);
                 }}
