@@ -9,6 +9,7 @@ import {
   buildSectionSelected,
   setSectionSelected,
 } from "@/store/slices/concertStageSlice";
+import { resetCreditCardSelected, resetSecurityCode } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
 import router, { useRouter } from "next/router";
 import React, { useEffect } from "react";
@@ -45,12 +46,14 @@ export default function FinalCost() {
 
       }
     }
-    return () => {};
+    return () => {
+      console.log("resetSecurityCode");
+      dispatch(resetSecurityCode());
+      dispatch(resetCreditCardSelected())
+    };
   }, [router]);
 
-  useEffect(() => {
-    
-  }, [])
+
   
 
   async function loadConcertAndSectionSelectedDataFromAPI(

@@ -49,6 +49,9 @@ const creditCardSlice = createSlice({
     setSecurityCode: (state, action: PayloadAction<string>) => {
       state.securityCode = action.payload;
     },
+    resetSecurityCode: (state) => {
+      state.securityCode = "";
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -154,7 +157,7 @@ const creditCardSlice = createSlice({
   },
 });
 
-export const { setCreditCardSelected, resetCreditCardSelected,setSecurityCode } =
+export const { setCreditCardSelected, resetCreditCardSelected,setSecurityCode,resetSecurityCode } =
   creditCardSlice.actions;
 
 export const creditCardSelector = (store: RootState): CreditCardState =>
