@@ -4,7 +4,7 @@
 - 1 การวางโครงสร้างแบบแยกชิ้นส่วน เพื่อแก้ไข ต่อยอด, MVC Design pattern
 - 2 การ Manage state ด้วย Redux
 - 3 เป็น Offline mock data
-- 4 จะเน้นไปที่ logic ไม่ได้ลงรายละเอียด UI(ไม่ได้ใช้ react-bootstrap)
+- 4 UI ยังไม่ได้เก็บรายละเอียดนะครับ
 
 # How to install and run
 
