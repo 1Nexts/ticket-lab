@@ -18,14 +18,12 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    
-  }, [])
-  
+  useEffect(() => {}, []);
+
   const formik = useFormik({
-    initialValues:{...creditCard.creditCardSelected},
+    initialValues: { ...creditCard.creditCardSelected },
     validate: (values) => {
-      let errors:LooseObject = { };
+      let errors: LooseObject = {};
 
       if (
         !values.nameOnCard ||
@@ -34,8 +32,11 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
         errors.nameOnCard = "Please enter your first name last name.";
       }
 
-      if (!values.cardNo || values.cardNo.length < 4) {
-        errors.cardNo = "Please check your credit card number and try again.";
+      const regexCardNo =
+        /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g;
+      if (!values.cardNo || values.cardNo.match(regexCardNo) === null) {
+        errors.cardNo =
+          "Please check your credit card number and try again.(Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards)";
       }
 
       if (!values.exp || values.exp.length != 5) {
@@ -43,11 +44,10 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
           "The expiration date you entered is invalid Please check and reenter the correct date.";
       }
 
-
       if (values.country == "") {
         errors.country = "Please choose your contry.";
       }
-      
+
       return errors;
     },
     onSubmit: async (values) => {
@@ -62,7 +62,6 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
       const response = await dispatch(editCreditCard(_objCreditCard));
       if (response.meta.requestStatus === "fulfilled") setMode(1);
     },
-   
   });
 
   // TODO Edit to adanve format (Current v.basic)
@@ -130,6 +129,7 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
               name="cardNo"
               type="text"
               className="form-control"
+              placeholder="4111111111111111"
               onChange={formik.handleChange}
               value={formik.values.cardNo}
             />
@@ -154,12 +154,11 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formatExp(formik.values.exp!)}
           />
-           {formik.errors.exp && (
+          {formik.errors.exp && (
             <div className="error">{formik.errors.exp} </div>
           )}
         </div>
         <div className="col-7 d-xl-none"></div>
-
 
         <div className="col-md-12">
           <label className="form-label">Country</label>
@@ -192,7 +191,11 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
             Cancel
           </button>
 
-          <button type="submit" className="btn btn-success" disabled={!formik.isValid}>
+          <button
+            type="submit"
+            className="btn btn-success"
+            disabled={!formik.isValid}
+          >
             Edit Card
           </button>
         </div>

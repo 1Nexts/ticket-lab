@@ -18,10 +18,8 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    
-  }, [])
-  
+  useEffect(() => {}, []);
+
   const formik = useFormik({
     initialValues: {
       cardNo: "",
@@ -31,7 +29,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
       country: "",
     },
     validate: (values) => {
-      let errors:LooseObject = { };
+      let errors: LooseObject = {};
 
       if (
         !values.nameOnCard ||
@@ -40,8 +38,12 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
         errors.nameOnCard = "Please enter your first name last name.";
       }
 
-      if (!values.cardNo || values.cardNo.length < 4) {
-        errors.cardNo = "Please check your credit card number and try again.";
+      // regex that matches Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards:
+      const regexCardNo =
+        /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g;
+      const foundCardNo = values.cardNo.match(regexCardNo);
+      if (!values.cardNo || foundCardNo === null) {
+        errors.cardNo = "Please check your credit card number and try again.(Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards)";
       }
 
       if (!values.exp || values.exp.length != 5) {
@@ -56,11 +58,10 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
       if (values.country == "") {
         errors.country = "Please choose your contry.";
       }
-      
+
       return errors;
     },
     onSubmit: async (values) => {
-
       const _objCreditCard: CreditCard = {
         id: "",
         cardNo: values.cardNo,
@@ -72,7 +73,6 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
       const response = await dispatch(addCreditCard(_objCreditCard));
       if (response.meta.requestStatus === "fulfilled") setMode(1);
     },
-   
   });
 
   // TODO Edit to adanve format (Current v.basic)
@@ -140,6 +140,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
               name="cardNo"
               type="text"
               className="form-control"
+              placeholder="4111111111111111"
               onChange={formik.handleChange}
               value={formik.values.cardNo}
             />
@@ -164,7 +165,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formatExp(formik.values.exp)}
           />
-           {formik.errors.exp && (
+          {formik.errors.exp && (
             <div className="error">{formik.errors.exp} </div>
           )}
         </div>
@@ -182,7 +183,7 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             onChange={formik.handleChange}
             value={formik.values.securityCode}
           />
-           {formik.errors.securityCode && (
+          {formik.errors.securityCode && (
             <div className="error">{formik.errors.securityCode} </div>
           )}
         </div>
@@ -228,7 +229,11 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
             Cancel
           </button>
 
-          <button type="submit" className="btn btn-success" disabled={!formik.isValid}>
+          <button
+            type="submit"
+            className="btn btn-success"
+            disabled={!formik.isValid}
+          >
             Add New Card
           </button>
         </div>
