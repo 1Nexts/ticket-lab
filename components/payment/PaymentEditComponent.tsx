@@ -11,7 +11,7 @@ import { CreditCard } from "@/models/creditCard.model";
 import { LooseObject } from "@/models/dictionary.model";
 
 type CardProps = {
-  setMode: any;
+  setMode: Function;
 };
 
 const PaymentEditComponent = ({ setMode }: CardProps) => {

@@ -12,7 +12,7 @@ import styles from "./CreditCardItemComponent.module.scss";
 
 type CardProps = {
   objCreditCard: CreditCard;
-  setMode: any;
+  setMode: Function;
 };
 const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);

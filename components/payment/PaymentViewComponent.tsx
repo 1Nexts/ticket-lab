@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import CreditCardItemComponent from "./items/CreditCardItemComponent";
 
 type CardProps = {
-  setMode: any;
+  setMode: Function;
 };
 const PaymentViewComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
