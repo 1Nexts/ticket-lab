@@ -35,31 +35,29 @@ const FinalCostTotalComponent = ({}: CardProps) => {
       let formData: FormData = new FormData();
       formData.append("concert_id", concertStage.concertSelected.id);
       formData.append("sec_id", concertStage.sectionSelected?.key!);
-      formData.append(  "amount_ticket", String(concertStage.sectionSelected?.amountBuy) );
+      formData.append(
+        "amount_ticket",
+        String(concertStage.sectionSelected?.amountBuy)
+      );
       formData.append("security_key", creditCard.securityCode);
       // Display the key/value pairs
       // for (const pair of formData.entries()) {
       //   console.log(`${pair[0]}, ${pair[1]}`);
       // }
 
-
       // #### Call api #####
       // const response = await submitPlaceOrder(formData);
       // loading
-      await timeout(3000);
+      // await timeout(3000);
       router.push(`/final-cost/result`);
-
-      
     } catch (error) {
-      alert("Error Place order please try again.")
+      alert("Error Place order please try again.");
     }
   }
+
   return (
     <section id={styles["cost-total"]}>
-
-
       <div className={styles["block-total"]}>
-       
         {/* Total */}
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
@@ -177,17 +175,61 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <button
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
+          data-bs-toggle="modal"
+          data-bs-target="#confirmSubmitModal"
           disabled={
             creditCard.creditCardSelected === null ||
             creditCard.securityCode.length !== 3
           }
-          onClick={async () => onClickSubmit()}
-          // onClick={() => {
-          //   router.push(`/final-cost/result`);
-          // }}
+          // onClick={async () => onClickSubmit()}
         >
           Place Order
         </button>
+      </div>
+
+      <div
+        className="modal fade"
+        id="confirmSubmitModal"
+        aria-hidden="true"
+        aria-labelledby="exampleModalToggleLabel"
+        tabIndex={-1}
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalToggleLabel">
+                Confirm Place Order
+              </h1>
+              <button
+                type="button"
+                className="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              />
+            </div>
+            {/* 
+            <div className="modal-body">
+            Confirm Place Order
+            </div> */}
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                type="button"
+                className="btn btn-success"
+                data-bs-dismiss="modal"
+                onClick={async () => onClickSubmit()}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
