@@ -145,3 +145,9 @@ h6 {
 .error {
   color: #aa162b;
 }
+
+
+
+.btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
+  background-color: teal !important;
+}
