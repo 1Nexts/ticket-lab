@@ -133,6 +133,10 @@ h6 {
   /* background-color: #aa162b; */
   background-color: teal;
 }
+.theme-bg-main2 {
+  /* background-color: #aa162c99; */
+  background-color: rgba(0, 128, 128, 0.746);
+}
 
 .theme-bg-secondary {
   background-color: white;
