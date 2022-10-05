@@ -1,6 +1,7 @@
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
 import { creditCardSelector } from "@/store/slices/creditCardSlice";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
+import { timeout } from "@/utils/utils";
 import router from "next/router";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
@@ -27,9 +28,38 @@ const FinalCostTotalComponent = ({}: CardProps) => {
     }
   }, [concertStage.sectionSelected]);
 
+  async function onClickSubmit() {
+    try {
+      console.log("Submit Place order");
+
+      let formData: FormData = new FormData();
+      formData.append("concert_id", concertStage.concertSelected.id);
+      formData.append("sec_id", concertStage.sectionSelected?.key!);
+      formData.append(  "amount_ticket", String(concertStage.sectionSelected?.amountBuy) );
+      formData.append("security_key", creditCard.securityCode);
+      // Display the key/value pairs
+      // for (const pair of formData.entries()) {
+      //   console.log(`${pair[0]}, ${pair[1]}`);
+      // }
+
+
+      // #### Call api #####
+      // const response = await submitPlaceOrder(formData);
+      // loading
+      await timeout(3000);
+      router.push(`/final-cost/result`);
+
+      
+    } catch (error) {
+      alert("Error Place order please try again.")
+    }
+  }
   return (
     <section id={styles["cost-total"]}>
+
+
       <div className={styles["block-total"]}>
+       
         {/* Total */}
         <div className={"row m-0 " + styles["item-row"]}>
           <div className={"col-8 p-0 " + styles["col-1"]}>
@@ -115,9 +145,13 @@ const FinalCostTotalComponent = ({}: CardProps) => {
 
         <br />
         <div>
-          <button type="button" className="btn p-0" onClick={() => {
-            router.back();
-          }}>
+          <button
+            type="button"
+            className="btn p-0"
+            onClick={() => {
+              router.back();
+            }}
+          >
             <h5 className="text-primary"> Cancle order</h5>
           </button>
         </div>
@@ -143,10 +177,14 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         <button
           type="button"
           className={"btn btn-success " + styles["btn-place-order"]}
-          disabled={creditCard.creditCardSelected === null || creditCard.securityCode.length !== 3}
-          onClick={() => {
-            router.push(`/final-cost/result`);
-          }}
+          disabled={
+            creditCard.creditCardSelected === null ||
+            creditCard.securityCode.length !== 3
+          }
+          onClick={async () => onClickSubmit()}
+          // onClick={() => {
+          //   router.push(`/final-cost/result`);
+          // }}
         >
           Place Order
         </button>
