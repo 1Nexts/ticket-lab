@@ -95,7 +95,8 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
             <h5>Security Code</h5>
             <div className={"input-group " + styles["search-group"]}>
               <input
-                type="password"
+                type={ isCanClick == true ? "password" : "text"}
+                autoComplete="new-password"
                 name="password"
                 maxLength={3}
                 disabled={!isCanClick}
