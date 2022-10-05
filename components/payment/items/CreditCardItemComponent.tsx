@@ -2,6 +2,7 @@ import { CreditCard } from "@/models/creditCard.model";
 import {
   creditCardSelector,
   deleteCreditCard,
+  resetSecurityCode,
   setCreditCardSelected,
   setSecurityCode,
 } from "@/store/slices/creditCardSlice";
@@ -30,7 +31,7 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
     else setIsCanClick(false);
 
     setPassword("");
-    dispatch(setSecurityCode(""));
+    dispatch(resetSecurityCode());
   }, [creditCard.creditCardSelected, setIsCanClick]);
 
   return (
@@ -69,6 +70,7 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
                 disabled={!isCanClick}
                 onClick={() => {
                   setMode(3);
+                  dispatch(resetSecurityCode());
                 }}
               >
                 <h5 className="text-primary"> Edit</h5>

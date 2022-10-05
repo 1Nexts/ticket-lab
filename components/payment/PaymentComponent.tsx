@@ -32,7 +32,8 @@ const PaymentCard = ({}: CardProps) => {
     <section id={styles["payment"]}>
       <div className={styles["block-payment"]}>
         <h4>
-          Payment <img src="/static/check-circle.svg" />
+          Payment 
+          <img src={ creditCard.securityCode.length ===  3 ? '/static/check-circle.svg' : '/static/check-circle-wrong.svg'} className={styles['check-correct']} />
         </h4>
         <br />
         {mode === 1 ? (
