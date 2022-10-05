@@ -9,10 +9,12 @@ import {
 } from "@/store/slices/creditCardSlice";
 import { CreditCard } from "@/models/creditCard.model";
 import { LooseObject } from "@/models/dictionary.model";
+import { RegxCreditCardNo, RegxNameOnCreditCard } from "@/utils/regx";
 
 type CardProps = {
   setMode: Function;
 };
+
 
 const PaymentEditComponent = ({ setMode }: CardProps) => {
   const creditCard = useSelector(creditCardSelector);
@@ -27,14 +29,12 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
 
       if (
         !values.nameOnCard ||
-        values.nameOnCard.match(/[^A-Za-z ]/g) != null
+        values.nameOnCard.match(RegxNameOnCreditCard) === null
       ) {
         errors.nameOnCard = "Please enter your first name last name.";
       }
 
-      const regexCardNo =
-        /^(?:4[0-9]{12}(?:[0-9]{3})?|[25][1-7][0-9]{14}|6(?:011|5[0-9][0-9])[0-9]{12}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|(?:2131|1800|35\d{3})\d{11})$/g;
-      if (!values.cardNo || values.cardNo.match(regexCardNo) === null) {
+      if (!values.cardNo ||  values.cardNo.match(RegxCreditCardNo) === null) {
         errors.cardNo =
           "Please check your credit card number and try again.(Visa, MasterCard, American Express, Diners Club, Discover, and JCB cards)";
       }
