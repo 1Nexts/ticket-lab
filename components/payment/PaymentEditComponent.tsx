@@ -67,7 +67,7 @@ const PaymentEditComponent = ({ setMode }: CardProps) => {
   // TODO Edit to adanve format (Current v.basic)
   function formatExp(expDate: string) {
     expDate = expDate.replace(/[^0-9]/g, "").replace(
-      /^([4-9])$/g,
+      /^([2-9])$/g,
       "0$1" // To handle 3 > 03
     );
 
