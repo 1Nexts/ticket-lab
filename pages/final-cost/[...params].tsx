@@ -26,12 +26,10 @@ export default function FinalCost() {
       const concertId: string = params[0];
       const sectionIdSelected: string = params[1];
       const amountTicket = Number(params[2]);
-      // console.log(concertId,sectionIdSelected,amountTicket);
 
       // Case refresh browser
       if(concertStage.sectionSelected === null){
-        console.log("Load ..........");
-        
+
         loadConcertAndSectionSelectedDataFromAPI(
           concertId,
           sectionIdSelected,
@@ -44,19 +42,13 @@ export default function FinalCost() {
       }
     }
   }, [router]);
-
-
   
-
   async function loadConcertAndSectionSelectedDataFromAPI(
     concertId: string,
     sectionIdSelected: string,
     amountTicket: number
   ) {
     try {
-
-      // submit = concertId, sectionId, amountTicket
-      
       const responseConcertStage = await dispatch(getConcertStageList(concertId));
       if (responseConcertStage.meta.requestStatus === "fulfilled") {
         // let objConcertStageData = responseConcertStage.payload;
@@ -70,6 +62,7 @@ export default function FinalCost() {
       throw error;
     }
   }
+
   return (
     <div>
       <HeaderMenu></HeaderMenu>
@@ -83,7 +76,7 @@ export default function FinalCost() {
                   "col-12 col-md-7 p-0 " + styles["block-content-left"]
                 }
               >
-                <DeliveryComponent></DeliveryComponent>
+                <DeliveryComponent concertSelected={concertStage.concertSelected}></DeliveryComponent>
 
                 <PaymentCard></PaymentCard>
               </div>

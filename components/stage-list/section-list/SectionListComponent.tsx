@@ -4,7 +4,7 @@ import SectionItemComponent from "./items/SectionItemComponent";
 
 import { useSelector } from "react-redux";
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
-import { Section } from "@/models/concertStageData.model";
+import { Section } from "@/models/concertStage.model";
 
 type CardProps = {};
 const SectionListComponent = ({}: CardProps) => {

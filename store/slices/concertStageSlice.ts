@@ -2,17 +2,17 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import { RootState, store } from "../store";
 import router from "next/router";
 import {
-  ConcertStageData,
+  ConcertStageModel as ConcertStageModel,
   Section,
   SectionSelect,
-} from "@/models/concertStageData.model";
+} from "@/models/concertStage.model";
 import { Dictionary } from "@/models/dictionary.model";
 
 // Mock data
 import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.json";
 
 interface ConcertState {
-  objConcertStageData: ConcertStageData;
+  concertSelected: ConcertStageModel;
 
   sectionsFilter: Section[];
   amountTicketFilter: number;
@@ -22,7 +22,7 @@ interface ConcertState {
 }
 
 const initialState: ConcertState = {
-  objConcertStageData: {
+  concertSelected: {
     id: "",
     concertItem: {
       id: "",
@@ -93,7 +93,7 @@ const concertStageSlice = createSlice({
       state.amountTicketFilter = objFilterAction.amountTicket;
 
       // Filter balance ticket
-      state.sectionsFilter = state.objConcertStageData?.sections.filter(
+      state.sectionsFilter = state.concertSelected?.sections.filter(
         (el) => el.balanceTicket >= objFilterAction.amountTicket
       );
 
@@ -137,9 +137,9 @@ const concertStageSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(
       getConcertStageList.fulfilled,
-      (state, action: PayloadAction<ConcertStageData>) => {
+      (state, action: PayloadAction<ConcertStageModel>) => {
         if (action.payload != null) {
-          state.objConcertStageData = action.payload;
+          state.concertSelected = action.payload;
 
           // Default filter
           concertStageSlice.caseReducers.resetFilter(state);

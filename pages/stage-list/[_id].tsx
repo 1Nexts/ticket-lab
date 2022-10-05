@@ -39,14 +39,14 @@ export default function ConcertList() {
             <div className="block">
               {/* Show detail */}
               <div className={styles["show-detail"]}>
-                <h3>{concertStage?.objConcertStageData?.concertItem?.title}</h3>
+                <h3>{concertStage?.concertSelected?.concertItem?.title}</h3>
                 <br />
                 <h4>
-                  {concertStage?.objConcertStageData?.concertItem?.subTitle}
+                  {concertStage?.concertSelected?.concertItem?.subTitle}
                 </h4>
                 <h4>
-                  {concertStage?.objConcertStageData?.concertItem?.date}{" "}
-                  {concertStage?.objConcertStageData?.concertItem?.time}
+                  {concertStage?.concertSelected?.concertItem?.date}{" "}
+                  {concertStage?.concertSelected?.concertItem?.time}
                 </h4>
               </div>
 

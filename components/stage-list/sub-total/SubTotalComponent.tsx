@@ -1,4 +1,4 @@
-import { SectionSelect } from "@/models/concertStageData.model";
+import { SectionSelect } from "@/models/concertStage.model";
 import {
   ConcertStageSelector,
   resetSelectionSelected,
@@ -143,7 +143,7 @@ const SubTotalComponent = ({}: CardProps) => {
                 amountBuy: amountBuy,
               })
             );
-            router.push(`/final-cost/${concertStage.objConcertStageData.id}/${objSectionSelected.key}/${amountBuy}`);
+            router.push(`/final-cost/${concertStage.concertSelected.id}/${objSectionSelected.key}/${amountBuy}`);
           }}
         >
           Next

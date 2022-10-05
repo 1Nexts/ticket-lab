@@ -1,4 +1,4 @@
-import { Section } from "@/models/concertStageData.model";
+import { Section } from "@/models/concertStage.model";
 import { Dictionary } from "@/models/dictionary.model";
 import React, { useEffect } from "react";
 import styles from "./StageExAComponent.module.scss";

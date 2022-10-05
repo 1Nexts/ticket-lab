@@ -1,4 +1,4 @@
-import { Section } from "@/models/concertStageData.model";
+import { Section } from "@/models/concertStage.model";
 import { buildSectionSelected } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
 import React from "react";

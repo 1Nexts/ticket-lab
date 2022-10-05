@@ -1,6 +1,6 @@
 import { ConcertItem } from "./concert.model";
 
-export interface ConcertStageData {
+export interface ConcertStageModel {
   id: string;
   concertItem: ConcertItem;
   sections: Section[];
