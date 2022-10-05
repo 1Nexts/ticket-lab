@@ -63,7 +63,6 @@ export const getConcertStageList = createAsyncThunk(
           : null;
 
       if (objConcertStageData === null) return rejectWithValue(null);
-      // console.log("LOAD objConcertStageData = ", objConcertStageData);
 
       return objConcertStageData;
     } catch (error) {

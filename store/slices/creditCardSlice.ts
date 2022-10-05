@@ -129,7 +129,6 @@ const creditCardSlice = createSlice({
         try {
           let objCreditCardDataUpdate: CreditCard = action.payload;
 
-          console.log("edit objCreditCardDataUpdate= ",objCreditCardDataUpdate);
           let isSuccess: boolean = false;
           for (var i = 0; i < state.creditCards.length; i++) {
             if (state.creditCards[i].id === objCreditCardDataUpdate.id) {

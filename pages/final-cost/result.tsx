@@ -24,15 +24,9 @@ const FinalCostResult = ({}: CardProps) => {
   // let costTotal = 0;
 
   useEffect(() => {
-    console.log("Start useEffect ");
-
     if (concertStage?.sectionSelected != null) {
       setObjSectionSelected({ ...concertStage.sectionSelected });
     }
-
-    return () => {
-      console.log("Return useEffect ");
-    };
   }, [concertStage.sectionSelected]);
 
   return (

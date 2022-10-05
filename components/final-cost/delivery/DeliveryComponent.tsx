@@ -6,9 +6,6 @@ type CardProps = {
   concertSelected: ConcertStageModel;
 };
 const DeliveryComponent = ({ concertSelected }: CardProps) => {
-
-  console.log("DeliveryComponent");
-  console.log("concertSelected = ",concertSelected);
   
   return (
     <section id={styles["delevery"]}>

@@ -8,13 +8,10 @@ type CardProps = {
 };
 const TicketItemComponent = ({ objConcertItem }: CardProps) => {
   const onClickSeeTickets = useCallback(() => {
-  
-    console.log("objConcertItem select = ",objConcertItem);
       router.push(`/stage-list/${objConcertItem.id}`);
   }, []);
 
   useEffect(() => {
-    // console.log("objConcertItem = ", objConcertItem);
   }, [objConcertItem]);
 
   return (

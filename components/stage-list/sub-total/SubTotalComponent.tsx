@@ -28,7 +28,6 @@ const SubTotalComponent = ({}: CardProps) => {
   });
 
   useEffect(() => {
-    console.log("Start useEffect ");
 
     if (concertStage?.sectionSelected != null) {
       setObjSectionSelected({ ...concertStage.sectionSelected });
@@ -36,13 +35,12 @@ const SubTotalComponent = ({}: CardProps) => {
     }
 
     return () => {
-      console.log("Return useEffect ");
       setAmountBuy(2);
     };
   }, []);
 
   useEffect(() => {
-    console.log("Start useEffect 2");
+    
   }, [amountBuy]);
 
   return (

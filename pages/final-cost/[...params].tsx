@@ -21,43 +21,45 @@ export default function FinalCost() {
   const { params } = router.query;
 
   useEffect(() => {
-    console.log("Start useEffect ", params);
     if (params != undefined) {
       const concertId: string = params[0];
       const sectionIdSelected: string = params[1];
       const amountTicket = Number(params[2]);
 
       // Case refresh browser
-      if(concertStage.sectionSelected === null){
-
+      if (concertStage.sectionSelected === null) {
         loadConcertAndSectionSelectedDataFromAPI(
           concertId,
           sectionIdSelected,
           amountTicket
         );
-      }
-      else{
-       localStorage.setItem("SectionSelected",JSON.stringify(concertStage.sectionSelected))
-
+      } else {
+        localStorage.setItem(
+          "SectionSelected",
+          JSON.stringify(concertStage.sectionSelected)
+        );
       }
     }
   }, [router]);
-  
+
   async function loadConcertAndSectionSelectedDataFromAPI(
     concertId: string,
     sectionIdSelected: string,
     amountTicket: number
   ) {
     try {
-      const responseConcertStage = await dispatch(getConcertStageList(concertId));
+      const responseConcertStage = await dispatch(
+        getConcertStageList(concertId)
+      );
       if (responseConcertStage.meta.requestStatus === "fulfilled") {
         // let objConcertStageData = responseConcertStage.payload;
-        
+
         // load section select
-        let objSectionSelected = JSON.parse(localStorage.getItem("SectionSelected") || '{}');
+        let objSectionSelected = JSON.parse(
+          localStorage.getItem("SectionSelected") || "{}"
+        );
         dispatch(setSectionSelected(objSectionSelected));
       }
-
     } catch (error) {
       throw error;
     }
@@ -76,7 +78,9 @@ export default function FinalCost() {
                   "col-12 col-md-7 p-0 " + styles["block-content-left"]
                 }
               >
-                <DeliveryComponent concertSelected={concertStage.concertSelected}></DeliveryComponent>
+                <DeliveryComponent
+                  concertSelected={concertStage.concertSelected}
+                ></DeliveryComponent>
 
                 <PaymentCard></PaymentCard>
               </div>

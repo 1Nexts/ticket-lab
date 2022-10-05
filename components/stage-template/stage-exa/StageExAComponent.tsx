@@ -9,9 +9,6 @@ type CardProps = {
 };
 const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
   useEffect(() => {
-    // console.log("sectionsFilter = ", sectionsFilter);
-
-
     
   }, [dicSections, sectionsFilter]);
 

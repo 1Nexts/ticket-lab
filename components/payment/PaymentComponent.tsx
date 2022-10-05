@@ -22,7 +22,6 @@ const PaymentCard = ({}: CardProps) => {
     dispatch(resetCreditCardSelected());
 
     return () => {
-      console.log("resetSecurityCode");
       dispatch(resetSecurityCode());
       dispatch(resetCreditCardSelected())
     };

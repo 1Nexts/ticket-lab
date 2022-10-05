@@ -22,7 +22,6 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
   let [password, setPassword] = useState("");
 
   useEffect(() => {
-    // console.log("useEffect CreditCard ", objCreditCard.id);
     if (
       creditCard.creditCardSelected != null &&
       creditCard.creditCardSelected.id === objCreditCard.id
