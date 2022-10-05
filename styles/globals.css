@@ -42,13 +42,11 @@ div {
 
 #wrapper {
   position: relative;
-  /* background-color: burlywood; */
   max-width: 1280px !important;
   width: 100%;
   margin: 0 auto;
 }
 .block {
-  /* background-color: rebeccapurple; */
   margin: 1rem 0;
   text-align: center;
 }
@@ -97,29 +95,6 @@ h6 {
   line-height: 1.1rem;
 }
 
-/* .xl-button {
-  background-color: #016bff;
-  color: black;
-  font-size: 2rem;
-  padding: 0.5rem 2rem;
-  border: none;
-  border-radius: 10px;
-}
-.l-button {
-  background-color: #016bff;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  border: none;
-} */
-/* .s-button {
-  background-color: #016bff;
-  color: white;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  border: none;
-} */
-
 .text-left {
   text-align: left;
 }
@@ -130,11 +105,9 @@ h6 {
 
 /* Color */
 .theme-bg-main {
-  /* background-color: #aa162b; */
   background-color: teal;
 }
 .theme-bg-main2 {
-  /* background-color: #aa162c99; */
   background-color: rgba(0, 128, 128, 0.746);
 }
 
