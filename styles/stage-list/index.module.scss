@@ -3,9 +3,6 @@
 
 #stage-list {
     .show-detail {
-        background-color: #aa162bed; //  #aa162b;
-        // margin: 2rem 0;
-        // margin-bottom: 0;
         padding: 2rem;
         text-align: left;
 
@@ -26,20 +23,3 @@
         border: 0.05rem solid rgb(171, 165, 165);
     }
 }
-
-
-
-
-
-// Large devices (desktops, less than 1200px)
-@media (max-width: 1279px) {}
-
-
-// Medium devices (tablets, less than 992px)
-@media (max-width: 991px) {}
-
-// Small devices (landscape phones, less than 768px)
-@media (max-width: 767px) {}
-
-// X-Small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {}

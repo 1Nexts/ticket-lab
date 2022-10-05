@@ -5,7 +5,7 @@ import styles from "./header.module.scss";
 type CardProps = {};
 const HeaderMenu = ({}: CardProps) => {
   return (
-    <section id={styles["wrapper-header"]}>
+    <section id={styles["wrapper-header"]} className="theme-bg-main">
       <div className={styles["header-block"]}>
         <div>
           <ul className="navbar-nav flex-row flex-wrap text-white">

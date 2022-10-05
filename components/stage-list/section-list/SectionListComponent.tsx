@@ -12,7 +12,7 @@ const SectionListComponent = ({}: CardProps) => {
   
   return (
     <section id={styles["stage-list-select"]}>
-       <div className={styles["header"]}>
+       <div className={"theme-bg-main "+styles["header"]}>
         <h3>Select Section</h3>
        </div>
       <div className={styles["block-content"]}>

@@ -38,7 +38,7 @@ export default function ConcertList() {
           <section id={styles["stage-list"]}>
             <div className="block">
               {/* Show detail */}
-              <div className={styles["show-detail"]}>
+              <div className={"theme-bg-main "+styles["show-detail"]}>
                 <h3>{concertStage?.concertSelected?.concertItem?.title}</h3>
                 <br />
                 <h4>

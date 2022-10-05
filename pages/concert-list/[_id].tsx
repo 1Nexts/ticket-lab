@@ -44,7 +44,7 @@ export default function ConcertList({ concertData }: Props) {
         <section id={styles["section-concert-list"]}>
           <div className="block">
             {/* Show detail */}
-            <div className={styles["show-detail"]}>
+            <div className={"theme-bg-main "+styles["show-detail"]}>
               <h3>{concertData?.title}</h3>
               <br />
               <h4>{concertData?.subTitle}</h4>
