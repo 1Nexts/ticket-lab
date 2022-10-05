@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <div>
       <header>
-        <title>Rent Services</title>
+        <title>Ticket Labs</title>
       </header>
 
       <Provider store={store}>
