@@ -1,3 +1,5 @@
+@use '../../../styles//base.scss' as base;
+;
 
 #section-stage {
     margin: 2rem auto;
@@ -31,6 +33,7 @@
         border-width: 1rem;
         border-top-width: 0;
     }
+  
 
     .stage-back {
         padding: 2rem;
@@ -50,6 +53,11 @@
         border-style: solid;
         border-color: white;
     }
+    .stage:hover {
+        background-color: base.$theme-color-main;
+    }
+
+
     .stage-left {
         padding: 1rem;
         margin: 0 !important;
@@ -60,6 +68,11 @@
         border-bottom-width: 1rem;
         border-left-width: 1rem;
     }
+    .stage-left:hover {
+        background-color: base.$theme-color-main;
+    }
+
+
     .stage-right {
         padding: 1rem;
         margin: 0 !important;
@@ -70,18 +83,27 @@
         border-bottom-width: 1rem;
         border-right-width: 1rem;
     }
+    .stage-right:hover {
+        background-color: base.$theme-color-main;
+    }
+
     .stage-middle {
         padding: 1rem;
-
         border-style: solid;
         border-color: white;
         border-bottom-width: 1rem;
+    }
+    .stage-middle:hover {
+        background-color: base.$theme-color-main;
     }
 
 
     .stage-close{
         background-color: #989999;
     }   
+    .stage-close:hover {
+        background-color:  #201f1f;
+    }
 }
 
 
