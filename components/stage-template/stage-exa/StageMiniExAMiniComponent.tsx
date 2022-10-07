@@ -1,24 +1,27 @@
-import { Section } from "@/models/concertStage.model";
+import { Section, SectionSelect } from "@/models/concertStage.model";
 import { Dictionary } from "@/models/dictionary.model";
 import React, { useEffect } from "react";
-import styles from "./StageExAComponent.module.scss";
+import { useSelector } from "react-redux";
+import styles from "./StageMiniExAComponent.module.scss";
+import {
+  ConcertStageSelector,
+} from "@/store/slices/concertStageSlice";
 
-type CardProps = {
-  dicSections: Dictionary<Section>;
-  sectionsFilter: Section[];
-};
-const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
-  useEffect(() => {}, [dicSections, sectionsFilter]);
+const StageMiniExAComponent = () => {
+  const concertStage = useSelector(ConcertStageSelector);
+
 
   function getStyleCustomSectionBySectionId(sectionId: string) {
+
+
+    concertStage
     return (
-      dicSections[sectionId]?.balanceTicket <= 0 ||
-      (dicSections.hasOwnProperty(sectionId) == false &&
-        `${styles["stage-close"]}`)
+      concertStage.sectionSelected == null ||
+      (concertStage.sectionSelected?.key !== sectionId && `${styles["stage-close"]}`)
     );
   }
   return (
-    <section id={styles["section-stage"]}>
+    <section id={styles["section-stage-mini"]}>
       <div className={styles.block}>
         {/* Row 1 */}
         <div className={styles["stage-container"]}>
@@ -106,11 +109,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
           </div>
 
           <div className={"row m-0 justify-content-center"}>
-            <div
-              className={`col-5  ${styles["stage-main"]} `}
-            >
-              Stage
-            </div>
+            <div className={`col-5  ${styles["stage-main"]} `}>Stage</div>
           </div>
         </div>
       </div>
@@ -118,4 +117,5 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
   );
 };
 
-export default StageExAComponent;
+export default StageMiniExAComponent;
+

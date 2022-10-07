@@ -1,8 +1,9 @@
 @use '../../../styles//base.scss' as base;
 ;
 
-#section-stage {
-    margin: 2rem auto;
+#section-stage-mini {
+    padding: 0;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -15,7 +16,7 @@
 
     .block {
         text-align: center;
-        width: 70%;
+        width: 100%;
         padding: 1rem;
     }
     .stage-container {
@@ -27,17 +28,9 @@
         padding: 2%;
         border-style: solid;
     }
-    .stage:hover {
-        background-color: base.$theme-color-main;
-    }
-
     .stage-close {
         background-color: #989999;
     }
-    .stage-close:hover {
-        background-color: #201f1f;
-    }
-
     .stage-left {
         border-width: 0.2rem;
         border-left-width: 1rem;
@@ -47,9 +40,7 @@
         border-width: 0.2rem;
         border-right-width: 1rem;
         border-bottom-right-radius: 3rem;
-
     }
-
     .stage-left-no-border {
         border-bottom-left-radius: 3rem;
     }

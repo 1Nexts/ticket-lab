@@ -1,3 +1,4 @@
+import StageMiniExAComponent from "@/components/stage-template/stage-exa/StageMiniExAMiniComponent";
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
 import { creditCardSelector } from "@/store/slices/creditCardSlice";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
@@ -79,6 +80,11 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           </div>
         </div>
         <br />
+        <div className={"row m-0 " + styles["item-row"]}>
+          <div className={"col-12 p-0 "}>
+            <StageMiniExAComponent />
+          </div>
+        </div>
 
         {/* Tickets */}
         <h5>Tickets</h5>

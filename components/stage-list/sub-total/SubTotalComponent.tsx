@@ -10,6 +10,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styles from "./SubTotalComponent.module.scss";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
+import StageMiniExAComponent from "@/components/stage-template/stage-exa/StageMiniExAMiniComponent";
 
 type CardProps = {};
 const SubTotalComponent = ({}: CardProps) => {
@@ -28,7 +29,6 @@ const SubTotalComponent = ({}: CardProps) => {
   });
 
   useEffect(() => {
-
     if (concertStage?.sectionSelected != null) {
       setObjSectionSelected({ ...concertStage.sectionSelected });
       setAmountBuy(concertStage.sectionSelected.amountBuy);
@@ -39,9 +39,7 @@ const SubTotalComponent = ({}: CardProps) => {
     };
   }, []);
 
-  useEffect(() => {
-    
-  }, [amountBuy]);
+  useEffect(() => {}, [amountBuy]);
 
   return (
     <section id={styles["cost-total"]}>
@@ -64,17 +62,22 @@ const SubTotalComponent = ({}: CardProps) => {
           </div>
 
           <hr />
-
         </div>
         <br />
-       
+        <div className={"row m-0 "}>
+          <div className={"col-12 p-0 "}>
+            <StageMiniExAComponent/>
+          </div>
+        </div>
+
+        <br />
 
         {/* Row Ticket amount */}
         <div className={"row m-0 " + styles["ticket-amount-row"]}>
           <div className={"col-4 p-0 text-right"}>
             <button
               type="button"
-              className={"btn "+ (amountBuy <= 1 && "bg-secondary")}
+              className={"btn " + (amountBuy <= 1 && "bg-secondary")}
               onClick={() => {
                 if (amountBuy > 1) {
                   setAmountBuy(Number(amountBuy) - 1);
@@ -90,7 +93,11 @@ const SubTotalComponent = ({}: CardProps) => {
           <div className={"col-4 p-0 text-left"}>
             <button
               type="button"
-              className={"btn "+ (amountBuy >= objSectionSelected.balanceTicket && "bg-secondary")}
+              className={
+                "btn " +
+                (amountBuy >= objSectionSelected.balanceTicket &&
+                  "bg-secondary")
+              }
               onClick={() => {
                 console.log(
                   "objSectionSelected.balanceTicket = ",
@@ -141,7 +148,9 @@ const SubTotalComponent = ({}: CardProps) => {
                 amountBuy: amountBuy,
               })
             );
-            router.push(`/final-cost/${concertStage.concertSelected.id}/${objSectionSelected.key}/${amountBuy}`);
+            router.push(
+              `/final-cost/${concertStage.concertSelected.id}/${objSectionSelected.key}/${amountBuy}`
+            );
           }}
         >
           Next
