@@ -20,24 +20,24 @@
 # Page
 
 1 Page concert-list (แสดงรายการคอนเสิร์ตให้เลือก)
+<img width="1285" alt="page-1" src="https://user-images.githubusercontent.com/43952906/194570884-3cc691b9-c22b-4252-86d7-b3c69a4447ec.png">
 
-<img width="431" alt="1" src="https://user-images.githubusercontent.com/43952906/193608687-749faf95-eb91-4a30-a74e-ba3244b13b43.png">
+
 
 
 2 Page stage-list (แสดงภาพจำลองเวทีคอนเสิร์ต, ข้อมูลที่นั่งให้เลือก)
 - 4 Component แยกกันทำงานแต่ละหน้าที่, แต่ใช้และจัดการ state เดียวกันผ่าน Redux
 - Concert Stage Template วางโครงสร้างมาให้สามารถเอาไปต่อยอดสร้าง ConcertStage เพิ่มได้เรื่อยๆ 
 - Section(ส่วนที่นั่ง) ใช้ข้อมูลด้วยการอ้าง Data จาก Dictionary ด้วย Section Key  
-- 
-<img width="431" alt="2" src="https://user-images.githubusercontent.com/43952906/193608697-0cb50477-a29a-47ec-be2b-b71a3b6d10a3.png">
+<img width="1322" alt="page-2" src="https://user-images.githubusercontent.com/43952906/194570896-edf10df6-1d51-4876-8298-d460305eb38b.png">
+
 
 
 3 Page final-cost (สรุปค่าใช้จ่าย, เลือก/เพิ่ม/ลบ ข้อมูลบัตรเครดิต)
 - จัดการ Form ด้วย Libary Formik
 - CRUD credit card data ด้วย Redux + Service mock off line
-- 
-<img width="430" alt="3" src="https://user-images.githubusercontent.com/43952906/193608709-a437baa9-d0ad-409f-bdb5-322402884f4e.png">
-<img width="431" alt="4" src="https://user-images.githubusercontent.com/43952906/193608717-3b6d107d-c454-4d5e-848f-652db786740c.png">
-<img width="432" alt="5" src="https://user-images.githubusercontent.com/43952906/193608729-40cf48f5-e9fb-4c67-8340-cb579fa3884f.png">
+<img width="1078" alt="page-3" src="https://user-images.githubusercontent.com/43952906/194570901-9e7721db-f3f5-4fcd-9d1b-bb9d69c09936.png">
+
+
 
 
