@@ -1,36 +1,44 @@
-import { Section } from "@/models/concertStage.model";
+import { Section, SectionControler } from "@/models/concertStage.model";
 import { Dictionary } from "@/models/dictionary.model";
+import { toggleSectionTooltip } from "@/store/slices/concertStageSlice";
+import { useAppDispatch } from "@/store/store";
 import React, { useEffect, useState } from "react";
-import { Button, Tooltip } from "reactstrap";
+import { Tooltip } from "reactstrap";
 import styles from "./StageExAComponent.module.scss";
 
 type CardProps = {
-  dicSections: Dictionary<Section>;
+  dicSectionControler: Dictionary<SectionControler>;
   sectionsFilter: Section[];
 };
-const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
-  useEffect(() => {}, [dicSections, sectionsFilter]);
+const StageExAComponent = ({
+  dicSectionControler,
+  sectionsFilter,
+}: CardProps) => {
+  const dispatch = useAppDispatch();
 
-  const [tooltipOpen, setTooltipOpen] = useState(false);
-  const toggle = () => setTooltipOpen(!tooltipOpen);
+  useEffect(() => {
+  }, [sectionsFilter]);
 
   function getStyleCustomSectionBySectionId(sectionId: string) {
     return (
-      dicSections[sectionId]?.balanceTicket <= 0 ||
-      (dicSections.hasOwnProperty(sectionId) == false &&
-        `${styles["stage-close"]}`)
+      sectionsFilter.find((element) => element.key === sectionId) ===
+        undefined && `${styles["stage-close"]}`
     );
   }
 
-  function TooltipItem(secId: string) {
-    const [tooltipOpen, setTooltipOpen] = useState(false);
-    const toggle = () => setTooltipOpen(!tooltipOpen);
-
+  function SectionTooltipItem(secId: string) {
+    const toggle = () => {
+      dispatch(toggleSectionTooltip(secId));
+    };
     return (
       <span>
         <Tooltip
           placement={"top"}
-          isOpen={tooltipOpen}
+          isOpen={
+            dicSectionControler?.hasOwnProperty(secId) === true
+              ? dicSectionControler[secId].isOpen
+              : false
+          }
           target={"Tooltip-" + secId}
           toggle={toggle}
         >
@@ -40,17 +48,19 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
     );
   }
   function getSectionPriceBySectionId(sectionId: string) {
-    if (dicSections.hasOwnProperty(sectionId) == false) {
+    if (
+      sectionsFilter.find((element) => element.key === sectionId) === undefined
+    ) {
       return "No Seats Available";
     } else {
-      return "$" + dicSections[sectionId].price;
+      return "$" + dicSectionControler[sectionId]?.objSection.price;
     }
   }
 
   return (
     <section id={styles["section-stage"]}>
       <div className={styles.block}>
-        {/* Row 1 */}
+
         <div className={styles["stage-container"]}>
           <div className={"row m-0 justify-content-center"}>
             <div className={"col-12 theme-bg-main " + styles["stage-back"]}>
@@ -66,7 +76,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-4")
               }
             >
-              {TooltipItem("sec-4")}4
+              {SectionTooltipItem("sec-4")}4
             </div>
 
             <div
@@ -76,7 +86,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-5")
               }
             >
-              {TooltipItem("sec-5")}5
+              {SectionTooltipItem("sec-5")}5
             </div>
 
             <div
@@ -86,7 +96,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-6")
               }
             >
-              {TooltipItem("sec-6")}6
+              {SectionTooltipItem("sec-6")}6
             </div>
 
             <div
@@ -96,7 +106,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-7")
               }
             >
-              {TooltipItem("sec-7")}7
+              {SectionTooltipItem("sec-7")}7
             </div>
 
             <div
@@ -106,7 +116,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-8")
               }
             >
-              {TooltipItem("sec-8")}8
+              {SectionTooltipItem("sec-8")}8
             </div>
 
             <div
@@ -116,7 +126,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-9")
               }
             >
-              {TooltipItem("sec-9")}9
+              {SectionTooltipItem("sec-9")}9
             </div>
           </div>
 
@@ -128,7 +138,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-1")
               }
             >
-              {TooltipItem("sec-1")}1
+              {SectionTooltipItem("sec-1")}1
             </div>
             <div
               id={"Tooltip-sec-2"}
@@ -137,7 +147,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-2")
               }
             >
-              {TooltipItem("sec-2")}2
+              {SectionTooltipItem("sec-2")}2
             </div>
             <div
               id={"Tooltip-sec-3"}
@@ -146,7 +156,7 @@ const StageExAComponent = ({ dicSections, sectionsFilter }: CardProps) => {
                 getStyleCustomSectionBySectionId("sec-3")
               }
             >
-              {TooltipItem("sec-3")}3
+              {SectionTooltipItem("sec-3")}3
             </div>
           </div>
 

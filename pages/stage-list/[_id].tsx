@@ -16,6 +16,7 @@ import {
 import SubTotalComponent from "@/components/stage-list/sub-total/SubTotalComponent";
 
 export default function ConcertList() {
+  
   const concertStage = useSelector(ConcertStageSelector);
   const dispatch = useAppDispatch();
 
@@ -54,7 +55,7 @@ export default function ConcertList() {
               <div className={"row m-0 " + styles["block-content"]}>
                 <div className={"col-12 col-md-8 p-0"}>
                   <StageExAComponent
-                    dicSections={concertStage.dicSections}
+                    dicSectionControler={concertStage.dicSectionControler}
                     sectionsFilter={concertStage.sectionsFilter}
                   ></StageExAComponent>
                 </div>

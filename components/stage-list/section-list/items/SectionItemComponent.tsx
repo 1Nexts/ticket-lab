@@ -1,5 +1,5 @@
 import { Section } from "@/models/concertStage.model";
-import { buildSectionSelected } from "@/store/slices/concertStageSlice";
+import { buildSectionSelected, toggleSectionTooltip } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
 import React from "react";
 import styles from "./item.module.scss";
@@ -14,11 +14,12 @@ const SectionItemComponent = ({ objSection }: CardProps) => {
     <div
       className={"col-12 p-0 " + styles["blockItemSelect"]}
       onClick={() => {
-      
         dispatch(
           buildSectionSelected(objSection)
         );
       }}
+      onMouseEnter={() =>  dispatch(toggleSectionTooltip(objSection?.key))}
+      onMouseLeave={() =>  dispatch(toggleSectionTooltip(objSection?.key))}
     >
       <div className={styles["ticket-Item"]}>
         <div className="row m-0">

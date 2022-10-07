@@ -5,6 +5,7 @@ import {
   ConcertStageModel as ConcertStageModel,
   Section,
   SectionSelect,
+  SectionControler,
 } from "@/models/concertStage.model";
 import { Dictionary } from "@/models/dictionary.model";
 
@@ -12,53 +13,39 @@ import { Dictionary } from "@/models/dictionary.model";
 import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.json";
 
 interface ConcertState {
-  concertSelected: ConcertStageModel;
-
-  sectionsFilter: Section[];
+  concertSelected: ConcertStageModel | null;
   amountTicketFilter: number;
-  dicSections: Dictionary<Section>;
-
+  sectionsFilter: Section[];
+  dicSectionControler: Dictionary<SectionControler>;
   sectionSelected: SectionSelect | null;
 }
 
 const initialState: ConcertState = {
-  concertSelected: {
-    id: "",
-    concertItem: {
-      id: "",
-      name: "",
-      date: "",
-      time: "",
-      title: "",
-      subTitle: "",
-    },
-    sections: [],
-  },
+  concertSelected: null,
   sectionsFilter: [],
-  dicSections: {},
   amountTicketFilter: 2,
-
   sectionSelected: null,
+  dicSectionControler: {}, // Handle section data, toggle tooltip
 };
 
 type FilterAction = {
   amountTicket: number;
   isLowPrice: boolean;
 };
-type DataCostTotalAction = {
-  concertId:string;
-  sectionIdSelected: string;
-  amountTicketBuy: number;
+type SetSectionToolTipAction = {
+  secId: string;
+  isOpen: boolean;
 };
 
 export const getConcertStageList = createAsyncThunk(
   "concert-stage/getConcertStageList",
   async (idConcertStage: string, { rejectWithValue }) => {
     try {
-
       // Load ConcertStageData Mock data
-      let indexStageData = Number(idConcertStage?.slice(idConcertStage.length - 1)) - 1;
-      let objConcertStageData = indexStageData < concertStageDataFromJSON.length
+      let indexStageData =
+        Number(idConcertStage?.slice(idConcertStage.length - 1)) - 1;
+      let objConcertStageData =
+        indexStageData < concertStageDataFromJSON.length
           ? concertStageDataFromJSON[indexStageData]
           : null;
 
@@ -75,6 +62,13 @@ const concertStageSlice = createSlice({
   name: "concert-stage",
   initialState: initialState,
   reducers: {
+    resetConcertStage: (state) => {
+      state.concertSelected = null;
+      state.sectionsFilter = [];
+      (state.amountTicketFilter = 2), (state.sectionSelected = null);
+      state.dicSectionControler = {};
+    },
+
     resetFilter: (state) => {
       concertStageSlice.caseReducers.filterConcertStage(state);
       state.amountTicketFilter = 2;
@@ -92,24 +86,27 @@ const concertStageSlice = createSlice({
       state.amountTicketFilter = objFilterAction.amountTicket;
 
       // Filter balance ticket
-      state.sectionsFilter = state.concertSelected?.sections.filter(
-        (el) => el.balanceTicket >= objFilterAction.amountTicket
-      );
-
+      if (state.concertSelected != null) {
+        state.sectionsFilter = state.concertSelected?.sections.filter(
+          (el) => el.balanceTicket >= objFilterAction.amountTicket
+        );
+      }
       // Filter price ASC
       if (objFilterAction.isLowPrice)
         state.sectionsFilter.sort((a, b) => a.price - b.price);
       // Filter price DESC
       else state.sectionsFilter.sort((a, b) => b.price - a.price);
-
-      concertStageSlice.caseReducers.buildDictionarySections(state);
     },
+
     buildDictionarySections: (state) => {
-      state.dicSections = <Dictionary<Section>>(
-        Object.fromEntries(
-          state.sectionsFilter.map(({ key, ...rest }) => [key, rest])
-        )
-      );
+      state.concertSelected?.sections.forEach((objSection) => {
+        const objSectionControler: SectionControler = {
+          key: objSection.key,
+          isOpen: false,
+          objSection: objSection,
+        };
+        state.dicSectionControler[objSection.key] = objSectionControler;
+      });
     },
 
     // ---- Section ---------
@@ -123,7 +120,7 @@ const concertStageSlice = createSlice({
       state.sectionSelected = objSectionSelect;
     },
     setSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
-      state.sectionSelected = {...action.payload};
+      state.sectionSelected = { ...action.payload };
     },
 
     resetSelectionSelected: (state) => {
@@ -131,6 +128,14 @@ const concertStageSlice = createSlice({
     },
     updateSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
       state.sectionSelected = action.payload;
+    },
+
+    toggleSectionTooltip: (state, action: PayloadAction<string>) => {
+      const secId = action.payload;
+
+      if (state.dicSectionControler.hasOwnProperty(secId))
+        state.dicSectionControler[secId].isOpen =
+          !state.dicSectionControler[secId].isOpen;
     },
   },
   extraReducers: (builder) => {
@@ -142,6 +147,7 @@ const concertStageSlice = createSlice({
 
           // Default filter
           concertStageSlice.caseReducers.resetFilter(state);
+          concertStageSlice.caseReducers.buildDictionarySections(state);
         }
       }
     );
@@ -162,6 +168,8 @@ export const {
   setSectionSelected,
   resetSelectionSelected,
   updateSectionSelected,
+  toggleSectionTooltip,
+  resetConcertStage,
 } = concertStageSlice.actions;
 
 export const ConcertStageSelector = (store: RootState): ConcertState =>

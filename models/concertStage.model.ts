@@ -28,3 +28,9 @@ export interface SectionSelect {
 }
 
 
+export interface SectionControler {
+  key: string;
+  isOpen: boolean;
+  objSection:Section;
+}
+

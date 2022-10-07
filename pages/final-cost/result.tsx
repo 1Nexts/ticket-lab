@@ -1,5 +1,6 @@
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
-import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
+import { ConcertStageSelector, resetConcertStage } from "@/store/slices/concertStageSlice";
+import { resetAllCreditCard } from "@/store/slices/creditCardSlice";
 import { useAppDispatch } from "@/store/store";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
 import router from "next/router";
@@ -12,28 +13,19 @@ const FinalCostResult = ({}: CardProps) => {
   const concertStage = useSelector(ConcertStageSelector);
   const dispatch = useAppDispatch();
 
-  const [objSectionSelected, setObjSectionSelected] = useState({
-    key: "",
-    sellTicket: 0,
-    allTicket: 0,
-    balanceTicket: 0,
-    price: 0,
-    type: "",
-    amountBuy: 0,
-  });
-
   // let costTotal = 0;
 
   useEffect(() => {
-    if (concertStage?.sectionSelected != null) {
-      setObjSectionSelected({ ...concertStage.sectionSelected });
-    }
+
+    dispatch(resetAllCreditCard());
+    dispatch(resetConcertStage())
+
   }, [concertStage.sectionSelected]);
 
   return (
     <div>
       <HeaderMenu></HeaderMenu>
-      
+
       <div id="wrapper">
         <section id={styles["final-cost"]}>
           <div className="block">
@@ -62,7 +54,6 @@ const FinalCostResult = ({}: CardProps) => {
                     <div className={"col-12 p-0 text-center"}>
                       <h3>Check your email for a ticket</h3>
                     </div>
-
 
                     <br />
                     <button

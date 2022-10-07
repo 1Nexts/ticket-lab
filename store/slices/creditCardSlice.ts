@@ -6,12 +6,12 @@ import * as apiCreditCardService from "@/services/apiCreditCard";
 interface CreditCardState {
   creditCards: CreditCard[];
   creditCardSelected: CreditCard | null;
-  securityCode:string;
+  securityCode: string;
 }
 const initialState: CreditCardState = {
   creditCards: [],
   creditCardSelected: null,
-  securityCode:""
+  securityCode: "",
 };
 
 export const loadCreditCards = createAsyncThunk("crditcard/get", async () => {
@@ -40,6 +40,12 @@ const creditCardSlice = createSlice({
   name: "credit-card",
   initialState: initialState,
   reducers: {
+    resetAllCreditCard: (state) => {
+      state.creditCards = [];
+      state.creditCardSelected = null;
+      state.securityCode = "";
+    },
+
     setCreditCardSelected: (state, action: PayloadAction<CreditCard>) => {
       state.creditCardSelected = { ...action.payload };
     },
@@ -70,7 +76,6 @@ const creditCardSlice = createSlice({
       deleteCreditCard.fulfilled,
       (state, action: PayloadAction<string>) => {
         try {
-
           const idRemove: string = action.payload;
           let isSuccess: boolean = false;
           let objCreditCardData: CreditCard;
@@ -85,8 +90,7 @@ const creditCardSlice = createSlice({
 
           if (isSuccess) {
             // Fix delete selected card
-            if(state.creditCardSelected?.id === idRemove)
-            {
+            if (state.creditCardSelected?.id === idRemove) {
               state.creditCardSelected = null;
             }
             alert("SUCCESS REMOVE CREDIT CARDS");
@@ -106,7 +110,6 @@ const creditCardSlice = createSlice({
       addCreditCard.fulfilled,
       (state, action: PayloadAction<CreditCard>) => {
         try {
-
           let objCreditCardUpdate: CreditCard = action.payload;
           // Build index
           objCreditCardUpdate.id = (state.creditCards.length + 1).toString();
@@ -137,10 +140,10 @@ const creditCardSlice = createSlice({
               break;
             }
           }
-          
+
           if (isSuccess) {
             // creditCardSlice.caseReducers.setCreditCardSelected(state,objCreditCardDataUpdate);
-            state.creditCardSelected = {...objCreditCardDataUpdate};
+            state.creditCardSelected = { ...objCreditCardDataUpdate };
             alert("SUCCESS EDIT CREDIT CARDS");
           } else {
             alert("FAIL EDIT CREDIT CARDS");
@@ -156,8 +159,13 @@ const creditCardSlice = createSlice({
   },
 });
 
-export const { setCreditCardSelected, resetCreditCardSelected,setSecurityCode,resetSecurityCode } =
-  creditCardSlice.actions;
+export const {
+  setCreditCardSelected,
+  resetCreditCardSelected,
+  setSecurityCode,
+  resetSecurityCode,
+  resetAllCreditCard,
+} = creditCardSlice.actions;
 
 export const creditCardSelector = (store: RootState): CreditCardState =>
   store.creditCard;
