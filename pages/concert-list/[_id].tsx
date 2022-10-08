@@ -14,23 +14,20 @@ export default function ConcertList({ concertData }: Props) {
   const [concertListFilter, setConcertListFilter] = useState<ConcertItem[]>([]);
 
   useEffect(() => {
-
     concertData !== undefined && setConcertListFilter(concertData.concertList);
 
     return () => {};
   }, []);
 
-  function filterConcert(search:string) {
-
+  function filterConcert(search: string) {
     console.log(search);
-    
-   let concertListFilter = concertData?.concertList.filter(
+
+    let concertListFilter = concertData?.concertList.filter(
       (el) =>
         el.title.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         el.subTitle.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
         el.date.toLowerCase().indexOf(search.toLowerCase()) !== -1 ||
-        el.time.toLowerCase().indexOf(search.toLowerCase()) !==
-          -1
+        el.time.toLowerCase().indexOf(search.toLowerCase()) !== -1
     );
 
     concertListFilter !== undefined && setConcertListFilter(concertListFilter);
@@ -44,10 +41,11 @@ export default function ConcertList({ concertData }: Props) {
         <section id={styles["section-concert-list"]}>
           <div className="block">
             {/* Show detail */}
-            <div className={"theme-bg-main "+styles["show-detail"]}>
+            <div className={"theme-bg-main " + styles["show-detail"]}>
               <h3>{concertData?.title}</h3>
               <br />
               <h4>{concertData?.subTitle}</h4>
+              <h4><br/></h4>
             </div>
 
             <div className={"input-group " + styles["search-group"]}>
@@ -86,9 +84,8 @@ export default function ConcertList({ concertData }: Props) {
 
 import concertDataFromJSON from "../../data-mock/concert_list.json";
 import { Concert, ConcertItem } from "@/models/concert.model";
-export const getServerSideProps: GetServerSideProps = async ({query}) => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
-
     // TODO Get From API
     const { _id } = query;
 
