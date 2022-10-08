@@ -31,8 +31,6 @@ const StageExAComponent = ({
     const secIdString = 'sec-'+secId;
 
     const toggle = () => {
-      console.log("onEntered");
-      
       dispatch(toggleSectionTooltip(secIdString));
     };
     return (
