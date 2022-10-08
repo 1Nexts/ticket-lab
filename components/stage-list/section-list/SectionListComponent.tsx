@@ -15,7 +15,7 @@ const SectionListComponent = ({}: CardProps) => {
        <div className={"theme-bg-main "+styles["header"]}>
         <h3>Select Section</h3>
        </div>
-      <div className={styles["block-content"]}>
+      <div className={"overflow-auto "+styles["block-content"]}>
         {
           <div>
             {concertStage.sectionsFilter.map((objSection: Section) => (
