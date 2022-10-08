@@ -124,3 +124,9 @@ h6 {
 .btn-success, .btn-success:hover, .btn-success:active, .btn-success:visited {
   background-color: teal !important;
 }
+
+
+.tooltip-custom{
+  /* background-color: white; */
+  font-size: 1.5rem;
+}

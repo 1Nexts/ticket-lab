@@ -18,6 +18,7 @@ const SectionItemComponent = ({ objSection }: CardProps) => {
           buildSectionSelected(objSection)
         );
       }}
+      onMouseDown={() =>  dispatch(toggleSectionTooltip(objSection?.key))}
       onMouseEnter={() =>  dispatch(toggleSectionTooltip(objSection?.key))}
       onMouseLeave={() =>  dispatch(toggleSectionTooltip(objSection?.key))}
     >

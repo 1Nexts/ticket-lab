@@ -3,7 +3,8 @@ import { Dictionary } from "@/models/dictionary.model";
 import { toggleSectionTooltip } from "@/store/slices/concertStageSlice";
 import { useAppDispatch } from "@/store/store";
 import React, { useEffect, useState } from "react";
-import { Tooltip } from "reactstrap";
+import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+
 import styles from "./StageExAComponent.module.scss";
 
 type CardProps = {
@@ -16,8 +17,7 @@ const StageExAComponent = ({
 }: CardProps) => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-  }, [sectionsFilter]);
+  useEffect(() => {}, [sectionsFilter]);
 
   function getStyleCustomSectionBySectionId(sectionId: string) {
     return (
@@ -27,23 +27,33 @@ const StageExAComponent = ({
   }
 
   function SectionTooltipItem(secId: string) {
+
+    const secIdString = 'sec-'+secId;
+
     const toggle = () => {
-      dispatch(toggleSectionTooltip(secId));
+      console.log("onEntered");
+      
+      dispatch(toggleSectionTooltip(secIdString));
     };
     return (
       <span>
-        <Tooltip
-          placement={"top"}
-          isOpen={
-            dicSectionControler?.hasOwnProperty(secId) === true
-              ? dicSectionControler[secId].isOpen
+        <OverlayTrigger
+          key={secIdString}
+          placement={"auto"}
+          overlay={
+            <Tooltip id={`Tooltip-${secIdString}`} className={"tooltip-custom "+styles['tooltip-custom']}>
+              {getSectionPriceBySectionId(secIdString)}
+            </Tooltip>
+          }
+          onToggle={toggle}
+          show={
+            dicSectionControler?.hasOwnProperty(secIdString) === true
+              ? dicSectionControler[secIdString].isOpen
               : false
           }
-          target={"Tooltip-" + secId}
-          toggle={toggle}
         >
-          {getSectionPriceBySectionId(secId)}
-        </Tooltip>
+          <div>{secId}</div>
+        </OverlayTrigger>
       </span>
     );
   }
@@ -60,7 +70,6 @@ const StageExAComponent = ({
   return (
     <section id={styles["section-stage"]}>
       <div className={styles.block}>
-
         <div className={styles["stage-container"]}>
           <div className={"row m-0 justify-content-center"}>
             <div className={"col-12 theme-bg-main " + styles["stage-back"]}>
@@ -76,7 +85,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-4")
               }
             >
-              {SectionTooltipItem("sec-4")}4
+              {SectionTooltipItem("4")}
             </div>
 
             <div
@@ -86,7 +95,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-5")
               }
             >
-              {SectionTooltipItem("sec-5")}5
+              {SectionTooltipItem("5")}
             </div>
 
             <div
@@ -96,7 +105,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-6")
               }
             >
-              {SectionTooltipItem("sec-6")}6
+              {SectionTooltipItem("6")}
             </div>
 
             <div
@@ -106,7 +115,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-7")
               }
             >
-              {SectionTooltipItem("sec-7")}7
+              {SectionTooltipItem("7")}
             </div>
 
             <div
@@ -116,7 +125,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-8")
               }
             >
-              {SectionTooltipItem("sec-8")}8
+              {SectionTooltipItem("8")}
             </div>
 
             <div
@@ -126,7 +135,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-9")
               }
             >
-              {SectionTooltipItem("sec-9")}9
+              {SectionTooltipItem("9")}
             </div>
           </div>
 
@@ -138,7 +147,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-1")
               }
             >
-              {SectionTooltipItem("sec-1")}1
+              {SectionTooltipItem("1")}
             </div>
             <div
               id={"Tooltip-sec-2"}
@@ -147,7 +156,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-2")
               }
             >
-              {SectionTooltipItem("sec-2")}2
+              {SectionTooltipItem("2")}
             </div>
             <div
               id={"Tooltip-sec-3"}
@@ -156,7 +165,7 @@ const StageExAComponent = ({
                 getStyleCustomSectionBySectionId("sec-3")
               }
             >
-              {SectionTooltipItem("sec-3")}3
+              {SectionTooltipItem("3")}
             </div>
           </div>
 
