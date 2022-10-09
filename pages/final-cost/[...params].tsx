@@ -79,7 +79,7 @@ export default function FinalCost() {
                 }
               >
                 <DeliveryComponent
-                  concertSelected={concertStage.concertSelected}
+                  concertSelected={concertStage?.concertSelected}
                 ></DeliveryComponent>
 
                 <PaymentCard></PaymentCard>

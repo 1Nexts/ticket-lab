@@ -21,18 +21,6 @@ const TicketItemComponent = ({ objConcertItem }: CardProps) => {
     >
       <div className={styles["ticket-Item"]}>
         <div className="row m-0">
-          {/* <div className={"col-12 col-sm-3 col-md-2 p-0 " + styles["col-1"]}>
-            <h5>{objConcertItem.date}</h5>
-            <h6> {objConcertItem.time}</h6>
-          </div>
-
-          <div
-            className={"col-12 col-sm-6 col-md-8 p-0 m-0 " + styles["col-2"]}
-          >
-            <h5>{objConcertItem.title}</h5>
-            <h6>{objConcertItem.subTitle}</h6>
-          </div> */}
-
           <div className={"col-12 col-sm-9 col-md-10 p-0 " + styles["col-1"]}>
             <div className="row m-0">
               <div className={"col-12 col-sm-4 col-md-3 p-0 "}>

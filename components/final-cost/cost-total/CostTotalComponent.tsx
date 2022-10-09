@@ -33,24 +33,23 @@ const FinalCostTotalComponent = ({}: CardProps) => {
     try {
       console.log("Submit Place order");
 
-      let formData: FormData = new FormData();
-      formData.append("concert_id", concertStage.concertSelected.id);
-      formData.append("sec_id", concertStage.sectionSelected?.key!);
-      formData.append(
-        "amount_ticket",
-        String(concertStage.sectionSelected?.amountBuy)
-      );
-      formData.append("security_key", creditCard.securityCode);
-      // Display the key/value pairs
-      // for (const pair of formData.entries()) {
-      //   console.log(`${pair[0]}, ${pair[1]}`);
-      // }
+      if (concertStage.concertSelected && concertStage.sectionSelected) {
+        let formData: FormData = new FormData();
+        formData.append("concert_id", concertStage.concertSelected.id);
+        formData.append("sec_id", concertStage.sectionSelected?.key!);
+        formData.append(
+          "amount_ticket",
+          String(concertStage.sectionSelected?.amountBuy)
+        );
+        formData.append("security_key", creditCard.securityCode);
 
-      // #### Call api #####
-      // const response = await submitPlaceOrder(formData);
-      // loading
-      // await timeout(3000);
-      router.push(`/final-cost/result`);
+        // #### Call api #####
+        // const response = await submitPlaceOrder(formData);
+        router.push(`/final-cost/result`);
+      }
+      else{
+        alert("Not found concert or section data");
+      }
     } catch (error) {
       alert("Error Place order please try again.");
     }

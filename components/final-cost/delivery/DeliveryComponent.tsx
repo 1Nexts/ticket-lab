@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./DeliveryComponent.module.scss";
 
 type CardProps = {
-  concertSelected: ConcertStageModel;
+  concertSelected: ConcertStageModel | null;
 };
 const DeliveryComponent = ({ concertSelected }: CardProps) => {
   
