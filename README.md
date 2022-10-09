@@ -4,7 +4,9 @@
 - 1 การวางโครงสร้างแบบแยกชิ้นส่วน อิสระต่อกัน เพื่อแก้ไข, ถอดออก, เปลี่ยนใหม่
 - 2 การ Manage stage แบบ Advance Redux Toolkit
 - 3 เป็น Offline mock data แต่มีการแบ่ง Layer การเรียกหลายระดับ
-(onClick--> dispatch/signal redux --> call service --> call next api)
+
+- Flow call api = onClick --> dispatch/signal redux --> call service //+- --> call next api
+- Flow response = service response --> service api --> redux fulfill/reject --> onClick/function
 
 # How to install and run
 
