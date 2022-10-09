@@ -1,5 +1,5 @@
-#cost-total {
-
+#sub-total-component {
+   
     .block-total {
 
         background-color: #f6f6f6;
@@ -85,18 +85,32 @@
     }
 }
 
+
+
+
+@media (max-width: 991px) {
+    #sub-total-component {
+        .block-total {
+            padding: 0.5rem;
+        }
+        .header-row {
+            margin: -0.5rem !important;
+        }
+    }
+
+}
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
-    #cost-total {
-        margin: 1rem;
+    #sub-total-component {
+        margin: 0;
         margin-top: 0;
-        margin-left: 1rem;
+        margin-left: 0;
     }
 }
 
 // X-Small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-    #cost-total {
+    #sub-total-component {
         margin: 0;
         margin-bottom: 1rem;
 

@@ -42,7 +42,7 @@ const SubTotalComponent = ({}: CardProps) => {
   useEffect(() => {}, [amountBuy]);
 
   return (
-    <section id={styles["cost-total"]}>
+    <section id={styles["sub-total-component"]}>
       <div className={styles["block-total"]}>
         {/* Total */}
         <div className={"row m-0 " + styles["header-row"]}>
@@ -149,7 +149,7 @@ const SubTotalComponent = ({}: CardProps) => {
               })
             );
             router.push(
-              `/final-cost/${concertStage.concertSelected.id}/${objSectionSelected.key}/${amountBuy}`
+              `/final-cost/${concertStage?.concertSelected?.id}/${objSectionSelected.key}/${amountBuy}`
             );
           }}
         >

@@ -29,6 +29,14 @@
     }
 }
 
+
+
+@media (max-width: 991px) {
+    #cost-total .block-total {
+        padding: 1rem;
+    }
+}
+
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767px) {
     #cost-total {
