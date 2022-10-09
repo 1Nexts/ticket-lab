@@ -11,6 +11,7 @@ import { Dictionary } from "@/models/dictionary.model";
 
 // Mock data
 import concertStageDataFromJSON from "../../data-mock/concert_stage_data_list.json";
+import { getConcertStageById } from "@/services/apiConcertStage";
 
 interface ConcertState {
   concertSelected: ConcertStageModel | null;
@@ -41,15 +42,10 @@ export const getConcertStageList = createAsyncThunk(
   "concert-stage/getConcertStageList",
   async (idConcertStage: string, { rejectWithValue }) => {
     try {
-      // Load ConcertStageData Mock data
-      let indexStageData =
-        Number(idConcertStage?.slice(idConcertStage.length - 1)) - 1;
-      let objConcertStageData =
-        indexStageData < concertStageDataFromJSON.length
-          ? concertStageDataFromJSON[indexStageData]
-          : null;
-
-      if (objConcertStageData === null) return rejectWithValue(null);
+      let objConcertStageData: ConcertStageModel = await getConcertStageById(
+        idConcertStage
+      );
+      if (!objConcertStageData) return rejectWithValue(null);
 
       return objConcertStageData;
     } catch (error) {
@@ -154,9 +150,13 @@ const concertStageSlice = createSlice({
     builder.addCase(
       getConcertStageList.rejected,
       (state, action: PayloadAction<any>) => {
-        alert("Not found stage");
-        router.push(`/concert-list/ed-sheeran`);
-        throw action.payload;
+        try {
+          router.push(`/concert-list/ed-sheeran`);
+          alert("Not found stage");
+        
+        } catch (error) {
+          throw action.payload;
+        }
       }
     );
   },
