@@ -5,6 +5,8 @@ import router from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "../../styles/concert-list/index.module.scss";
 import { GetServerSideProps } from "next";
+import { Concert, ConcertItem } from "@/models/concert.model";
+import { getConcertById } from "@/services/apiConcert";
 
 type Props = {
   concertData?: Concert;
@@ -14,8 +16,8 @@ export default function ConcertList({ concertData }: Props) {
   const [concertListFilter, setConcertListFilter] = useState<ConcertItem[]>([]);
 
   useEffect(() => {
-    concertData !== undefined && setConcertListFilter(concertData.concertList);
 
+    concertData !== undefined && setConcertListFilter(concertData.concertList);
     return () => {};
   }, []);
 
@@ -65,7 +67,7 @@ export default function ConcertList({ concertData }: Props) {
 
             <div className={styles["block-content"]}>
               <div className={"row m-0 "}>
-                {concertListFilter.map((objConcertItem: ConcertItem) => {
+                { !concertListFilter ? <div>Loading...</div> : concertListFilter.map((objConcertItem: ConcertItem) => {
                   return (
                     <TicketItemComponent
                       key={objConcertItem.id}
@@ -82,16 +84,15 @@ export default function ConcertList({ concertData }: Props) {
   );
 }
 
-import concertDataFromJSON from "../../data-mock/concert_list.json";
-import { Concert, ConcertItem } from "@/models/concert.model";
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
     // TODO Get From API
     const { _id } = query;
-
+    const response = await getConcertById(_id + "");
+    
     return {
       props: {
-        concertData: concertDataFromJSON,
+        concertData: response,
       },
     };
   } catch (error) {
