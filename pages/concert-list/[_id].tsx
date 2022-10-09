@@ -93,13 +93,13 @@ export default function ConcertList({ concertData }: Props) {
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   try {
-    // TODO Get From API
+
     const { _id } = query;
-    const response = await getConcertById(_id + "");
+    const objConcert:Concert = await getConcertById(_id + "");
 
     return {
       props: {
-        concertData: response,
+        concertData: objConcert,
       },
     };
   } catch (error) {

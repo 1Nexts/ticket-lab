@@ -23,9 +23,7 @@ export default function ConcertList() {
   const { _id } = router.query;
 
   useEffect(() => {
-
     if (_id) loadStageList(_id + "");
-    
   }, [_id]);
 
   async function loadStageList(_id: string) {
@@ -34,9 +32,8 @@ export default function ConcertList() {
       if (response.meta.requestStatus === "fulfilled") {
         dispatch(resetSelectionSelected());
       }
-
     } catch (error) {
-      // console.log("Error loadStageList ",error);
+      // handle in redux store
     }
   }
 

@@ -38,7 +38,9 @@ export default function FinalCost() {
           );
         }
       }
-    } catch (error) {}
+    } catch (error) {
+      // handle in redux store
+    }
   }, [router]);
 
   async function handleRefreshPage(
@@ -58,7 +60,7 @@ export default function FinalCost() {
         
         // check not found section selected
         if (Object.keys(objSectionSelected).length !== 0) {
-          objSectionSelected.amountBuy = amountTicket;
+          amountTicket > 0 && (objSectionSelected.amountBuy = amountTicket);// set amount from url
           dispatch(setSectionSelected(objSectionSelected));
         }
         else{
@@ -66,6 +68,7 @@ export default function FinalCost() {
           router.push(`/stage-list/${concertId}`);
         }
       }
+      // case else handle in redux
     } catch (error) {
       throw error;
     }
