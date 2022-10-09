@@ -18,6 +18,7 @@ export default async function getConcertById(
       
     if (objConcertStageData) res.json(objConcertStageData);
     else res.status(400).end();
+
   } catch (error: any) {
     res.status(400).end();
   }

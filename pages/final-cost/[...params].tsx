@@ -2,6 +2,7 @@ import FinalCostTotalComponent from "@/components/final-cost/cost-total/CostTota
 import DeliveryComponent from "@/components/final-cost/delivery/DeliveryComponent";
 import HeaderMenu from "@/components/header-menu/HeaderMenu";
 import PaymentCard from "@/components/payment/PaymentComponent";
+import { SectionSelect } from "@/models/concertStage.model";
 import {
   ConcertStageSelector,
   getConcertStageList,
@@ -21,44 +22,49 @@ export default function FinalCost() {
   const { params } = router.query;
 
   useEffect(() => {
-    if (params != undefined) {
-      const concertId: string = params[0];
-      const sectionIdSelected: string = params[1];
-      const amountTicket = Number(params[2]);
+    try {
+      if (params != undefined) {
+        const concertId: string = params[0];
+        const sectionIdSelected: string = params[1];
+        const amountTicket = Number(params[2]);
 
-      // Case refresh browser
-      if (concertStage.sectionSelected === null) {
-        loadConcertAndSectionSelectedDataFromAPI(
-          concertId,
-          sectionIdSelected,
-          amountTicket
-        );
-      } else {
-        localStorage.setItem(
-          "SectionSelected",
-          JSON.stringify(concertStage.sectionSelected)
-        );
+        // Case refresh browser
+        if (concertStage.sectionSelected === null) {
+          handleRefreshPage(concertId, sectionIdSelected, amountTicket);
+        } else {
+          localStorage.setItem(
+            "SectionSelected",
+            JSON.stringify(concertStage.sectionSelected)
+          );
+        }
       }
-    }
+    } catch (error) {}
   }, [router]);
 
-  async function loadConcertAndSectionSelectedDataFromAPI(
+  async function handleRefreshPage(
     concertId: string,
     sectionIdSelected: string,
     amountTicket: number
   ) {
     try {
-      const responseConcertStage = await dispatch(
-        getConcertStageList(concertId)
-      );
+      const responseConcertStage = await dispatch( getConcertStageList(concertId) );
+
       if (responseConcertStage.meta.requestStatus === "fulfilled") {
-        // let objConcertStageData = responseConcertStage.payload;
 
         // load section select
-        let objSectionSelected = JSON.parse(
+        let objSectionSelected: SectionSelect = JSON.parse(
           localStorage.getItem("SectionSelected") || "{}"
         );
-        dispatch(setSectionSelected(objSectionSelected));
+        
+        // check not found section selected
+        if (Object.keys(objSectionSelected).length !== 0) {
+          objSectionSelected.amountBuy = amountTicket;
+          dispatch(setSectionSelected(objSectionSelected));
+        }
+        else{
+          alert("Not found section select");
+          router.push(`/stage-list/${concertId}`);
+        }
       }
     } catch (error) {
       throw error;
