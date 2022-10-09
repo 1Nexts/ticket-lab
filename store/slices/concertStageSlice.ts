@@ -61,7 +61,7 @@ const concertStageSlice = createSlice({
     resetConcertStage: (state) => {
       state.concertSelected = null;
       state.sectionsFilter = [];
-      state.amountTicketFilter = 2; 
+      state.amountTicketFilter = 2;
       state.sectionSelected = null;
       state.dicSectionControler = {};
     },
@@ -124,7 +124,7 @@ const concertStageSlice = createSlice({
       state.sectionSelected = null;
     },
     updateSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
-      state.sectionSelected = {...action.payload};
+      state.sectionSelected = { ...action.payload };
     },
 
     toggleSectionTooltip: (state, action: PayloadAction<string>) => {
@@ -151,13 +151,8 @@ const concertStageSlice = createSlice({
     builder.addCase(
       getConcertStageList.rejected,
       (state, action: PayloadAction<any>) => {
-        try {
-          router.push(`/concert-list/ed-sheeran`);
-          alert("Not found stage");
-        
-        } catch (error) {
-          throw action.payload;
-        }
+        router.push(`/concert-list/ed-sheeran`);
+        alert("Not found stage");
       }
     );
   },
