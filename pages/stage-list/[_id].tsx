@@ -34,8 +34,9 @@ export default function ConcertList() {
       if (response.meta.requestStatus === "fulfilled") {
         dispatch(resetSelectionSelected());
       }
+
     } catch (error) {
-      // alert not found stage
+      // console.log("Error loadStageList ",error);
     }
   }
 

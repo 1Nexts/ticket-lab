@@ -153,6 +153,8 @@ const concertStageSlice = createSlice({
       (state, action: PayloadAction<any>) => {
         router.push(`/concert-list/ed-sheeran`);
         alert("Not found stage");
+
+        throw action.payload;
       }
     );
   },
