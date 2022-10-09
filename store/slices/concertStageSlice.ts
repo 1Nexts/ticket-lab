@@ -61,7 +61,8 @@ const concertStageSlice = createSlice({
     resetConcertStage: (state) => {
       state.concertSelected = null;
       state.sectionsFilter = [];
-      (state.amountTicketFilter = 2), (state.sectionSelected = null);
+      state.amountTicketFilter = 2; 
+      state.sectionSelected = null;
       state.dicSectionControler = {};
     },
 
@@ -123,7 +124,7 @@ const concertStageSlice = createSlice({
       state.sectionSelected = null;
     },
     updateSectionSelected: (state, action: PayloadAction<SectionSelect>) => {
-      state.sectionSelected = action.payload;
+      state.sectionSelected = {...action.payload};
     },
 
     toggleSectionTooltip: (state, action: PayloadAction<string>) => {
