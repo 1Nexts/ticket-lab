@@ -1,4 +1,5 @@
 import StageMiniExAComponent from "@/components/stage-template/stage-exa/StageMiniExAMiniComponent";
+import { submitPlaceorder } from "@/services/apiOrder";
 import { ConcertStageSelector } from "@/store/slices/concertStageSlice";
 import { creditCardSelector } from "@/store/slices/creditCardSlice";
 import { SERVICE_FEE_PERCENT } from "@/utils/constant";
@@ -44,10 +45,14 @@ const FinalCostTotalComponent = ({}: CardProps) => {
         formData.append("security_key", creditCard.securityCode);
 
         // #### Call api #####
-        // const response = await submitPlaceOrder(formData);
-        router.push(`/final-cost/result`);
-      }
-      else{
+        const response = await submitPlaceorder(formData);
+        if (response.requestStatus === "fulfilled") {
+          router.push(`/final-cost/result`);
+        } else {
+          alert("Error Place order please try again.");
+        }
+
+      } else {
         alert("Not found concert or section data");
       }
     } catch (error) {
