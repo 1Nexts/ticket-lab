@@ -16,8 +16,10 @@ export default function ConcertList({ concertData }: Props) {
   const [concertListFilter, setConcertListFilter] = useState<ConcertItem[]>([]);
 
   useEffect(() => {
+    if (!concertData) alert("Not found concert");
 
-    concertData !== undefined && setConcertListFilter(concertData.concertList);
+    concertData && setConcertListFilter(concertData.concertList);
+
     return () => {};
   }, []);
 
@@ -47,7 +49,9 @@ export default function ConcertList({ concertData }: Props) {
               <h3>{concertData?.title}</h3>
               <br />
               <h4>{concertData?.subTitle}</h4>
-              <h4><br/></h4>
+              <h4>
+                <br />
+              </h4>
             </div>
 
             <div className={"input-group " + styles["search-group"]}>
@@ -67,14 +71,18 @@ export default function ConcertList({ concertData }: Props) {
 
             <div className={styles["block-content"]}>
               <div className={"row m-0 "}>
-                { !concertListFilter ? <div>Loading...</div> : concertListFilter.map((objConcertItem: ConcertItem) => {
-                  return (
-                    <TicketItemComponent
-                      key={objConcertItem.id}
-                      objConcertItem={objConcertItem}
-                    ></TicketItemComponent>
-                  );
-                })}
+                {!concertListFilter ? (
+                  <div>Loading...</div>
+                ) : (
+                  concertListFilter.map((objConcertItem: ConcertItem) => {
+                    return (
+                      <TicketItemComponent
+                        key={objConcertItem.id}
+                        objConcertItem={objConcertItem}
+                      ></TicketItemComponent>
+                    );
+                  })
+                )}
               </div>
             </div>
           </div>
@@ -89,13 +97,17 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     // TODO Get From API
     const { _id } = query;
     const response = await getConcertById(_id + "");
-    
+
     return {
       props: {
         concertData: response,
       },
     };
   } catch (error) {
-    throw error;
+    return {
+      props: {
+        concertData: null,
+      },
+    };
   }
 };

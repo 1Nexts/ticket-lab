@@ -12,6 +12,7 @@ export default async function getConcertById(
     // Call api
     const consert: Concert = concertDataFromJSON;
     res.json(consert);
+    // res.status(400).end();
     
   } catch (error: any) {
     res.status(400).end();
