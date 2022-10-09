@@ -9,7 +9,7 @@ import {
 import { useAppDispatch } from "@/store/store";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import styles from "./CreditCardItemComponent.module.scss";
+import styles from "./CreditCardItem.module.scss";
 
 type CardProps = {
   objCreditCard: CreditCard;
