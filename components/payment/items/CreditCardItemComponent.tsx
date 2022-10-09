@@ -34,6 +34,15 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
     dispatch(resetSecurityCode());
   }, [creditCard.creditCardSelected, setIsCanClick]);
 
+
+  async function onClickDeleteCreditCard() {
+    try {
+      const response = await dispatch(deleteCreditCard(objCreditCard.id));
+    } catch (error) {
+      // console.log(error);
+    }
+  }
+
   return (
     <div className={"card col-12 p-0 " + styles["blockItemCardCredit"]}>
       <div className={styles["ticket-Item"]}>
@@ -79,9 +88,7 @@ const CreditCardItemComponent = ({ objCreditCard, setMode }: CardProps) => {
               <button
                 className={"btn p-0 " + styles["btn"]}
                 disabled={!isCanClick}
-                onClick={() => {
-                  dispatch(deleteCreditCard(objCreditCard.id));
-                }}
+                onClick={() => onClickDeleteCreditCard()}
               >
                 <h5 className="text-primary">Delete</h5>
               </button>

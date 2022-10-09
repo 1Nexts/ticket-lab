@@ -183,8 +183,8 @@ const FinalCostTotalComponent = ({}: CardProps) => {
           data-bs-toggle="modal"
           data-bs-target="#confirmSubmitModal"
           disabled={
-            creditCard.creditCardSelected === null ||
-            creditCard.securityCode.length !== 3
+            creditCard?.creditCardSelected === null ||
+            creditCard?.securityCode.length !== 3
           }
           // onClick={async () => onClickSubmit()}
         >

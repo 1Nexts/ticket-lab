@@ -24,7 +24,6 @@ export default function ConcertList({ concertData }: Props) {
   }, []);
 
   function filterConcert(search: string) {
-    console.log(search);
 
     let concertListFilter = concertData?.concertList.filter(
       (el) =>

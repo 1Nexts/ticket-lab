@@ -15,24 +15,40 @@ const initialState: CreditCardState = {
 };
 
 export const loadCreditCards = createAsyncThunk("crditcard/get", async () => {
-  return await apiCreditCardService.getCreditCard();
+  try {
+    return await apiCreditCardService.getCreditCard();
+  } catch (error) {
+    return rejectWithValue(error);
+  }
 });
 export const deleteCreditCard = createAsyncThunk(
   "crditcard/delete",
   async (id: string) => {
-    return await apiCreditCardService.deleteCreditCard(id);
+    try {
+      return await apiCreditCardService.deleteCreditCard(id);
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 export const addCreditCard = createAsyncThunk(
   "crditcard/add",
   async (objCreditCardData: CreditCard) => {
-    return await apiCreditCardService.addCreditCard(objCreditCardData);
+    try {
+      return await apiCreditCardService.addCreditCard(objCreditCardData);
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 export const editCreditCard = createAsyncThunk(
   "crditcard/edit",
   async (objCreditCardData: CreditCard) => {
-    return await apiCreditCardService.editCreditCard(objCreditCardData);
+    try {
+      return await apiCreditCardService.editCreditCard(objCreditCardData);
+    } catch (error) {
+      return rejectWithValue(error);
+    }
   }
 );
 
@@ -45,7 +61,6 @@ const creditCardSlice = createSlice({
       state.creditCardSelected = null;
       state.securityCode = "";
     },
-
     setCreditCardSelected: (state, action: PayloadAction<CreditCard>) => {
       state.creditCardSelected = { ...action.payload };
     },
@@ -60,6 +75,7 @@ const creditCardSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    
     builder.addCase(
       loadCreditCards.fulfilled,
       (state, action: PayloadAction<CreditCard[] | null>) => {
@@ -68,8 +84,9 @@ const creditCardSlice = createSlice({
         }
       }
     );
-    builder.addCase(loadCreditCards.rejected, () => {
-      alert("FAIL LOAD CREDIT CARDS");
+    builder.addCase(loadCreditCards.rejected, (state,action) => {
+      // alert("FAIL LOAD CREDIT CARDS");
+      throw action.payload;
     });
 
     builder.addCase(
@@ -102,8 +119,9 @@ const creditCardSlice = createSlice({
         }
       }
     );
-    builder.addCase(deleteCreditCard.rejected, () => {
+    builder.addCase(deleteCreditCard.rejected, (state,action) => {
       alert("FAIL REMOVE CREDIT CARDS");
+      throw action;
     });
 
     builder.addCase(
@@ -119,11 +137,13 @@ const creditCardSlice = createSlice({
           // alert("SUCCESS ADD CREDIT CARDS");
         } catch (error) {
           alert("FAIL ADD CREDIT CARDS");
+          throw error;
         }
       }
     );
-    builder.addCase(addCreditCard.rejected, () => {
+    builder.addCase(addCreditCard.rejected, (state,action) => {
       alert("FAIL ADD CREDIT CARDS");
+      throw action;
     });
 
     builder.addCase(
@@ -150,11 +170,13 @@ const creditCardSlice = createSlice({
           }
         } catch (error) {
           alert("FAIL EDIT CREDIT CARDS");
+          throw error;
         }
       }
     );
     builder.addCase(editCreditCard.rejected, (state, action) => {
       alert("FAIL EDIT CREDIT CARDS");
+      throw action;
     });
   },
 });
@@ -171,3 +193,6 @@ export const creditCardSelector = (store: RootState): CreditCardState =>
   store.creditCard;
 // export reducer
 export default creditCardSlice.reducer;
+function rejectWithValue(error: unknown): any {
+  throw new Error("Function not implemented.");
+}

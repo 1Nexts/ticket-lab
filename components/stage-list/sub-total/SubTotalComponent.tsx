@@ -99,10 +99,6 @@ const SubTotalComponent = ({}: CardProps) => {
                   "bg-secondary")
               }
               onClick={() => {
-                console.log(
-                  "objSectionSelected.balanceTicket = ",
-                  objSectionSelected.balanceTicket
-                );
 
                 if (amountBuy < objSectionSelected.balanceTicket) {
                   setAmountBuy(Number(amountBuy) + 1);

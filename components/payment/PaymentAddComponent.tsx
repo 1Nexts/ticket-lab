@@ -69,8 +69,12 @@ const PaymentAddComponent = ({ setMode }: CardProps) => {
         country: values.country,
       };
 
-      const response = await dispatch(addCreditCard(_objCreditCard));
-      if (response.meta.requestStatus === "fulfilled") setMode(1);
+      try {
+        const response = await dispatch(addCreditCard(_objCreditCard));
+        if (response.meta.requestStatus === "fulfilled") setMode(1);
+      } catch (error) {
+        // console.log("error add creditcard = ",error);
+      }
     },
   });
 

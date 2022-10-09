@@ -37,7 +37,7 @@ const PaymentCard = ({}: CardProps) => {
           Payment{" "}
           <img
             src={
-              creditCard.securityCode.length === 3
+              creditCard?.securityCode.length === 3
                 ? "/static/check-circle.svg"
                 : "/static/check-circle-wrong.svg"
             }
